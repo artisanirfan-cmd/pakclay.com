@@ -1,6 +1,27 @@
 ﻿import { useCallback, useRef, useState } from "react"
-import { UploadCloudIcon, Trash2Icon, PlusIcon, ImageIcon } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { UploadCloudIcon, Trash2Icon, PlusIcon, ImageIcon, Loader2Icon } from "lucide-react"
+import { cn, getErrorMessage } from "@/lib/utils"
+import { supabase } from "@/lib/supabase"
+
+// ---------------------------------------------------------------------------
+// Shared upload helper — every dropzone here uploads into the public
+// `product-images` bucket and stores the permanent public URL, never a
+// blob: URL (which only lives as long as the browser tab that made it) or a
+// signed URL (which expires). See PROGRESS.md "images disappearing" fix.
+// ---------------------------------------------------------------------------
+
+async function uploadProductImage(file: File): Promise<string> {
+  if (!supabase) throw new Error("Supabase project not configured yet")
+  const ext = file.name.includes(".") ? file.name.split(".").pop() : "jpg"
+  const path = `${crypto.randomUUID()}.${ext}`
+  const { error } = await supabase.storage.from("product-images").upload(path, file, {
+    cacheControl: "3600",
+    upsert: false,
+  })
+  if (error) throw error
+  const { data } = supabase.storage.from("product-images").getPublicUrl(path)
+  return data.publicUrl
+}
 
 // ---------------------------------------------------------------------------
 // Cover Image Dropzone
@@ -14,12 +35,22 @@ interface CoverImageDropzoneProps {
 export function CoverImageDropzone({ value, onChange }: CoverImageDropzoneProps) {
   const inputRef = useRef<HTMLInputElement>(null)
   const [isDragging, setIsDragging] = useState(false)
+  const [isUploading, setIsUploading] = useState(false)
+  const [uploadError, setUploadError] = useState<string | null>(null)
 
   const handleFiles = useCallback(
-    (files: FileList | null) => {
+    async (files: FileList | null) => {
       const file = files?.[0]
       if (!file?.type.startsWith("image/")) return
-      onChange(URL.createObjectURL(file))
+      setIsUploading(true)
+      setUploadError(null)
+      try {
+        onChange(await uploadProductImage(file))
+      } catch (err) {
+        setUploadError(getErrorMessage(err, "Upload failed"))
+      } finally {
+        setIsUploading(false)
+      }
     },
     [onChange],
   )
@@ -34,12 +65,12 @@ export function CoverImageDropzone({ value, onChange }: CoverImageDropzoneProps)
             ? "border-[#C25A2B] bg-[#C25A2B]/5"
             : "border-[#DDD4C7] bg-[#FDFBF7] hover:border-[#C25A2B]/40",
         )}
-        onClick={() => inputRef.current?.click()}
+        onClick={() => !isUploading && inputRef.current?.click()}
         onDragOver={(e) => { e.preventDefault(); setIsDragging(true) }}
         onDragLeave={() => setIsDragging(false)}
-        onDrop={(e) => { e.preventDefault(); setIsDragging(false); handleFiles(e.dataTransfer.files) }}
+        onDrop={(e) => { e.preventDefault(); setIsDragging(false); void handleFiles(e.dataTransfer.files) }}
       >
-        <input ref={inputRef} type="file" accept="image/*" className="hidden" onChange={(e) => handleFiles(e.target.files)} />
+        <input ref={inputRef} type="file" accept="image/*" className="hidden" disabled={isUploading} onChange={(e) => void handleFiles(e.target.files)} />
         {value ? (
           <>
             <img src={value} alt="Cover preview" className="absolute inset-0 h-full w-full object-cover" />
@@ -66,8 +97,15 @@ export function CoverImageDropzone({ value, onChange }: CoverImageDropzoneProps)
             <span className="text-xs opacity-60">JPG, PNG, WebP</span>
           </div>
         )}
+        {isUploading && (
+          <div className="absolute inset-0 flex items-center justify-center gap-2 bg-black/50 text-sm font-medium text-white">
+            <Loader2Icon className="size-4 animate-spin" />
+            Uploading...
+          </div>
+        )}
       </div>
-      <input type="text" value={value?.startsWith("blob:") ? "" : (value ?? "")}
+      {uploadError && <p className="text-xs text-red-600">{uploadError}</p>}
+      <input type="text" value={value ?? ""}
         onChange={(e) => onChange(e.target.value || null)}
         placeholder="...or paste Supabase Storage URL"
         className={cn(
@@ -93,12 +131,23 @@ interface ImageGalleryProps {
 
 export function ImageGallery({ images, onChange }: ImageGalleryProps) {
   const inputRef = useRef<HTMLInputElement>(null)
+  const [isUploading, setIsUploading] = useState(false)
+  const [uploadError, setUploadError] = useState<string | null>(null)
 
   const handleFiles = useCallback(
-    (files: FileList | null) => {
-      if (!files) return
-      const next = Array.from(files).filter((f) => f.type.startsWith("image/")).map((f) => ({ url: URL.createObjectURL(f) }))
-      if (next.length > 0) onChange([...images, ...next])
+    async (files: FileList | null) => {
+      const picked = files ? Array.from(files).filter((f) => f.type.startsWith("image/")) : []
+      if (picked.length === 0) return
+      setIsUploading(true)
+      setUploadError(null)
+      try {
+        const uploaded = await Promise.all(picked.map((f) => uploadProductImage(f)))
+        onChange([...images, ...uploaded.map((url) => ({ url }))])
+      } catch (err) {
+        setUploadError(getErrorMessage(err, "Upload failed"))
+      } finally {
+        setIsUploading(false)
+      }
     },
     [images, onChange],
   )
@@ -136,15 +185,19 @@ export function ImageGallery({ images, onChange }: ImageGalleryProps) {
             <span className="absolute bottom-1 left-1 flex h-5 min-w-5 items-center justify-center rounded bg-black/60 px-1 text-[10px] font-medium text-white">{i + 1}</span>
           </div>
         ))}
-        <div className="flex aspect-square cursor-pointer flex-col items-center justify-center gap-1 rounded-lg border-2 border-dashed border-[#DDD4C7] bg-[#FDFBF7] text-muted-foreground transition-colors hover:border-[#C25A2B]/40 hover:text-[#C25A2B]"
-          onClick={() => inputRef.current?.click()}
+        <div className={cn(
+          "flex aspect-square cursor-pointer flex-col items-center justify-center gap-1 rounded-lg border-2 border-dashed border-[#DDD4C7] bg-[#FDFBF7] text-muted-foreground transition-colors hover:border-[#C25A2B]/40 hover:text-[#C25A2B]",
+          isUploading && "pointer-events-none opacity-60",
+        )}
+          onClick={() => !isUploading && inputRef.current?.click()}
           onDragOver={(e) => e.preventDefault()}
-          onDrop={(e) => { e.preventDefault(); handleFiles(e.dataTransfer.files) }}>
-          <input ref={inputRef} type="file" accept="image/*" multiple className="hidden" onChange={(e) => handleFiles(e.target.files)} />
-          <PlusIcon className="size-6" />
-          <span className="text-xs">Add</span>
+          onDrop={(e) => { e.preventDefault(); void handleFiles(e.dataTransfer.files) }}>
+          <input ref={inputRef} type="file" accept="image/*" multiple className="hidden" disabled={isUploading} onChange={(e) => void handleFiles(e.target.files)} />
+          {isUploading ? <Loader2Icon className="size-6 animate-spin" /> : <PlusIcon className="size-6" />}
+          <span className="text-xs">{isUploading ? "Uploading..." : "Add"}</span>
         </div>
       </div>
+      {uploadError && <p className="text-xs text-red-600">{uploadError}</p>}
     </div>
   )
 }

@@ -44,9 +44,9 @@ export async function saveProduct(
 ): Promise<string> {
   if (!supabase) throw new Error("Supabase project not configured yet")
 
-  // Every image URL field here (cover + the Images repeater) is a plain
-  // "paste the Storage URL" input, no upload widget — strip a doubled
-  // extension before it's saved (finding 12).
+  // The cover/gallery dropzones upload real files and never produce a
+  // doubled extension, but the fields also accept a manually pasted Storage
+  // URL — strip a doubled extension from those before saving (finding 12).
   const sanitizedValues: ProductFormValues = {
     ...values,
     cover_image_url: values.cover_image_url ? stripDuplicatedExtension(values.cover_image_url) : values.cover_image_url,
