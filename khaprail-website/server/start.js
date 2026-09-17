@@ -1,0 +1,12 @@
+// Plain-JS bootstrap entry point for host panels that launch the app with a
+// bare `node <file>` (e.g. Hostinger hPanel's Node.js "Application startup
+// file", which does not run `npm start`/`tsx` for you). server/index.ts is
+// real TypeScript — plain `node` can't parse it — so this file registers
+// tsx's loader in-process (Node 20.6+ `module.register` API) and then
+// imports the actual server. Point the host's "Application startup file"
+// setting at this file, not at server/index.ts directly.
+import { register } from "tsx/esm/api"
+
+register()
+
+await import("./index.ts")
