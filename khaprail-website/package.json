@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "dev:server": "tsx watch server/index.ts",
+    "postinstall": "node scripts/fix-bin-permissions.mjs",
     "build": "tsc -b && vite build && node scripts/prerender.mjs || echo '[build] Prerender skipped — SPA fallback active'",
     "start": "tsx server/index.ts",
     "lint": "oxlint",
