@@ -1,9 +1,14 @@
-// Vercel serverless function at /api/ai/generate-summary
+import { createClient } from "@supabase/supabase-js"
+import type { Request as ExpressRequest, Response as ExpressResponse } from "express"
+import { sendFetchResponse, toFetchRequest } from "../lib/fetch-adapter.js"
+
+// Express route handler for POST /api/ai/generate-summary.
 // Admin-only endpoint: generates a static product summary using Claude Haiku,
 // grounded in real product data. The summary is written to the DB by the admin
 // form save — customer page views never trigger this endpoint.
-
-import { createClient } from "@supabase/supabase-js"
+//
+// Ported verbatim from the original Vercel Function (Web Fetch API handler
+// signature) — see server/routes/ai-chat.ts for the same porting note.
 
 const ANTHROPIC_URL = "https://api.anthropic.com/v1/messages"
 const MODEL = "claude-haiku-4-5-20251001"
@@ -76,74 +81,77 @@ async function verifyAdminToken(authHeader: string | null): Promise<boolean> {
   }
 }
 
-export default {
-  async fetch(request: Request): Promise<Response> {
+async function handleGenerateSummaryFetch(request: Request): Promise<Response> {
+  try {
+    if (request.method !== "POST") {
+      return Response.json({ error: "method_not_allowed" }, { status: 405 })
+    }
+
+    const isAdmin = await verifyAdminToken(request.headers.get("authorization"))
+    if (!isAdmin) {
+      return Response.json({ error: "unauthorized" }, { status: 401 })
+    }
+
+    let body: RequestBody
     try {
-      if (request.method !== "POST") {
-        return Response.json({ error: "method_not_allowed" }, { status: 405 })
-      }
+      body = await request.json()
+    } catch {
+      return Response.json({ error: "invalid_json" }, { status: 400 })
+    }
 
-      const isAdmin = await verifyAdminToken(request.headers.get("authorization"))
-      if (!isAdmin) {
-        return Response.json({ error: "unauthorized" }, { status: 401 })
-      }
+    if (!body.name?.trim()) {
+      return Response.json({ error: "missing_name" }, { status: 400 })
+    }
 
-      let body: RequestBody
-      try {
-        body = await request.json()
-      } catch {
-        return Response.json({ error: "invalid_json" }, { status: 400 })
-      }
+    const tone: SummaryTone = body.tone ?? "architectural"
+    const facts = formatProductFacts(body)
 
-      if (!body.name?.trim()) {
-        return Response.json({ error: "missing_name" }, { status: 400 })
-      }
+    const systemPrompt = `${BRAND_GROUNDING}\n\n${TONE_INSTRUCTIONS[tone]}\n\nProduct data:\n${facts}\n\nWrite the summary now.`
 
-      const tone: SummaryTone = body.tone ?? "architectural"
-      const facts = formatProductFacts(body)
-
-      const systemPrompt = `${BRAND_GROUNDING}\n\n${TONE_INSTRUCTIONS[tone]}\n\nProduct data:\n${facts}\n\nWrite the summary now.`
-
-      const apiKey = process.env.ANTHROPIC_API_KEY
-      if (!apiKey) {
-        return Response.json(
-          { error: "server_config", message: "ANTHROPIC_API_KEY is not configured." },
-          { status: 503 }
-        )
-      }
-
-      const response = await fetch(ANTHROPIC_URL, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          "x-api-key": apiKey,
-          "anthropic-version": "2023-06-01",
-        },
-        body: JSON.stringify({
-          model: MODEL,
-          max_tokens: MAX_TOKENS,
-          system: [{ type: "text", text: systemPrompt }],
-          messages: [{ role: "user", content: "Generate the product summary." }],
-          stream: false,
-        }),
-        signal: AbortSignal.timeout(TIMEOUT_MS),
-      })
-
-      if (!response.ok) {
-        const detail = await response.text()
-        return Response.json({ error: "anthropic_error", detail }, { status: 502 })
-      }
-
-      const data = await response.json()
-      const summary =
-        data.content?.[0]?.type === "text" ? data.content[0].text.trim() : ""
-
-      return Response.json({ summary })
-    } catch (err) {
+    const apiKey = process.env.ANTHROPIC_API_KEY
+    if (!apiKey) {
       return Response.json(
-        { error: "server_error", detail: (err as Error).message },
-        { status: 500 }
+        { error: "server_config", message: "ANTHROPIC_API_KEY is not configured." },
+        { status: 503 }
       )
     }
-  },
+
+    const response = await fetch(ANTHROPIC_URL, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-api-key": apiKey,
+        "anthropic-version": "2023-06-01",
+      },
+      body: JSON.stringify({
+        model: MODEL,
+        max_tokens: MAX_TOKENS,
+        system: [{ type: "text", text: systemPrompt }],
+        messages: [{ role: "user", content: "Generate the product summary." }],
+        stream: false,
+      }),
+      signal: AbortSignal.timeout(TIMEOUT_MS),
+    })
+
+    if (!response.ok) {
+      const detail = await response.text()
+      return Response.json({ error: "anthropic_error", detail }, { status: 502 })
+    }
+
+    const data = await response.json()
+    const summary =
+      data.content?.[0]?.type === "text" ? data.content[0].text.trim() : ""
+
+    return Response.json({ summary })
+  } catch (err) {
+    return Response.json(
+      { error: "server_error", detail: (err as Error).message },
+      { status: 500 }
+    )
+  }
+}
+
+export async function generateSummaryHandler(req: ExpressRequest, res: ExpressResponse): Promise<void> {
+  const fetchResponse = await handleGenerateSummaryFetch(toFetchRequest(req))
+  await sendFetchResponse(fetchResponse, res)
 }

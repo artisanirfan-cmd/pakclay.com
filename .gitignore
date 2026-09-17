@@ -5,8 +5,5 @@
 .DS_Store
 Thumbs.db
 
-# Vercel CLI project link
-.vercel
-
 # Local Lighthouse audit reports (SEO/perf batch work) — large JSON dumps, not source
 .seo-audit/

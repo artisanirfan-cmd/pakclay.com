@@ -6,7 +6,7 @@ Read it first, every time, before doing anything else. Then read `00-PROGRESS.md
 
 ## Current state of this repo
 
-**Built and deployed.** The real app lives in `khaprail-website/` (Vite + React + TS, Supabase-backed, deployed to Vercel at khaprail.vercel.app). Batches 1–10 in `00-PROGRESS.md` are done: nav/mega-menu, homepage, category listing + filters, PDP, blog, admin dashboard, and real product content are all live. This "Pre-code" note was stale for a long time before being corrected on 2026-08-25 — always check `00-PROGRESS.md`'s batch table (not this file) for the actual current state before assuming something is or isn't built.
+**Built and deployed.** The real app lives in `khaprail-website/` (Vite + React + TS, Supabase-backed). Migrated off Vercel to a self-hosted Node/Express server on a Hostinger VPS on 2026-09-18 (see 00-PROGRESS.md) — the app now runs as a real, persistent PM2-managed process (`khaprail-website/server/index.ts`) behind Nginx, not serverless functions. Batches 1–10 in `00-PROGRESS.md` are done: nav/mega-menu, homepage, category listing + filters, PDP, blog, admin dashboard, and real product content are all live. This "Pre-code" note was stale for a long time before being corrected on 2026-08-25 — always check `00-PROGRESS.md`'s batch table (not this file) for the actual current state before assuming something is or isn't built.
 
 Read `00-PROGRESS.md` first every session — its batch table and session log are the source of truth for what exists.
 
@@ -20,13 +20,13 @@ It is a catalog + lead-generation site (WhatsApp sample requests, spec-sheet dow
 
 - React + Vite, TypeScript
 - Supabase (database, storage, auth for admin)
-- Deployed on Vercel
+- Deployed on a Hostinger VPS: a real Node/Express server (`khaprail-website/server/index.ts`) serves the built app and the API routes, managed by PM2, reverse-proxied by Nginx (see `khaprail-website/deploy/nginx.conf.example`). Migrated off Vercel on 2026-09-18.
 - shadcn/ui as the component base, Tailwind CSS
 - Lucide icons
 - @react-pdf/renderer for downloadable spec sheets
 - Framer Motion for animation
 - React Router
-- Anthropic API (Claude Haiku 4.5) via a Vercel serverless function (`khaprail-website/api/ai-chat.ts`) for cached PDP summaries + the site-wide chat widget — see 00-PROGRESS.md's AI chatbot batch. The API key is server-only; the client never talks to Anthropic directly.
+- Anthropic API (Claude Haiku 4.5) via Express routes (`khaprail-website/server/routes/ai-chat.ts`, `.../generate-summary.ts`) for cached PDP summaries + the site-wide chat widget — see 00-PROGRESS.md's AI chatbot batch. The API key is server-only; the client never talks to Anthropic directly.
 
 ## Initial setup commands
 

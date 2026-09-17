@@ -1,10 +1,13 @@
 import { createClient } from "@supabase/supabase-js"
+import type { Request as ExpressRequest, Response as ExpressResponse } from "express"
+import { sendFetchResponse } from "../lib/fetch-adapter.js"
 
-// Vercel serverless function (Node.js runtime, Web Fetch API handler
-// signature — see api/ai-chat.ts's note on why `export default { fetch }`
-// is required here, not a bare function export). Served at the real
-// `/sitemap.xml` path via vercel.json's rewrite (this file's own route
-// would otherwise be `/api/sitemap`).
+// Express route handler for GET /sitemap.xml.
+//
+// Ported from the original Vercel Function at api/sitemap.ts, which was
+// reachable at the real /sitemap.xml path via a vercel.json rewrite (that
+// rewrite is gone now that vercel.json is gone — this route is mounted at
+// /sitemap.xml directly in server/index.ts instead). Logic is unchanged.
 //
 // SEO batch B (2026-09-10, see 00-PROGRESS.md): generated live, at request
 // time, from the real `categories`/`products`/`blog_posts` tables — not a
@@ -79,18 +82,21 @@ async function buildSitemapXml(): Promise<string> {
   )
 }
 
-export default {
-  async fetch(): Promise<Response> {
-    try {
-      const xml = await buildSitemapXml()
-      return new Response(xml, {
-        headers: {
-          "Content-Type": "application/xml; charset=utf-8",
-          "Cache-Control": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400",
-        },
-      })
-    } catch (err) {
-      return Response.json({ error: "server_error", detail: (err as Error).message }, { status: 500 })
-    }
-  },
+async function handleSitemapFetch(): Promise<Response> {
+  try {
+    const xml = await buildSitemapXml()
+    return new Response(xml, {
+      headers: {
+        "Content-Type": "application/xml; charset=utf-8",
+        "Cache-Control": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400",
+      },
+    })
+  } catch (err) {
+    return Response.json({ error: "server_error", detail: (err as Error).message }, { status: 500 })
+  }
+}
+
+export async function sitemapHandler(_req: ExpressRequest, res: ExpressResponse): Promise<void> {
+  const fetchResponse = await handleSitemapFetch()
+  await sendFetchResponse(fetchResponse, res)
 }

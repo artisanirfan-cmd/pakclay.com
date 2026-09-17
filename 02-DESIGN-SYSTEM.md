@@ -120,7 +120,7 @@ The drawer's open/closed state is the `#mobile-filters` URL hash, not a query pa
 
 ## AI chatbot + cached product summaries (2026-09-10)
 
-Two features sharing one backend proxy (`khaprail-website/api/ai-chat.ts`, a Vercel serverless function — never called directly from the browser; `ANTHROPIC_API_KEY` and `SUPABASE_SERVICE_ROLE_KEY` are server-only env vars). Full architecture/security detail is in `00-PROGRESS.md`'s AI chatbot batch entry — this section is the UI/visual summary.
+Two features sharing one backend proxy (`khaprail-website/server/routes/ai-chat.ts`, an Express route on the self-hosted Node server — never called directly from the browser; `ANTHROPIC_API_KEY` and `SUPABASE_SERVICE_ROLE_KEY` are server-only env vars). Full architecture/security detail is in `00-PROGRESS.md`'s AI chatbot batch entry — this section is the UI/visual summary.
 
 **Cached PDP summary** (`src/components/pdp/ai-summary-card.tsx`) — a `bg-muted/50` bordered card with a small `SparklesIcon` + "AI-GENERATED SUMMARY" uppercase label above the text, so visitors never mistake it for official manufacturer copy. Reads `products.ai_summary` directly (no live call on page load); renders nothing at all when that column is null — no broken/empty-state card. Placed on the PDP right after the "About This Item" accordion. Generated once via a "Generate AI Summary" button on the admin product editor (never on a plain form save) — that button and a "Last generated" timestamp live in their own bordered section, separate from the regular product fields, so it's visually clear this is a distinct, deliberate action.
 

@@ -1,16 +1,18 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js"
+import type { Request as ExpressRequest, Response as ExpressResponse } from "express"
+import { sendFetchResponse, toFetchRequest } from "../lib/fetch-adapter.js"
 
-// Vercel serverless function (Node.js runtime, Web Fetch API handler
-// signature) — proxies the Anthropic API. `ANTHROPIC_API_KEY` and
-// `SUPABASE_SERVICE_ROLE_KEY` are server-only env vars, never sent to the
-// browser; the client never talks to Anthropic directly. See
-// 00-PROGRESS.md for the manual setup steps (both keys must be added in
-// the Vercel dashboard before this actually works).
-
-// No `config`/`runtime` export — Node.js is already the default for a
-// plain (non-Next.js) Vercel Function; `{ runtime: "nodejs" }` isn't a
-// recognized value for this convention (only `"edge"` is a real opt-in
-// here) and risked being silently misinterpreted.
+// Express route handler for POST /api/ai-chat — proxies the Anthropic API.
+// `ANTHROPIC_API_KEY` and `SUPABASE_SERVICE_ROLE_KEY` are server-only env
+// vars, never sent to the browser; the client never talks to Anthropic
+// directly. See .env.example for the full list of vars this needs.
+//
+// This was originally a Vercel Function written against the Web Fetch API
+// handler signature (`Request` in, `Response` out) — ported here verbatim
+// (same Anthropic calls, same rate-limiting, same request/response shapes)
+// with only the outer glue swapped for Express via ../lib/fetch-adapter.ts,
+// so nothing about the actual chat/summary behavior changed in the move
+// off Vercel.
 
 const ANTHROPIC_URL = "https://api.anthropic.com/v1/messages"
 const MODEL = "claude-haiku-4-5-20251001"
@@ -566,28 +568,6 @@ async function* driveChatTurn(opts: {
   }
 }
 
-// Vercel's convention for a plain (non-Next.js) project is a default
-// export whose `fetch` METHOD handles the request — `export default async
-// function handler(request)` (a bare function) is the wrong shape and was
-// the actual cause of every request hanging with zero bytes ever sent
-// back, confirmed live: even a plain GET (which returns synchronously,
-// before touching Supabase or Anthropic) hung identically, and curl -v
-// showed the request fully sent with the connection open but nothing ever
-// received. https://vercel.com/docs/functions/functions-api-reference
-//
-// Also wraps every request in a top-level try/catch — a hang or uncaught
-// throw anywhere below would otherwise leave the client waiting forever
-// with no response at all.
-export default {
-  async fetch(request: Request): Promise<Response> {
-    try {
-      return await handleRequest(request)
-    } catch (err) {
-      return Response.json({ error: "unhandled_error", detail: (err as Error).message }, { status: 500 })
-    }
-  },
-}
-
 async function handleRequest(request: Request): Promise<Response> {
   if (request.method !== "POST") {
     return Response.json({ error: "method_not_allowed" }, { status: 405 })
@@ -690,4 +670,20 @@ async function handleRequest(request: Request): Promise<Response> {
   }
 
   return Response.json({ error: "invalid_mode" }, { status: 400 })
+}
+
+// Wraps every request in a top-level try/catch — a hang or uncaught throw
+// anywhere in handleRequest would otherwise leave the client waiting
+// forever with no response at all.
+async function handleAiChatFetch(request: Request): Promise<Response> {
+  try {
+    return await handleRequest(request)
+  } catch (err) {
+    return Response.json({ error: "unhandled_error", detail: (err as Error).message }, { status: 500 })
+  }
+}
+
+export async function aiChatHandler(req: ExpressRequest, res: ExpressResponse): Promise<void> {
+  const fetchResponse = await handleAiChatFetch(toFetchRequest(req))
+  await sendFetchResponse(fetchResponse, res)
 }
