@@ -6,7 +6,7 @@ Read it first, every time, before doing anything else. Then read `00-PROGRESS.md
 
 ## Current state of this repo
 
-**Built and deployed.** The real app lives in `khaprail-website/` (Vite + React + TS, Supabase-backed). Migrated off Vercel to a self-hosted Node/Express server on a Hostinger VPS on 2026-09-18 (see 00-PROGRESS.md) — the app now runs as a real, persistent PM2-managed process (`khaprail-website/server/index.ts`) behind Nginx, not serverless functions. Batches 1–10 in `00-PROGRESS.md` are done: nav/mega-menu, homepage, category listing + filters, PDP, blog, admin dashboard, and real product content are all live. This "Pre-code" note was stale for a long time before being corrected on 2026-08-25 — always check `00-PROGRESS.md`'s batch table (not this file) for the actual current state before assuming something is or isn't built.
+**Built and deployed.** The real app lives in `khaprail-website/` (Vite + React + TS, Supabase-backed). Migrated off Vercel on 2026-09-18 (see 00-PROGRESS.md) to Hostinger's built-in **hPanel Node.js App hosting** — LiteSpeed's own process manager (`lsnode.js`) launches `khaprail-website/server/start.js` directly via `require()` and handles the reverse-proxy layer itself, so there is no separate PM2 or Nginx config to maintain (an earlier raw-VPS+PM2+Nginx assumption was corrected once the real hosting model was confirmed live — see 00-PROGRESS.md's batch 43 entries). Batches 1–10 in `00-PROGRESS.md` are done: nav/mega-menu, homepage, category listing + filters, PDP, blog, admin dashboard, and real product content are all live. This "Pre-code" note was stale for a long time before being corrected on 2026-08-25 — always check `00-PROGRESS.md`'s batch table (not this file) for the actual current state before assuming something is or isn't built.
 
 Read `00-PROGRESS.md` first every session — its batch table and session log are the source of truth for what exists.
 
@@ -20,7 +20,7 @@ It is a catalog + lead-generation site (WhatsApp sample requests, spec-sheet dow
 
 - React + Vite, TypeScript
 - Supabase (database, storage, auth for admin)
-- Deployed on a Hostinger VPS: a real Node/Express server (`khaprail-website/server/index.ts`) serves the built app and the API routes, managed by PM2, reverse-proxied by Nginx (see `khaprail-website/deploy/nginx.conf.example`). Migrated off Vercel on 2026-09-18.
+- Deployed on Hostinger's hPanel Node.js App hosting: a real Node/Express server (`khaprail-website/server/index.ts`, launched via the CommonJS-safe bootstrap `khaprail-website/server/start.js`) serves the built app and the API routes. LiteSpeed's `lsnode.js` runs and reverse-proxies the process itself — no PM2, no separate Nginx config. Migrated off Vercel on 2026-09-18.
 - shadcn/ui as the component base, Tailwind CSS
 - Lucide icons
 - @react-pdf/renderer for downloadable spec sheets
