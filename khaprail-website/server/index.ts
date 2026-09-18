@@ -26,8 +26,9 @@ const PORT = Number(process.env.PORT) || 3000
 
 const app = express()
 
-// Behind the Nginx reverse proxy described in deploy/nginx.conf.example —
-// needed so `req.protocol`/`req.ip` reflect the real client, not the proxy.
+// Behind Hostinger's LiteSpeed-managed reverse proxy (hPanel Node.js App
+// hosting) — needed so `req.protocol`/`req.ip` reflect the real client,
+// not the proxy.
 app.set("trust proxy", 1)
 
 app.use((req, _res, next) => {

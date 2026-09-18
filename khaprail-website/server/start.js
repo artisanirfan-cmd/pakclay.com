@@ -9,4 +9,12 @@ import { register } from "tsx/esm/api"
 
 register()
 
-await import("./index.ts")
+// Wrapped in an async IIFE (not a bare top-level await) so this module
+// finishes synchronous evaluation immediately: Hostinger's LiteSpeed
+// `lsnode.js` launches the entry file via CommonJS `require()`, which
+// cannot load an ESM graph that has a top-level await
+// (ERR_REQUIRE_ASYNC_MODULE) — only import() can. The IIFE keeps the
+// import async internally while making the module itself synchronous.
+;(async () => {
+  await import("./index.ts")
+})()
