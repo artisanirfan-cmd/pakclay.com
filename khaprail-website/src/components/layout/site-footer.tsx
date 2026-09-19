@@ -23,7 +23,7 @@ export function SiteFooter() {
     <footer className="bg-navy text-navy-foreground">
       <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-5">
         <div>
-          <p className="font-heading text-lg font-semibold">Khaprail Tiles</p>
+          <p className="font-heading text-lg font-semibold">PAKCLAY.COM</p>
           <p className="mt-1 text-sm text-navy-foreground/70">Est. 1982 · Lahore, Pakistan</p>
           <Button
             className="mt-4 h-11 rounded-full"

@@ -65,7 +65,7 @@ export interface ProductFormStudioProps {
 
 function StudioCard({ title, children, className }: { title: string; children: React.ReactNode; className?: string }) {
   return (
-    <section className={cn("flex flex-col gap-4 rounded-lg border border-[#EBE3D8] bg-white p-5 shadow-sm", className)}>
+    <section className={cn("flex flex-col gap-4 rounded-lg border border-border bg-white p-5 shadow-sm", className)}>
       <h2 className="text-base font-semibold text-foreground">{title}</h2>
       {children}
     </section>
@@ -83,9 +83,9 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 
 // Shared input classes matching the brand system
 const fieldClasses = cn(
-  "border-[#DDD4C7] bg-[#FDFBF7] text-foreground",
+  "border-border bg-muted text-foreground",
   "placeholder:text-muted-foreground/60",
-  "focus-visible:border-[#C25A2B] focus-visible:ring-2 focus-visible:ring-[#C25A2B]/20",
+  "focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20",
 )
 
 // ---------------------------------------------------------------------------
@@ -159,13 +159,13 @@ export function ProductFormStudio({
   }
 
   return (
-    <form onSubmit={onSubmit} className="min-h-screen bg-[#FBF9F5]">
+    <form onSubmit={onSubmit} className="min-h-screen bg-muted">
       {/* -- Sticky Top Bar --------------------------------------- */}
-      <div className="sticky top-0 z-30 flex items-center justify-between gap-4 border-b border-[#EBE3D8] bg-white/90 px-6 py-3 backdrop-blur-sm">
+      <div className="sticky top-0 z-30 flex items-center justify-between gap-4 border-b border-border bg-white/90 px-6 py-3 backdrop-blur-sm">
         <div className="flex items-center gap-3">
           <Link
             to="/admin/products"
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#EBE3D8] text-muted-foreground transition-colors hover:bg-[#FDFBF7] hover:text-foreground"
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             title="Back to products"
           >
             <ArrowLeftIcon className="size-4" />
@@ -181,8 +181,8 @@ export function ProductFormStudio({
             className={cn(
               "rounded-full px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider",
               values.is_featured
-                ? "bg-[#C25A2B]/10 text-[#C25A2B]"
-                : "bg-[#EBE3D8] text-muted-foreground",
+                ? "bg-badge-accent text-badge-accent-foreground"
+                : "bg-secondary text-secondary-foreground",
             )}
           >
             {values.is_featured ? "Featured" : "Draft"}
@@ -199,7 +199,7 @@ export function ProductFormStudio({
               // Save draft = same submit, just with is_featured=false
               onFieldChange("is_featured", false)
             }}
-            className="gap-1.5 border-[#DDD4C7] text-foreground"
+            className="gap-1.5 border-border text-foreground"
           >
             <SaveIcon className="size-3.5" />
             Save Draft
@@ -208,7 +208,7 @@ export function ProductFormStudio({
             type="submit"
             size="sm"
             disabled={isSaving}
-            className="gap-1.5 bg-[#C25A2B] text-white hover:bg-[#A94A1F]"
+            className="gap-1.5 bg-primary text-white hover:bg-primary-dark"
           >
             <CheckIcon className="size-3.5" />
             {isSaving ? "Publishing..." : "Publish Tile"}
@@ -372,7 +372,7 @@ export function ProductFormStudio({
                   />
                 </Field>
               </div>
-              <div className="flex flex-wrap gap-6 border-t border-[#EBE3D8] pt-4">
+              <div className="flex flex-wrap gap-6 border-t border-border pt-4">
                 <label className="flex items-center gap-2 text-sm">
                   <Checkbox
                     checked={values.is_featured}
@@ -438,7 +438,7 @@ export function ProductFormStudio({
                   type="button"
                   variant="outline"
                   size="sm"
-                  className="w-fit gap-1.5 border-[#DDD4C7] text-foreground"
+                  className="w-fit gap-1.5 border-border text-foreground"
                   onClick={() =>
                     onAttributesChange([
                       ...attributes,
@@ -476,7 +476,7 @@ export function ProductFormStudio({
             />
 
             {/* Cover Image */}
-            <div className="rounded-lg border border-[#EBE3D8] bg-white p-5 shadow-sm">
+            <div className="rounded-lg border border-border bg-white p-5 shadow-sm">
               <CoverImageDropzone
                 value={values.cover_image_url}
                 onChange={(url) => onFieldChange("cover_image_url", url)}
@@ -484,7 +484,7 @@ export function ProductFormStudio({
             </div>
 
             {/* Gallery */}
-            <div className="rounded-lg border border-[#EBE3D8] bg-white p-5 shadow-sm">
+            <div className="rounded-lg border border-border bg-white p-5 shadow-sm">
               <ImageGallery
                 images={galleryImages}
                 onChange={handleGalleryChange}

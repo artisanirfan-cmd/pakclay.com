@@ -62,7 +62,7 @@ export function SpecSheetDocument({ product }: SpecSheetDocumentProps) {
   return (
     <Document title={`${product.name} — Spec Sheet`}>
       <Page size="A4" style={styles.page}>
-        <Text style={styles.brand}>Khaprail Tiles</Text>
+        <Text style={styles.brand}>PAKCLAY.COM</Text>
         <Text style={styles.tagline}>Est. 1982 · Lahore, Pakistan</Text>
         <Text style={styles.title}>{product.name}</Text>
         <View>

@@ -51,7 +51,7 @@ export function SiteHeader() {
       <div className="bg-white">
         <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:px-6">
           <Link to="/" className="shrink-0 font-heading text-3xl font-bold text-primary">
-            Khaprail Tiles
+            PAKCLAY.COM
           </Link>
           {/* Centered between the logo and "Get a Sample" — moved here from
               the navy nav strip below (2026-09-10); the search bar itself

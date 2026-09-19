@@ -60,7 +60,7 @@ export function ProductLightbox({ open, onClose, images, index, onIndexChange, p
         on={{ view: ({ index: i }: ViewCallbackProps) => onIndexChange?.(i) }}
         zoom={{ maxZoomPixelRatio: 3, zoomInMultiplier: 2 }}
         carousel={{ finite: images.length <= 1 }}
-        styles={{ container: { backgroundColor: "rgba(20, 14, 10, 0.95)" } }}
+        styles={{ container: { backgroundColor: "rgba(15, 23, 42, 0.95)" } }}
       />
     </Suspense>
   )

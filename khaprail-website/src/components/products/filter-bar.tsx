@@ -141,8 +141,7 @@ export function FilterBar({
       {/* Horizontal bar */}
       <div
         ref={barRef}
-        className="relative flex items-center gap-0 rounded-[3px] px-3 py-2.5"
-        style={{ backgroundColor: "#F4EBE1" }}
+        className="relative flex items-center gap-0 rounded-[3px] bg-muted px-3 py-2.5"
       >
         {orderedTypes.map((filterType) => {
           const isOpen = openFacet === filterType
@@ -189,14 +188,14 @@ export function FilterBar({
               {/* Flyout popover */}
               {isOpen && (
                 <div
-                  className="fixed z-50 w-[280px] rounded-md border border-stone-200 bg-white shadow-lg shadow-black/10"
+                  className="fixed z-50 w-[280px] rounded-md border border-border bg-white shadow-lg shadow-black/10"
                   style={{ top: popoverStyle.top, left: popoverStyle.left }}
                   role="group"
                   aria-label={`${filterTypeLabel(filterType)} filter values`}
                 >
                   {/* Dropdown header */}
                   {activeCount > 0 && (
-                    <div className="flex items-center justify-between border-b border-stone-100 px-4 py-2">
+                    <div className="flex items-center justify-between border-b border-border px-4 py-2">
                       <span className="text-xs text-muted-foreground">
                         {activeCount} selected
                       </span>
@@ -222,7 +221,7 @@ export function FilterBar({
                           key={option.id}
                           role="option"
                           aria-selected={isChecked}
-                          className="flex cursor-pointer items-center gap-3 px-4 py-2 transition-colors hover:bg-[#F4EBE1]/50"
+                          className="flex cursor-pointer items-center gap-3 px-4 py-2 transition-colors hover:bg-muted"
                           onClick={() => onToggle(filterType, option.value)}
                         >
                           <Checkbox
@@ -231,7 +230,7 @@ export function FilterBar({
                               "size-4 rounded-[2px] border transition-colors",
                               isChecked
                                 ? "border-foreground bg-foreground text-background"
-                                : "border-stone-300 bg-white"
+                                : "border-muted-foreground/50 bg-white"
                             )}
                           />
                           <span

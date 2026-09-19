@@ -52,7 +52,7 @@ export function ProductCard({ product }: ProductCardProps) {
             />
           )}
           {isNewArrival(product) && (
-            <Badge className="absolute top-2 left-2 bg-navy text-navy-foreground">New Arrival</Badge>
+            <Badge className="absolute top-2 left-2 bg-badge-accent text-badge-accent-foreground">New Arrival</Badge>
           )}
         </div>
         <CardContent className="flex flex-col gap-1 pt-3 pb-3">

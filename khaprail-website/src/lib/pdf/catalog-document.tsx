@@ -41,9 +41,9 @@ interface CatalogDocumentProps {
 // the removed `collections` table.)
 export function CatalogDocument({ collections }: CatalogDocumentProps) {
   return (
-    <Document title="Khaprail Tiles — Full Catalog">
+    <Document title="PAKCLAY.COM — Full Catalog">
       <Page size="A4" style={styles.page}>
-        <Text style={styles.coverBrand}>Khaprail Tiles</Text>
+        <Text style={styles.coverBrand}>PAKCLAY.COM</Text>
         <Text style={styles.coverTagline}>Est. 1982 · Lahore, Pakistan</Text>
         <Text style={styles.coverTitle}>Full Product Catalog</Text>
       </Page>

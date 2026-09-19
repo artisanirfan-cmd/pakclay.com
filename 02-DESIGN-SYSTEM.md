@@ -1,35 +1,63 @@
 # 02 — Design System
 
-## Palette (current — reverted 2026-08-28 back to the original terracotta palette)
+## Palette — PAKCLAY.COM white / blue / slate-gray (2026-09-19 rebrand)
 
-Heritage clay-tile brand — warm, natural, craft-forward. Avoid cold tech-startup blues/purples.
-- Primary: terracotta / clay orange (`#B5502B`)
-- Secondary: warm sand / beige (`#E8DCC8`)
-- Accent: clay orange, slightly lighter/warmer than primary (`#C96A3D`)
-- Neutral background: warm off-white, not pure white (`#FAF6F0`); body/heading text espresso brown (`#3B2A20`)
-- Use color sparingly for CTAs and badges — the product photography should carry most of the visual weight
+Replaced the warm terracotta / sand / espresso heritage palette (and the earlier dark-charcoal restyle) with a clean white, blue and slate-gray system. **Scope of the rebrand was colors, the logo wordmark text and the favicon only** — layout, copy and sections were not changed. The token *names* are unchanged (they are shadcn's slots plus a few storefront aliases), so components already followed the swap; only literal hex values and a few faded-primary hover patterns needed hand edits (listed below). Values live in `:root` in `khaprail-website/src/index.css`.
 
-~~**2026-08-25 dark restyle (superseded 2026-08-28):** dark charcoal (`#1f1f1f`–`#262626`), solid navy nav strip/footer, action blue (`#2F6FED`) CTAs, gold (`#F2A93B`) price text, a light powder-blue hero exception.~~ Reverted — see the "Storefront palette revert" note below for why and how.
+| Role (rebrand brief) | Token(s) in `index.css` | Value | Was |
+|---|---|---|---|
+| Main accent — buttons, links, active states | `--primary` (`--ring`, `--chart-1`, `--sidebar-primary`) | `#2563EB` | terracotta `#B5502B` |
+| Hover / pressed | `--primary-dark` (`bg-primary-dark`) | `#1E4FA3` | darker terracotta |
+| Page background | `--background`, `--card`, `--popover` | `#FFFFFF` | cream `#FAF6F0` |
+| Card / section background | `--muted` (`--panel-warm`) | `#F8F9FB` | warm off-white `#F1E9DD` |
+| Header / footer band | `--navy` (`--hero`, `--sidebar`) | `#1E293B` (dark slate) | espresso |
+| Body text | `--foreground` | `#1E293B` | espresso `#3B2A20` |
+| Muted text | `--muted-foreground` | `#64748B` | warm gray-brown |
+| Border / input | `--border`, `--input` | `#E5E8EB` | tan `#E3D5C0` |
+| Neutral badge ("Popular") | `--badge-neutral` / `--badge-neutral-foreground` (`--secondary` / `--secondary-foreground` carry the same pair) | `#E5E8EB` / `#334155` | — |
+| Accent badge ("New") | `--badge-accent` / `--badge-accent-foreground` (`bg-badge-accent text-badge-accent-foreground`) | `#DBE8FF` / `#1E4FA3` | terracotta / navy fill |
+| Solid accent surfaces (floating buttons, carousel arrows, menu-item hover) | `--accent` / `--accent-foreground` | `#2563EB` / `#FFFFFF` | clay orange `#C96A3D` |
+| Text on the dark slate band (only) | `--primary-on-dark` (`text-primary-on-dark`) | `#60A5FA` | — |
+| Alternating carousel panel | `--panel-navy` | `#EDF1F6` | sand `#E8DCC8` |
+| Price text | `--price` → `var(--primary)` | `#2563EB` | clay orange |
+| Admin sidebar chrome | `--sidebar*` | slate `#1E293B`, hover `#334155`, ring `#60A5FA` | espresso |
 
-### Storefront palette revert (2026-08-28)
+Because `--accent` now equals `--primary`, the alternating `bg-primary/15` / `bg-accent/15` tint on `CategoryBadgeCircle` no longer alternates (both are the same blue). That is deliberate: a lighter blue accent would drop white-on-accent below AA (3.68:1), which is the same failure the 2026-09-10 audit fixed on the "NEW" badge. Ask for a differentiated alternation if wanted.
 
-Reverted `src/index.css`'s `:root` token block from the dark-charcoal values back to the original terracotta/sand/espresso values (recovered verbatim via `git show 24b47e7^:khaprail-website/src/index.css`, the commit right before the dark restyle). Everything built during the dark-restyle era (two-bar header, mega-menu, toned product-rail panels, circular icon badges, pagination, the type-scale bump) **stayed** — only the color tokens changed. Admin (`/admin/*`) is unaffected either way; its `--sidebar-*` tokens were never touched by either restyle.
+### Usage rules (these come from the contrast measurements below)
 
-The dark restyle had introduced 6 tokens with no equivalent in the original palette (`--navy`, `--navy-foreground`, `--panel-navy`, `--panel-warm`, `--price`, `--hero`, `--hero-foreground`), used across ~10 files (header nav strip, footer, floating WhatsApp button, "New"/"NEW" badges, alternating product-rail panel tones, price text, Hero/Heritage photo-wash banners). Rather than deleting them and editing every call site, they're kept as `var()` aliases onto the restored base palette, so they resolve to terracotta-appropriate colors automatically:
+- **`--muted-foreground` may only sit on `--background` / `--card` / `--muted`.** It is 3.87:1 on `--secondary` (`#E5E8EB`) and ~4.2:1 on `--panel-navy`, so no muted text directly on those; use `--foreground` or `--secondary-foreground` there.
+- **Never use `--primary` as text on the dark slate band** (2.83:1). Use `--primary-on-dark`.
+- **Hover/pressed on primary uses `--primary-dark`**, not `hover:bg-primary/80` (a faded blue under white text falls to ~3.9:1). `ui/button.tsx`, `ui/badge.tsx` and the product-rail arrows already do this.
+- **No literal colors in components.** Every hex / `stone-*` / `slate-*` was replaced with a token (admin editors, filter bar). The only literals left in `src/` are the PDF palette below, which cannot read CSS variables, plus deliberate theme-agnostic scrims (`bg-black/*`).
+- **`src/lib/pdf/brand.ts` duplicates four values** (`primary`, `foreground`, `muted`, `border`) for `@react-pdf/renderer`; keep it in sync with `:root`.
+- Red (`--destructive`, `text-red-*`) and green (`text-green-600`) stay as semantic error / success colors, not brand colors.
+- Use color sparingly for CTAs and badges — the product photography should carry most of the visual weight.
 
-| Token | Resolves to | Used for |
+### Measured contrast (WCAG 2.x, computed 2026-09-19)
+
+| Pair | Ratio | AA (4.5 text / 3 large) |
 |---|---|---|
-| `--navy` / `--navy-foreground` | `var(--foreground)` espresso / `var(--background)` cream | header nav strip, footer, floating WhatsApp button, "New Arrival"/"NEW" badges |
-| `--panel-navy` | `var(--secondary)` sand | one alternating product-rail panel tone, Feature Row's photo-card backdrop |
-| `--panel-warm` | `var(--muted)` warm off-white | the other alternating panel tone (Top Picks Today, New Arrivals, Category Showcase) |
-| `--price` | `var(--accent)` clay orange | product price text |
-| `--hero` / `--hero-foreground` | `var(--foreground)` espresso / `var(--background)` cream | Hero/Heritage photo-wash overlay + text/pill/button color over it |
+| `--foreground` on `--background` / on `--muted` | 14.63 / 13.89 | pass |
+| `--muted-foreground` on `--background` / on `--muted` | 4.76 / 4.52 | pass |
+| `--muted-foreground` on `--secondary` | 3.87 | **fail** (large text only) — see rules |
+| white on `--primary` / on `--primary-dark` | 5.17 / 7.77 | pass |
+| `--primary` text on `--background` / on `--muted` | 5.17 / 4.91 | pass |
+| `--secondary-foreground` on `--secondary` | 8.42 | pass |
+| `--badge-accent-foreground` on `--badge-accent` | 6.29 | pass |
+| white on `--navy` (and at 70% / 60% opacity) | 14.63 (7.93 / 6.21) | pass |
+| `--primary-on-dark` on `--navy` | 5.75 | pass |
+| `--primary` on `--navy` | 2.83 | **fail** — never use |
 
-Repointing `--hero`→espresso and `--hero-foreground`→cream reproduces, in effect, the exact pre-dark-restyle Hero design already built and contrast-verified in this repo (`00-PROGRESS.md`'s 2026-08-24 "full-bleed placeholder photo hero" entry) — no component edit needed, Hero/Heritage just inherited the correct look from the token change.
+Verified in the browser, not just from the table: a headless-Chrome audit walked every element on 12 storefront and admin screens (home, products with a filter open, PDP, categories, category, blog, blog post, about, chat widget open, mobile home, mobile menu, admin dashboard / products / product editor / blog editor) and (a) found **zero** warm terracotta / brown / cream computed colors (text, background, border, outline, SVG fill and stroke), and (b) measured real text contrast against the rendered background. The only sub-AA results left are disabled controls (exempt) and a screen-reader-only label. Hero text over the photo was measured on the actual pixels (heading ~9:1, paragraph ~8.8:1 at the 95th-percentile background).
 
-Two hardcoded (non-token) values elsewhere didn't auto-correct and needed real edits: `site-header.tsx`'s wordmark (`text-[#1f1f1f]`, a literal leftover dark-theme hex → `text-primary`) and `category-showcase.tsx`'s photo-placeholder box + caption (`bg-black/20` → `bg-foreground/10`, `text-white` → `text-foreground` — the caption sits directly on the now-light `panel-warm` background, so white text would've been stranded/invisible). Grepped every `.tsx` for `text-white|bg-black|bg-white|text-black|#[hex]` to confirm nothing else needed a change — the remaining hits (`dialog.tsx`/`sheet.tsx` modal scrims, `video-grid.tsx`/`video-lightbox.tsx` play-button overlays) are theme-agnostic dark scrims over actual photo/video content, unrelated to page theme.
+### Logo and favicon
 
-Contrast verified in-browser (zoom screenshots on Hero's cream-on-espresso text and the icon badges) — everything reads comfortably above AA. Icon badges (`text-primary`/`text-accent` solid icon on `bg-primary/15`/`bg-accent/15` tinted circle) are now visually more subtle than under the dark theme, since primary and accent are both warm orange-browns rather than the previous blue-vs-gold pairing — still clearly two-tone on close look, not a contrast problem, just a quieter rhythm effect; flag to Sylvester if a more differentiated two-tone badge alternation is wanted.
+The wordmark is the text **PAKCLAY.COM** in the existing logo styling (`font-heading`, bold, `text-primary`) — navbar, mobile menu, footer, admin sidebar/login, PDF cover and spec-sheet brand line, and `SITE_NAME` in `hooks/use-document-head.ts` (page-title template `"<page> | PAKCLAY.COM"` and `og:site_name`). `index.html`'s fallback `<title>` is `PAKCLAY.COM`. Favicons live in `public/` (`favicon.svg`, `favicon.ico`, `favicon-16x16.png`, `favicon-32x32.png`, `favicon-512x512.png`, `apple-touch-icon.png` at 180×180) and are linked from `index.html`. Body copy that names the manufacturer ("Khaprail Tiles has shaped clay roof tiles…"), product-line names and the chat assistant's wording were intentionally left as they were — see `00-PROGRESS.md`.
+
+### History (superseded)
+
+The palette went terracotta (original) → dark charcoal (2026-08-25) → terracotta again (2026-08-28) → white / blue / slate (2026-09-19). The value tables and revert notes that used to be here described the terracotta system and were removed; recover them with `git log -p 02-DESIGN-SYSTEM.md` if ever needed. Notes further down that quote old hex values (e.g. the batch-31 `--muted-foreground` darkening) are historical.
 
 ## Typography
 
@@ -74,7 +102,7 @@ CTA buttons (`h-14 px-7 text-lg`) and the eyebrow badge were left as-is — out 
 
 ## Circular icon-badge component (2026-08-27, palette updated 2026-08-28)
 
-`CategoryBadgeCircle` (`src/components/shared/category-badge-circle.tsx`) — an outlined Lucide icon centered in a soft-tinted circle, label rendered by the caller underneath (reference: a "Shop by Department"-style icon-badge row). Fill alternates between the two real accent colors at low opacity — `bg-primary/15` + `bg-accent/15` (both terracotta/clay-orange family under the current palette; was navy-blue/gold under the now-reverted dark restyle) — instead of the old per-index rainbow placeholder palette (`category-fill-palette.ts`, removed); falls back to the real `cover_image_url` photo once a category actually has one (none do yet). The icon itself comes from `src/lib/category-icons.tsx`'s `getCategoryIcon(name)` — a keyword-matched Lucide mapping built against the real `12-CATEGORY-TAXONOMY.md` category/subcategory names (Kitchen → ChefHat, Bathroom → Bath, Outdoor → Sun, Pool → Waves, Terracotta/Clay → Flame, Concrete/Brick → Blocks, Mosaic → Grid3x3, Jali → Wind, Industrial → Warehouse, Stone → Mountain, Khaprail → Building2, Roof → Home, Floor → SquareStack, Wall → Grid2x2, default → LayoutGrid). No icon-per-category manifest existed anywhere in this codebase before this pass — this is a new mapping, not a reuse of an existing one, since the closest prior thing (`application-tags.tsx`) was deleted in batch 11.
+`CategoryBadgeCircle` (`src/components/shared/category-badge-circle.tsx`) — an outlined Lucide icon centered in a soft-tinted circle, label rendered by the caller underneath (reference: a "Shop by Department"-style icon-badge row). Fill alternates between the two real accent colors at low opacity — `bg-primary/15` + `bg-accent/15` (both the same blue under the 2026-09-19 palette, so the tint no longer alternates; was terracotta/clay-orange before and navy-blue/gold under the earliest dark restyle) — instead of the old per-index rainbow placeholder palette (`category-fill-palette.ts`, removed); falls back to the real `cover_image_url` photo once a category actually has one (none do yet). The icon itself comes from `src/lib/category-icons.tsx`'s `getCategoryIcon(name)` — a keyword-matched Lucide mapping built against the real `12-CATEGORY-TAXONOMY.md` category/subcategory names (Kitchen → ChefHat, Bathroom → Bath, Outdoor → Sun, Pool → Waves, Terracotta/Clay → Flame, Concrete/Brick → Blocks, Mosaic → Grid3x3, Jali → Wind, Industrial → Warehouse, Stone → Mountain, Khaprail → Building2, Roof → Home, Floor → SquareStack, Wall → Grid2x2, default → LayoutGrid). No icon-per-category manifest existed anywhere in this codebase before this pass — this is a new mapping, not a reuse of an existing one, since the closest prior thing (`application-tags.tsx`) was deleted in batch 11.
 
 Used by: the homepage's Featured Categories row (all root categories, right after the hero) and Trending Categories grid (`size="lg"`), and the category-detail page's "Explore {category}" subcategory row (e.g. Wall Tiles → Kitchen/Bathroom/Outdoor/Terracotta/Concrete/Mosaic Wall Tiles) — this last one is the closest real analog on this site to a "shop by space/application" row, since Khaprail's taxonomy models kitchen/bathroom/outdoor as subcategories rather than a separate top-level axis.
 
@@ -139,6 +167,8 @@ Real search against the `products`/`categories` tables (name/category name, case
 **`/search?q=...`** (`src/pages/search-results.tsx`) — reuses the exact same grid/card/filter-bar/pagination stack as `/products` (`useProducts` gained an optional `searchQuery` param, intersected with any active filters via the same id-set approach the attribute-filter logic already used — not a second competing query path). Empty-query and no-results states both render real copy + a link back to `/products`, never a blank page.
 
 ## Audit-fix batch (2026-09-10, batch 31) — accessibility/honesty corrections
+
+> Historical: the hex values and the `bg-navy` NEW-badge treatment quoted in this section describe the pre-2026-09-19 terracotta palette. Current values and rules are in the Palette section at the top.
 
 Fixes for the confirmed findings in `UX_AUDIT_REPORT.md`. Full detail in `00-PROGRESS.md`'s batch 31 entry — this is the token/visual summary.
 

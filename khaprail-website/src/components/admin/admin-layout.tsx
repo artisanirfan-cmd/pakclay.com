@@ -28,7 +28,7 @@ export function AdminLayout() {
       <aside className="flex w-56 shrink-0 flex-col justify-between bg-sidebar text-sidebar-foreground">
         <div>
           <div className="px-4 py-5">
-            <span className="font-heading text-lg">Khaprail Admin</span>
+            <span className="font-heading text-lg">PAKCLAY.COM Admin</span>
           </div>
           <nav className="flex flex-col gap-1 px-2">
             {NAV_ITEMS.map((item) => (

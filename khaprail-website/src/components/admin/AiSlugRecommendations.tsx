@@ -97,13 +97,13 @@ export function SuggestedSlugPanel({
   const { suggestions, isGenerating, regenerate } = useSlugSuggestions(title, category)
 
   return (
-    <div className="flex flex-col gap-3 rounded-lg border border-dashed border-[#DDD4C7] bg-[#FDFBF7] p-4">
+    <div className="flex flex-col gap-3 rounded-lg border border-dashed border-border bg-muted p-4">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Link2Icon className="size-4 text-slate-500" />
+          <Link2Icon className="size-4 text-muted-foreground" />
           <h3 className="text-sm font-semibold text-foreground">Suggested Slug &amp; SEO</h3>
-          <span className="rounded-full bg-slate-100 px-1.5 py-0.5 text-[10px] font-medium text-slate-500">
+          <span className="rounded-full bg-secondary px-1.5 py-0.5 text-[10px] font-medium text-secondary-foreground">
             rule-based, not AI
           </span>
         </div>
@@ -131,7 +131,7 @@ export function SuggestedSlugPanel({
 
       {/* Suggestion cards */}
       {!title.trim() && (
-        <p className="py-4 text-center text-xs text-muted-foreground/60">
+        <p className="py-4 text-center text-xs text-muted-foreground">
           Start typing a product name to see suggestions
         </p>
       )}
@@ -141,7 +141,7 @@ export function SuggestedSlugPanel({
           {Array.from({ length: 3 }).map((_, i) => (
             <div
               key={i}
-              className="h-10 animate-pulse rounded-lg border border-[#DDD4C7] bg-white"
+              className="h-10 animate-pulse rounded-lg border border-border bg-white"
             />
           ))}
         </div>
@@ -159,15 +159,15 @@ export function SuggestedSlugPanel({
                 className={cn(
                   "group flex items-center justify-between gap-3 rounded-lg border px-3 py-2 text-left transition-all",
                   isActive
-                    ? "border-slate-400 bg-slate-100"
-                    : "border-[#DDD4C7] bg-white hover:border-slate-400/60 hover:bg-slate-50",
+                    ? "border-primary bg-primary/5"
+                    : "border-border bg-white hover:border-primary/40 hover:bg-muted",
                 )}
               >
                 <div className="min-w-0 flex-1">
                   <p
                     className={cn(
                       "truncate font-mono text-sm",
-                      isActive ? "font-semibold text-slate-700" : "text-foreground",
+                      isActive ? "font-semibold text-primary" : "text-foreground",
                     )}
                   >
                     {s.label}
@@ -175,9 +175,9 @@ export function SuggestedSlugPanel({
                   <p className="text-[11px] text-muted-foreground">{s.reason}</p>
                 </div>
                 {isActive ? (
-                  <CheckIcon className="size-4 shrink-0 text-slate-600" />
+                  <CheckIcon className="size-4 shrink-0 text-primary" />
                 ) : (
-                  <span className="shrink-0 rounded-md border border-[#DDD4C7] bg-white px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100">
+                  <span className="shrink-0 rounded-md border border-border bg-white px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100">
                     Apply
                   </span>
                 )}

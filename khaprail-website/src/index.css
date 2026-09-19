@@ -65,9 +65,8 @@
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
     /* Storefront-restyle-only tokens (not part of shadcn's base slot set) —
-       navy nav/footer, alternating dark carousel panels, gold price text,
-       and the light powder-blue hero exception. See 02-DESIGN-SYSTEM.md's
-       "Store.com dark restyle" note. */
+       slate nav/footer band, alternating carousel panels, price text and
+       the hero photo-wash. See 02-DESIGN-SYSTEM.md. */
     --color-navy: var(--navy);
     --color-navy-foreground: var(--navy-foreground);
     --color-panel-navy: var(--panel-navy);
@@ -75,71 +74,89 @@
     --color-price: var(--price);
     --color-hero: var(--hero);
     --color-hero-foreground: var(--hero-foreground);
+    /* PAKCLAY.COM rebrand tokens (2026-09-19): hover/pressed blue, a lighter
+       blue that stays readable as TEXT on the dark slate band (the base blue
+       is only 2.83:1 there), and the two badge pairs. */
+    --color-primary-dark: var(--primary-dark);
+    --color-primary-on-dark: var(--primary-on-dark);
+    --color-badge-neutral: var(--badge-neutral);
+    --color-badge-neutral-foreground: var(--badge-neutral-foreground);
+    --color-badge-accent: var(--badge-accent);
+    --color-badge-accent-foreground: var(--badge-accent-foreground);
 }
 
 /*
-  Khaprail Tiles design tokens (02-DESIGN-SYSTEM.md at repo root).
-  Heritage clay-tile brand: warm terracotta/sand/espresso (2026-08-28 —
-  reverted from the 2026-08-25 dark-charcoal restyle back to the original
-  palette; see 02-DESIGN-SYSTEM.md for why). Reuse these tokens verbatim in
-  future Khaprail-family brand sites rather than hand-picking new ones per
-  site.
+  PAKCLAY.COM design tokens (02-DESIGN-SYSTEM.md at repo root).
+  White / blue / slate-gray palette (2026-09-19 rebrand — replaced the warm
+  terracotta / sand / espresso heritage palette; see 02-DESIGN-SYSTEM.md for
+  the value table and the contrast results). Components reference these
+  tokens (bg-primary, text-muted-foreground, bg-navy …) rather than literal
+  colors, so changing a value here re-skins the whole site.
 */
 :root {
-    --background: #FAF6F0;
-    --foreground: #3B2A20;
+    --background: #FFFFFF;
+    --foreground: #1E293B;
     --card: #FFFFFF;
-    --card-foreground: #3B2A20;
+    --card-foreground: #1E293B;
     --popover: #FFFFFF;
-    --popover-foreground: #3B2A20;
-    --primary: #B5502B;
-    --primary-foreground: #FAF6F0;
-    --secondary: #E8DCC8;
-    --secondary-foreground: #3B2A20;
-    --muted: #F1E9DD;
-    /* Darkened from #7A6A58 — that value read at 4.33:1 on full-opacity
-       --muted panels (fails WCAG AA normal text, 4.5:1 needed); #746554
-       clears it (4.67:1) while staying the same warm brown. The 50%-opacity
-       usage (bg-muted/50, blending toward the lighter page background) was
-       already passing and only gets safer margin from this change
-       (UX_AUDIT_REPORT.md finding 9 / 1.4). */
-    --muted-foreground: #746554;
-    --accent: #C96A3D;
-    --accent-foreground: #FAF6F0;
+    --popover-foreground: #1E293B;
+    /* Main accent: buttons, links, active states. White on it is 5.17:1. */
+    --primary: #2563EB;
+    --primary-foreground: #FFFFFF;
+    /* Hover / pressed state of --primary (white on it is 7.77:1). */
+    --primary-dark: #1E4FA3;
+    /* Lighter blue for use as TEXT on the dark slate band (5.75:1 there;
+       --primary itself is only 2.83:1 on slate). */
+    --primary-on-dark: #60A5FA;
+    /* Neutral badge / chip fill ("Popular"): #334155 on it is 8.42:1. */
+    --secondary: #E5E8EB;
+    --secondary-foreground: #334155;
+    /* Card / section backgrounds. --muted-foreground is 4.76:1 on white and
+       4.52:1 on this tint — it must not be used on anything darker than
+       --muted (it drops to 3.87:1 on --secondary). */
+    --muted: #F8F9FB;
+    --muted-foreground: #64748B;
+    /* Solid accent surfaces (floating buttons, carousel arrows, menu-item
+       hover). Same blue as --primary so white text keeps 5.17:1. */
+    --accent: #2563EB;
+    --accent-foreground: #FFFFFF;
     --destructive: oklch(0.577 0.245 27.325);
-    --border: #E3D5C0;
-    --input: #E3D5C0;
-    --ring: #B5502B;
-    --chart-1: #B5502B;
-    --chart-2: #C96A3D;
-    --chart-3: #D98F5F;
-    --chart-4: #E8DCC8;
-    --chart-5: #7A6A58;
+    --border: #E5E8EB;
+    --input: #E5E8EB;
+    --ring: #2563EB;
+    --badge-neutral: #E5E8EB;
+    --badge-neutral-foreground: #334155;
+    --badge-accent: #DBE8FF;
+    --badge-accent-foreground: #1E4FA3;
+    --chart-1: #2563EB;
+    --chart-2: #1E4FA3;
+    --chart-3: #60A5FA;
+    --chart-4: #E5E8EB;
+    --chart-5: #64748B;
     --radius: 0.625rem;
-    /* Admin dashboard keeps its own dark-espresso chrome, deliberately
-       distinct from the storefront (07-ADMIN-DASHBOARD-SPEC.md) — unchanged
-       by either restyle. */
-    --sidebar: #3B2A20;
-    --sidebar-foreground: #FAF6F0;
-    --sidebar-primary: #B5502B;
-    --sidebar-primary-foreground: #FAF6F0;
-    --sidebar-accent: #C96A3D;
-    --sidebar-accent-foreground: #FAF6F0;
-    --sidebar-border: #4A3628;
-    --sidebar-ring: #C96A3D;
-    /* Restyle-only tokens (2026-08-25) — kept rather than deleted so every
-       call site (header nav strip, footer, floating WhatsApp button, "New"
-       badges, alternating product-rail panels, price text, Hero/Heritage
-       photo-wash) doesn't need editing. Repointed as aliases onto the
-       restored base palette above instead of new hex, so they automatically
-       stay on-brand if the palette ever changes again. */
-    --navy: var(--foreground);
-    --navy-foreground: var(--background);
-    --panel-navy: var(--secondary);
+    /* Admin dashboard keeps its own dark chrome, deliberately distinct from
+       the storefront (07-ADMIN-DASHBOARD-SPEC.md) — now dark slate. */
+    --sidebar: #1E293B;
+    --sidebar-foreground: #FFFFFF;
+    --sidebar-primary: #2563EB;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #334155;
+    --sidebar-accent-foreground: #FFFFFF;
+    --sidebar-border: #334155;
+    --sidebar-ring: #60A5FA;
+    /* Storefront alias tokens — kept (rather than renamed) so every call
+       site (nav strip, footer, floating WhatsApp button, alternating
+       product-rail panels, price text, Hero/Heritage photo-wash) keeps
+       working. --navy is the header/footer band: dark slate. */
+    --navy: #1E293B;
+    --navy-foreground: #FFFFFF;
+    /* Alternating carousel panels: a light blue-gray a step darker than
+       --muted; only foreground/primary text may sit directly on it. */
+    --panel-navy: #EDF1F6;
     --panel-warm: var(--muted);
-    --price: var(--accent);
-    --hero: var(--foreground);
-    --hero-foreground: var(--background);
+    --price: var(--primary);
+    --hero: var(--navy);
+    --hero-foreground: var(--navy-foreground);
 }
 
 @layer base {

@@ -46,8 +46,8 @@ const TONE_CLASSES: Record<NonNullable<ProductRailProps["tone"]>, string> = {
 // reference); plain outline arrows when the rail sits directly on the page
 // background instead.
 const ARROW_CLASSES: Record<NonNullable<ProductRailProps["tone"]>, string> = {
-  navy: "rounded-full border-transparent bg-accent text-accent-foreground hover:bg-accent/85",
-  warm: "rounded-full border-transparent bg-accent text-accent-foreground hover:bg-accent/85",
+  navy: "rounded-full border-transparent bg-accent text-accent-foreground hover:bg-primary-dark",
+  warm: "rounded-full border-transparent bg-accent text-accent-foreground hover:bg-primary-dark",
   none: "",
 }
 

@@ -64,7 +64,7 @@ export function TrendingCategoriesGrid() {
                   <CategoryBadgeCircle category={category} index={index} size="lg" />
                 </div>
                 {isNew(category.created_at) && (
-                  <Badge className="absolute top-0 right-2 bg-navy text-navy-foreground">NEW</Badge>
+                  <Badge className="absolute top-0 right-2 bg-badge-accent text-badge-accent-foreground">NEW</Badge>
                 )}
                 <span className="text-lg font-medium text-foreground">{category.name}</span>
               </Link>

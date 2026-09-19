@@ -59,7 +59,7 @@ export function OffersSection() {
 
 function OfferCardTile({ card }: { card: OfferCard }) {
   const linkClassName =
-    "relative z-10 mt-4 w-fit text-sm font-semibold text-navy-foreground underline underline-offset-4 hover:text-accent"
+    "relative z-10 mt-4 w-fit text-sm font-semibold text-navy-foreground underline underline-offset-4 hover:text-primary-on-dark"
 
   return (
     <div className="relative flex aspect-[3/4] flex-col justify-between overflow-hidden rounded-2xl bg-navy p-5">
@@ -78,7 +78,7 @@ function OfferCardTile({ card }: { card: OfferCard }) {
 
       <div className="relative z-10 flex flex-col gap-1">
         <div className="flex items-baseline gap-1.5">
-          <span className="font-heading text-4xl font-bold text-accent">{card.badge_value}</span>
+          <span className="font-heading text-4xl font-bold text-primary-on-dark">{card.badge_value}</span>
           {card.badge_suffix && (
             <span className="text-sm font-semibold text-navy-foreground/80">{card.badge_suffix}</span>
           )}

@@ -61,9 +61,9 @@ export function SlugInputWithLock({
           placeholder="product-slug"
           className={cn(
             "h-9 w-full rounded-lg border px-3 py-1.5 font-mono text-sm transition-colors outline-none",
-            "border-[#DDD4C7] bg-[#FDFBF7] text-foreground",
-            "placeholder:text-muted-foreground/60",
-            "focus:border-[#C25A2B] focus:ring-2 focus:ring-[#C25A2B]/20",
+            "border-border bg-muted text-foreground",
+            "placeholder:text-muted-foreground",
+            "focus:border-primary focus:ring-2 focus:ring-primary/20",
           )}
         />
         <button
@@ -73,15 +73,15 @@ export function SlugInputWithLock({
           className={cn(
             "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border transition-colors",
             isLinked
-              ? "border-[#C25A2B]/30 bg-[#C25A2B]/5 text-[#C25A2B]"
-              : "border-[#DDD4C7] bg-[#FDFBF7] text-muted-foreground hover:text-foreground",
+              ? "border-primary/30 bg-primary/5 text-primary"
+              : "border-border bg-muted text-muted-foreground hover:text-foreground",
           )}
         >
           {isLinked ? <LockIcon className="size-4" /> : <UnlockIcon className="size-4" />}
         </button>
       </div>
-      <p className="truncate font-mono text-xs text-muted-foreground/70">
-        {baseUrl}/{slug || <span className="italic opacity-50">slug</span>}
+      <p className="truncate font-mono text-xs text-muted-foreground">
+        {baseUrl}/{slug || <span className="italic">slug</span>}
       </p>
     </div>
   )

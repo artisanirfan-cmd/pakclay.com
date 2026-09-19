@@ -62,8 +62,8 @@ export function CoverImageDropzone({ value, onChange }: CoverImageDropzoneProps)
         className={cn(
           "group relative flex aspect-[16/10] cursor-pointer items-center justify-center overflow-hidden rounded-lg border-2 border-dashed transition-colors",
           isDragging
-            ? "border-[#C25A2B] bg-[#C25A2B]/5"
-            : "border-[#DDD4C7] bg-[#FDFBF7] hover:border-[#C25A2B]/40",
+            ? "border-primary bg-primary/5"
+            : "border-border bg-muted hover:border-primary/40",
         )}
         onClick={() => !isUploading && inputRef.current?.click()}
         onDragOver={(e) => { e.preventDefault(); setIsDragging(true) }}
@@ -94,7 +94,7 @@ export function CoverImageDropzone({ value, onChange }: CoverImageDropzoneProps)
           <div className="flex flex-col items-center gap-2 text-muted-foreground">
             <UploadCloudIcon className="size-8" />
             <span className="text-sm">Drop image or click to upload</span>
-            <span className="text-xs opacity-60">JPG, PNG, WebP</span>
+            <span className="text-xs">JPG, PNG, WebP</span>
           </div>
         )}
         {isUploading && (
@@ -110,9 +110,9 @@ export function CoverImageDropzone({ value, onChange }: CoverImageDropzoneProps)
         placeholder="...or paste Supabase Storage URL"
         className={cn(
           "h-8 w-full rounded-lg border px-3 text-xs font-mono transition-colors outline-none",
-          "border-[#DDD4C7] bg-[#FDFBF7] text-foreground",
+          "border-border bg-muted text-foreground",
           "placeholder:text-muted-foreground/50",
-          "focus:border-[#C25A2B] focus:ring-2 focus:ring-[#C25A2B]/20",
+          "focus:border-primary focus:ring-2 focus:ring-primary/20",
         )} />
     </div>
   )
@@ -166,14 +166,14 @@ export function ImageGallery({ images, onChange }: ImageGalleryProps) {
           Gallery Images
         </label>
         {images.length > 0 && (
-          <span className="rounded-full bg-[#EBE3D8] px-2.5 py-0.5 text-[11px] font-semibold text-muted-foreground">
+          <span className="rounded-full bg-secondary px-2.5 py-0.5 text-[11px] font-semibold text-secondary-foreground">
             {images.length} {images.length === 1 ? "image" : "images"}
           </span>
         )}
       </div>
       <div className="grid grid-cols-3 gap-2">
         {images.map((img, i) => (
-          <div key={img.url + i} className="group relative aspect-square overflow-hidden rounded-lg border border-[#DDD4C7] bg-[#FDFBF7]">
+          <div key={img.url + i} className="group relative aspect-square overflow-hidden rounded-lg border border-border bg-muted">
             <img src={img.url} alt={`Gallery ${i + 1}`} className="h-full w-full object-cover" />
             <div className="absolute inset-0 flex items-center justify-center gap-1 bg-black/0 opacity-0 transition-all group-hover:bg-black/40 group-hover:opacity-100">
               {i > 0 && <button type="button" onClick={() => moveAt(i, i - 1)} className="flex h-7 w-7 items-center justify-center rounded-full bg-white/90 text-xs font-bold text-foreground" title="Move left">‹</button>}
@@ -186,7 +186,7 @@ export function ImageGallery({ images, onChange }: ImageGalleryProps) {
           </div>
         ))}
         <div className={cn(
-          "flex aspect-square cursor-pointer flex-col items-center justify-center gap-1 rounded-lg border-2 border-dashed border-[#DDD4C7] bg-[#FDFBF7] text-muted-foreground transition-colors hover:border-[#C25A2B]/40 hover:text-[#C25A2B]",
+          "flex aspect-square cursor-pointer flex-col items-center justify-center gap-1 rounded-lg border-2 border-dashed border-border bg-muted text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary",
           isUploading && "pointer-events-none opacity-60",
         )}
           onClick={() => !isUploading && inputRef.current?.click()}

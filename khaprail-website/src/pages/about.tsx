@@ -8,9 +8,9 @@ import { CtaBanner } from "@/components/shared/cta-banner"
 export function About() {
   return (
     <main className="flex-1">
-      <section className="border-b border-border bg-secondary/40">
+      <section className="border-b border-border bg-muted">
         <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-4 px-4 py-20 text-center sm:px-6">
-          <span className="rounded-full bg-primary/10 px-4 py-1 text-sm font-medium text-primary">
+          <span className="rounded-full bg-badge-accent px-4 py-1 text-sm font-medium text-badge-accent-foreground">
             Est. 1982 · Lahore, Pakistan
           </span>
           <h1 className="font-heading text-6xl font-semibold sm:text-7xl">About Khaprail Tiles</h1>

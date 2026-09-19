@@ -27,10 +27,10 @@ export function AdminLogin() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-secondary/40 px-4">
+    <main className="flex min-h-screen items-center justify-center bg-muted px-4">
       <form onSubmit={handleSubmit} className="flex w-full max-w-sm flex-col gap-4 rounded-xl bg-background p-8 shadow-md">
         <div className="text-center">
-          <h1 className="font-heading text-2xl">Khaprail Admin</h1>
+          <h1 className="font-heading text-2xl">PAKCLAY.COM Admin</h1>
           <p className="mt-1 text-sm text-muted-foreground">Sign in to manage the site.</p>
         </div>
         <div className="flex flex-col gap-1.5">

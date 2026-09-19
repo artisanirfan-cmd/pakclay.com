@@ -117,10 +117,10 @@ export function AiSummaryInspector({
   }, [productId, activeText, onSaved])
 
   return (
-    <div className="flex flex-col gap-3 rounded-lg border border-[#EBE3D8] bg-white p-4 shadow-sm">
+    <div className="flex flex-col gap-3 rounded-lg border border-border bg-white p-4 shadow-sm">
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          <SparklesIcon className="size-4 text-[#C25A2B]" />
+          <SparklesIcon className="size-4 text-primary" />
           <h3 className="text-sm font-semibold text-foreground">AI Product Summary</h3>
         </div>
         {savedGeneratedAt && (
@@ -145,8 +145,8 @@ export function AiSummaryInspector({
               className={cn(
                 "rounded-md border px-2.5 py-1 text-xs font-medium transition-colors",
                 tone === opt.value
-                  ? "border-[#C25A2B] bg-[#C25A2B]/5 text-[#C25A2B]"
-                  : "border-[#DDD4C7] bg-[#FDFBF7] text-muted-foreground hover:border-[#C25A2B]/30 hover:text-foreground",
+                  ? "border-primary bg-primary/5 text-primary"
+                  : "border-border bg-muted text-muted-foreground hover:border-primary/30 hover:text-foreground",
               )}
             >
               {opt.label}
@@ -161,7 +161,7 @@ export function AiSummaryInspector({
         onClick={handleGenerate}
         className={cn(
           "flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-          "bg-[#C25A2B] text-white hover:bg-[#A94A1F]",
+          "bg-primary text-white hover:bg-primary-dark",
           "disabled:cursor-not-allowed disabled:opacity-50",
         )}
       >
@@ -184,7 +184,7 @@ export function AiSummaryInspector({
       </button>
 
       {!productContext.name.trim() && (
-        <p className="text-center text-xs text-muted-foreground/60">
+        <p className="text-center text-xs text-muted-foreground">
           Enter a product name first
         </p>
       )}
@@ -197,7 +197,7 @@ export function AiSummaryInspector({
 
       {generatedText && (
         <>
-          <div className="relative rounded-lg border border-[#EBE3D8] bg-[#FDFBF7] p-3">
+          <div className="relative rounded-lg border border-border bg-muted p-3">
             <div className="mb-1.5 flex items-center justify-between">
               <span className="flex items-center gap-1 text-[11px] font-medium text-muted-foreground">
                 <PencilIcon className="size-3" />
@@ -206,7 +206,7 @@ export function AiSummaryInspector({
               <button
                 type="button"
                 onClick={handleCopy}
-                className="flex h-6 items-center gap-1 rounded-md border border-[#DDD4C7] bg-white px-1.5 text-[11px] text-muted-foreground transition-colors hover:text-foreground"
+                className="flex h-6 items-center gap-1 rounded-md border border-border bg-white px-1.5 text-[11px] text-muted-foreground transition-colors hover:text-foreground"
                 title={copied ? "Copied!" : "Copy to clipboard"}
               >
                 {copied ? (
@@ -221,11 +221,11 @@ export function AiSummaryInspector({
               onChange={(e) => setEditedText(e.target.value)}
               rows={4}
               className={cn(
-                "w-full resize-y rounded-md border border-[#DDD4C7] bg-white px-3 py-2 text-sm leading-relaxed text-foreground outline-none",
-                "focus:border-[#C25A2B] focus:ring-2 focus:ring-[#C25A2B]/20",
+                "w-full resize-y rounded-md border border-border bg-white px-3 py-2 text-sm leading-relaxed text-foreground outline-none",
+                "focus:border-primary focus:ring-2 focus:ring-primary/20",
               )}
             />
-            <p className="mt-1 text-right text-[10px] text-muted-foreground/60">
+            <p className="mt-1 text-right text-[10px] text-muted-foreground">
               {activeText.split(/\s+/).filter(Boolean).length} words
             </p>
           </div>
@@ -242,8 +242,8 @@ export function AiSummaryInspector({
             onClick={() => void handleSave()}
             title={!productId ? "Save the product first, then save its AI summary" : undefined}
             className={cn(
-              "flex items-center justify-center gap-2 rounded-lg border border-[#C25A2B]/30 px-3 py-2 text-sm font-medium transition-colors",
-              "text-[#C25A2B] hover:bg-[#C25A2B]/5",
+              "flex items-center justify-center gap-2 rounded-lg border border-primary/30 px-3 py-2 text-sm font-medium transition-colors",
+              "text-primary hover:bg-primary/5",
               "disabled:cursor-not-allowed disabled:opacity-50",
             )}
           >
@@ -256,7 +256,7 @@ export function AiSummaryInspector({
             )}
           </button>
           {!productId && (
-            <p className="text-center text-[11px] text-muted-foreground/70">
+            <p className="text-center text-[11px] text-muted-foreground">
               Save the product first — the AI summary needs an existing product to attach to.
             </p>
           )}

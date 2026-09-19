@@ -16,7 +16,7 @@ import { HERO_IMAGE_JPG } from "@/lib/hero-image"
 // isn't a client-only fix that non-JS crawlers miss.
 
 export const SITE_URL = "https://khaprail.vercel.app"
-export const SITE_NAME = "Khaprail Tiles"
+export const SITE_NAME = "PAKCLAY.COM"
 const DEFAULT_OG_IMAGE = `${SITE_URL}${HERO_IMAGE_JPG}`
 
 export interface DocumentHeadOptions {

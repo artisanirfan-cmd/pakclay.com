@@ -80,7 +80,7 @@ export function MobileNav({ categories, isLoading, error }: MobileNavProps) {
         <span className="sr-only">Open menu</span>
       </SheetTrigger>
       <SheetContent side="right" showCloseButton={false} className="w-full gap-0 p-0 sm:max-w-sm">
-        <SheetTitle className="sr-only">Khaprail Tiles menu</SheetTitle>
+        <SheetTitle className="sr-only">PAKCLAY.COM menu</SheetTitle>
 
         {isSearchOpen ? (
           <>
@@ -171,7 +171,7 @@ export function MobileNav({ categories, isLoading, error }: MobileNavProps) {
                 <XIcon />
                 <span className="sr-only">Close menu</span>
               </SheetClose>
-              <span className="font-heading text-xl font-bold text-primary">Khaprail Tiles</span>
+              <span className="font-heading text-xl font-bold text-primary">PAKCLAY.COM</span>
               <Button
                 variant="ghost"
                 size="icon"

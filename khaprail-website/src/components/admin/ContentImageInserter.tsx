@@ -82,7 +82,7 @@ export function ContentImageInserter({ onInsert }: ContentImageInserterProps) {
       <div
         className={cn(
           "relative flex min-h-28 cursor-pointer items-center justify-center overflow-hidden rounded-lg border-2 border-dashed transition-colors",
-          isDragging ? "border-[#C25A2B] bg-[#C25A2B]/5" : "border-[#DDD4C7] bg-[#FDFBF7] hover:border-[#C25A2B]/40",
+          isDragging ? "border-primary bg-primary/5" : "border-border bg-muted hover:border-primary/40",
         )}
         onClick={() => !isUploading && inputRef.current?.click()}
         onDragOver={(e) => {
@@ -113,7 +113,7 @@ export function ContentImageInserter({ onInsert }: ContentImageInserterProps) {
           <div className="flex flex-col items-center gap-1 py-4 text-muted-foreground">
             <UploadCloudIcon className="size-6" />
             <span className="text-sm">Drop image or click to upload</span>
-            <span className="text-xs opacity-60">JPG, PNG, WebP</span>
+            <span className="text-xs">JPG, PNG, WebP</span>
           </div>
         )}
         {isUploading && (

@@ -23,7 +23,7 @@ export function DownloadCta() {
   const catalogCollections = buildCatalogCategories(products, categories)
 
   return (
-    <section className="border-t border-border bg-secondary/30 py-16">
+    <section className="border-t border-border bg-muted py-16">
       <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-4 px-4 text-center sm:px-6">
         <h2 className="font-heading text-4xl font-semibold sm:text-5xl">Get the Full Catalog</h2>
         <p className="max-w-xl text-muted-foreground">
