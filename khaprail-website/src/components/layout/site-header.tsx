@@ -12,7 +12,7 @@ import { CategoriesMegaMenu } from "@/components/nav/categories-mega-menu"
 import { MobileNav } from "@/components/nav/mobile-nav"
 import { SiteSearch } from "@/components/nav/site-search"
 import { NAV_LINKS } from "@/lib/nav-links"
-import { useCategories } from "@/hooks/use-categories"
+import { useLinkableCategories } from "@/hooks/use-linkable-categories"
 import { useChatPanel } from "@/lib/chat-panel-context"
 import { buildWhatsAppUrl, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/whatsapp"
 import { cn } from "@/lib/utils"
@@ -33,7 +33,7 @@ const NAV_ITEM_CLASS =
 // has no customer accounts, wishlist, or cart to back them, see
 // 00-PROGRESS.md) and a solid navy sub-nav strip underneath.
 export function SiteHeader() {
-  const { categories, isLoading, error } = useCategories()
+  const { categories, isLoading, error } = useLinkableCategories()
   const { open: openChatPanel } = useChatPanel()
   const [isScrolled, setIsScrolled] = useState(false)
 

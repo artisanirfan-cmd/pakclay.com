@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { Skeleton } from "@/components/ui/skeleton"
 import { StorageImage } from "@/components/shared/storage-image"
-import { useCategories } from "@/hooks/use-categories"
+import { useLinkableCategories } from "@/hooks/use-linkable-categories"
 import { getRootCategories } from "@/lib/category-tree"
 
 const FEATURE_COUNT = 3
@@ -12,7 +12,7 @@ const FEATURE_COUNT = 3
 // admins control which 3 appear here by reordering categories in
 // /admin/categories.
 export function FeatureRow() {
-  const { categories, isLoading, error } = useCategories()
+  const { categories, isLoading, error } = useLinkableCategories()
   const featured = getRootCategories(categories).slice(0, FEATURE_COUNT)
 
   if (error || (!isLoading && featured.length === 0)) return null

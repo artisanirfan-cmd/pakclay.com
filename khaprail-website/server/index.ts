@@ -6,6 +6,7 @@ import { generateSummaryHandler } from "./routes/generate-summary.js"
 import { sitemapHandler } from "./routes/sitemap.js"
 import { robotsHandler } from "./routes/robots.js"
 import { createPageHandler } from "./lib/pages.js"
+import { canonicalHostMiddleware } from "./lib/host.js"
 
 // Production server for khaprail-website, replacing the previous Vercel
 // deployment: serves the built Vite app (dist/) as static files, implements
@@ -43,6 +44,10 @@ app.use((req, _res, next) => {
 app.get("/health", (_req, res) => {
   res.status(200).json({ status: "ok" })
 })
+
+// Canonical host / scheme (www -> apex 301, noindex for stray hosts). After
+// /health so deploy and uptime probes never see a redirect.
+app.use(canonicalHostMiddleware)
 
 app.all("/sitemap.xml", sitemapHandler)
 app.get("/robots.txt", robotsHandler)

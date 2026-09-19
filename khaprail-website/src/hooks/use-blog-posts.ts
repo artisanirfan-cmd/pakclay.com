@@ -9,7 +9,7 @@ interface UseBlogPostsResult {
 }
 
 const COLUMNS =
-  "id, title, slug, cover_image_url, category, author, read_time_minutes, excerpt, status, published_at, created_at"
+  "id, title, slug, cover_image_url, category, entity_tags, author, read_time_minutes, excerpt, status, published_at, created_at"
 
 /** /blog index — published posts only (RLS enforces this too; see blog_posts policies). */
 export function useBlogPosts(): UseBlogPostsResult {

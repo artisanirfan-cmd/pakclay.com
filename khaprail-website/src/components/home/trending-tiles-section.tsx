@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { Skeleton } from "@/components/ui/skeleton"
 import { StorageImage } from "@/components/shared/storage-image"
 import { useTrendingTiles } from "@/hooks/use-trending-tiles"
+import { useCategoryLinkResolver } from "@/hooks/use-category-link-resolver"
 import { cn } from "@/lib/utils"
 import type { TrendingTile } from "@/types/trending-tile"
 
@@ -20,7 +21,10 @@ import type { TrendingTile } from "@/types/trending-tile"
 // aspect-auto at lg) stretches across the combined natural height of
 // both rows via the grid's default `align-items: stretch`.
 export function TrendingTilesSection() {
-  const { tiles, isLoading, error } = useTrendingTiles()
+  const { tiles: rawTiles, isLoading, error } = useTrendingTiles()
+  const resolveLink = useCategoryLinkResolver()
+  // Admin-entered links are cleaned: normalised to absolute paths, and kept off empty categories.
+  const tiles = rawTiles.map((tile) => ({ ...tile, link_url: resolveLink(tile.link_url) }))
 
   if (error || (!isLoading && tiles.length === 0)) return null
 

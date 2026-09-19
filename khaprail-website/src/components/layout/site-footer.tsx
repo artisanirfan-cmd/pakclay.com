@@ -6,7 +6,7 @@ import { buildWhatsAppUrl, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/whatsapp"
 import { CONTACT_EMAIL, CONTACT_HOURS, CONTACT_LOCATIONS, CONTACT_PHONES, COPYRIGHT_LINE } from "@/lib/contact-info"
 import { SOCIAL_LINKS } from "@/lib/social-links"
 import { SUB_BRANDS } from "@/lib/sub-brands"
-import { useCategories } from "@/hooks/use-categories"
+import { useLinkableCategories } from "@/hooks/use-linkable-categories"
 import { getRootCategories } from "@/lib/category-tree"
 
 const FOOTER_CATEGORY_LIMIT = 8
@@ -16,7 +16,7 @@ const FOOTER_CATEGORY_LIMIT = 8
 // email/phone/locations/hours (2026-09-10 — see 00-PROGRESS.md batch 33;
 // all real, confirmed values, not placeholders).
 export function SiteFooter() {
-  const { categories } = useCategories()
+  const { categories } = useLinkableCategories()
   const roots = getRootCategories(categories).slice(0, FOOTER_CATEGORY_LIMIT)
 
   return (

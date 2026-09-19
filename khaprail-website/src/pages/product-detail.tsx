@@ -1,3 +1,5 @@
+import { RelatedPosts } from "@/components/blog/related-posts"
+import { keywordsOf } from "@/lib/related-content"
 import { useDocumentHead } from "@/hooks/use-document-head"
 import { JsonLd } from "@/components/seo/json-ld"
 import { useCategories } from "@/hooks/use-categories"
@@ -166,6 +168,9 @@ export function ProductDetail() {
           isLoading={exploreProducts.isLoading}
           hideWhenEmpty
         />
+      </div>
+      <div className="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6">
+        <RelatedPosts keywords={keywordsOf(product.name, product.category_name)} />
       </div>
     </main>
   )

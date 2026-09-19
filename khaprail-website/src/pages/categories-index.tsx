@@ -2,7 +2,7 @@ import { useDocumentHead } from "@/hooks/use-document-head"
 import { Link } from "react-router-dom"
 import { Skeleton } from "@/components/ui/skeleton"
 import { CategoryTile } from "@/components/categories/category-tile"
-import { useCategories } from "@/hooks/use-categories"
+import { useLinkableCategories } from "@/hooks/use-linkable-categories"
 import { getRootCategories } from "@/lib/category-tree"
 
 // /categories — full image-card grid of every top-level category
@@ -15,7 +15,7 @@ export function CategoriesIndex() {
       "Explore our tile categories: roof, floor, wall, outdoor, kitchen and bathroom tiles in clay, terracotta, stone and concrete, plus terracotta jali.",
     path: "/categories",
   })
-  const { categories, isLoading, error } = useCategories()
+  const { categories, isLoading, error } = useLinkableCategories()
   const roots = getRootCategories(categories)
 
   return (

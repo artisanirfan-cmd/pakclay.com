@@ -50,3 +50,7 @@ This taxonomy replaced the old flat `collections` table (Khaprail Roof Tiles, Mu
 - Multani Tiles (1×1, Penny Round — 2 products) → **Mosaic Tiles** — the one genuinely ambiguous mapping (no "Multani Tiles" analog exists in the new 15); flagging in case Sylvester wants these two reassigned elsewhere.
 
 All 29 rows (15 main + 14 subcategory) are seeded with `cover_image_url` left `null` — no photography yet, same honest-empty pattern as every other table.
+
+## Linking rule for empty categories (2026-09-20)
+
+A category with no products anywhere in its subtree is `noindex`, left out of the sitemap, and NOT linked from navigation, footer, homepage rails, the /categories grid or subcategory lists (`useLinkableCategories`). It stays reachable by URL and editable in the admin, and appears in every list automatically as soon as a product is added to it or to a descendant. Admin-entered tile links into an empty category fall back to /categories (`resolveCategoryLink`).

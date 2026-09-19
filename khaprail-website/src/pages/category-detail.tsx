@@ -1,3 +1,5 @@
+import { RelatedPosts } from "@/components/blog/related-posts"
+import { keywordsOf } from "@/lib/related-content"
 import { useDocumentHead } from "@/hooks/use-document-head"
 import { JsonLd } from "@/components/seo/json-ld"
 import { breadcrumbJsonLd } from "@/lib/seo/json-ld"
@@ -21,6 +23,7 @@ import { ProductRail } from "@/components/shared/product-rail"
 import { CategoryIconRail } from "@/components/shared/category-icon-rail"
 import { Pagination } from "@/components/shared/pagination"
 import { useCategory } from "@/hooks/use-category"
+import { useLinkableCategories } from "@/hooks/use-linkable-categories"
 import { useCategories } from "@/hooks/use-categories"
 import { useFeaturedProducts } from "@/hooks/use-featured-products"
 import { useFilterTypes } from "@/hooks/use-filter-types"
@@ -68,7 +71,8 @@ export function CategoryDetail() {
   }, [searchParams, slug])
 
   const ancestors = category ? getCategoryAncestors(categories, category.id) : []
-  const children = category ? getCategoryChildren(categories, category.id) : []
+  const { categories: linkableCategories } = useLinkableCategories()
+  const children = category ? getCategoryChildren(linkableCategories, category.id) : []
   const pageCount = Math.max(1, Math.ceil(products.length / PAGE_SIZE))
   const pagedProducts = products.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
 
@@ -253,6 +257,9 @@ export function CategoryDetail() {
             <Pagination page={page} pageCount={pageCount} onPageChange={setPage} />
           </>
         )}
+      </div>
+      <div className="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6">
+        <RelatedPosts keywords={keywordsOf(category.name, ...ancestors.map((a) => a.name))} />
       </div>
     </main>
   )

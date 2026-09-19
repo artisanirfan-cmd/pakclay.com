@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { Skeleton } from "@/components/ui/skeleton"
 import { StorageImage } from "@/components/shared/storage-image"
 import { useLifestyleTiles } from "@/hooks/use-lifestyle-tiles"
+import { useCategoryLinkResolver } from "@/hooks/use-category-link-resolver"
 import { cn } from "@/lib/utils"
 
 const SKELETON_COUNT = 3
@@ -26,7 +27,10 @@ const GRID_COLS: Record<number, string> = {
 // tiles use a 4:5 portrait ratio + a muted panel tone, so the two don't
 // read as the same section repeated.
 export function LifestyleTilesSection() {
-  const { tiles, isLoading, error } = useLifestyleTiles()
+  const { tiles: rawTiles, isLoading, error } = useLifestyleTiles()
+  const resolveLink = useCategoryLinkResolver()
+  // Admin-entered links are cleaned: normalised to absolute paths, and kept off empty categories.
+  const tiles = rawTiles.map((tile) => ({ ...tile, link_url: resolveLink(tile.link_url) }))
 
   if (error || (!isLoading && tiles.length === 0)) return null
 

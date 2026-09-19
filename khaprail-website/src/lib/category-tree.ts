@@ -62,3 +62,44 @@ export function flattenCategoryTree(categories: Category[]): CategoryTreeRow[] {
   visit(null, 0)
   return rows
 }
+
+/**
+ * Categories that have at least one product in their subtree (products filed
+ * directly under them or under any descendant). `directCounts` maps a
+ * category id to the number of products assigned to it directly. A populated
+ * child always keeps its ancestors, so the result is a valid tree.
+ */
+export function filterPopulatedCategories(categories: Category[], directCounts: Map<string, number>): Category[] {
+  const childrenOf = new Map<string, string[]>()
+  for (const c of categories) {
+    if (c.parent_id) childrenOf.set(c.parent_id, [...(childrenOf.get(c.parent_id) ?? []), c.id])
+  }
+  const memo = new Map<string, number>()
+  const total = (id: string, seen: Set<string> = new Set()): number => {
+    if (memo.has(id)) return memo.get(id)!
+    if (seen.has(id)) return 0
+    seen.add(id)
+    const sum = (directCounts.get(id) ?? 0) + (childrenOf.get(id) ?? []).reduce((acc, child) => acc + total(child, seen), 0)
+    memo.set(id, sum)
+    return sum
+  }
+  return categories.filter((c) => total(c.id) > 0)
+}
+
+/**
+ * Normalises an admin-entered internal link and keeps it off dead ends. The
+ * homepage tiles' links are free-text CMS fields: one was stored as
+ * "categories/roof-tiles" (no leading slash, so it only worked from "/"), and
+ * several pointed at categories with no products (noindex "coming soon"
+ * pages). Returns an absolute-path link; a link into an empty or unknown
+ * category falls back to the categories index. External links, and links
+ * that are not category URLs, are returned unchanged (apart from the slash).
+ */
+export function resolveCategoryLink(url: string, allCategories: Category[], populatedCategories: Category[]): string {
+  if (/^([a-z][a-z0-9+.-]*:|\/\/)/i.test(url)) return url // external / mailto / tel / protocol-relative
+  const path = url.startsWith("/") ? url : `/${url}`
+  const match = /^\/categories\/([^/?#]+)/.exec(path)
+  if (!match || allCategories.length === 0) return path
+  const slug = match[1]
+  return populatedCategories.some((c) => c.slug === slug) ? path : "/categories"
+}

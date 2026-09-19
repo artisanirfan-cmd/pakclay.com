@@ -4,6 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { StorageImage } from "@/components/shared/storage-image"
 import { FaqAccordion } from "@/components/blog/faq-accordion"
 import { MarkdownContent } from "@/components/blog/markdown-content"
+import { RelatedTiles } from "@/components/blog/related-tiles"
 import { useBlogPost } from "@/hooks/use-blog-post"
 import { JsonLd } from "@/components/seo/json-ld"
 import { useDocumentHead } from "@/hooks/use-document-head"
@@ -103,6 +104,8 @@ export function BlogPost() {
         )}
 
         <MarkdownContent className="mt-8">{post.content ?? ""}</MarkdownContent>
+
+        <RelatedTiles post={post} />
 
         <FaqAccordion faqs={post.blog_faqs} />
       </div>
