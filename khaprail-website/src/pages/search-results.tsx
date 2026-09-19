@@ -1,3 +1,4 @@
+import { useDocumentHead } from "@/hooks/use-document-head"
 import { useEffect, useState } from "react"
 import { Link, useLocation, useNavigate, useSearchParams } from "react-router-dom"
 import {
@@ -30,6 +31,12 @@ const MOBILE_FILTERS_HASH = "#mobile-filters"
 // `searchQuery` param added — a real name/category match, combined with
 // any active filters, not a second competing product query.
 export function SearchResults() {
+  useDocumentHead({
+    title: "Search Tiles",
+    description: "Search our range of clay, terracotta, stone and concrete tiles by name, size or category.",
+    path: "/search",
+    noindex: true,
+  })
   const [searchParams] = useSearchParams()
   const location = useLocation()
   const navigate = useNavigate()
@@ -136,6 +143,7 @@ export function SearchResults() {
             ) : (
               <>
                 <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+                  <h2 className="sr-only">Search results</h2>
                   {pagedProducts.map((product) => (
                     <ProductCard key={product.id} product={product} />
                   ))}

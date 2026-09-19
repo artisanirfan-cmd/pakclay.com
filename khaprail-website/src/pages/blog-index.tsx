@@ -1,3 +1,4 @@
+import { useDocumentHead } from "@/hooks/use-document-head"
 import { Link } from "react-router-dom"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -8,6 +9,12 @@ import { stripMarkdown } from "@/lib/markdown"
 
 // /blog — published posts only (06-BLOG-CMS-SPEC.md).
 export function BlogIndex() {
+  useDocumentHead({
+    title: "Blog — Tile Guides, Stories & Updates",
+    description:
+      "Guides, stories and updates about clay roof tiles, Multani tiles and terracotta flooring from our Lahore tile makers.",
+    path: "/blog",
+  })
   const { posts, isLoading, error } = useBlogPosts()
 
   return (

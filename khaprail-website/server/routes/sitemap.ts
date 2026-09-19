@@ -59,12 +59,40 @@ async function buildSitemapXml(): Promise<string> {
 
   const client = buildClient()
   if (client) {
-    const [{ data: categories }, { data: products }, { data: posts }] = await Promise.all([
-      client.from("categories").select("slug"),
-      client.from("products").select("slug, created_at"),
+    const [{ data: categories }, { data: products }, { data: posts }, { data: videos }] = await Promise.all([
+      client.from("categories").select("id, slug, parent_id"),
+      client.from("products").select("slug, created_at, category_id"),
       client.from("blog_posts").select("slug, published_at").eq("status", "published"),
+      client.from("videos").select("id").limit(1),
     ])
-    for (const c of categories ?? []) entries.push({ path: `/categories/${c.slug}` })
+
+    // Keep the sitemap consistent with the pages' own robots signals: the
+    // client marks /videos and product-less categories `noindex` (thin
+    // "coming soon" pages), and a sitemap must not list noindex URLs. Each
+    // check FAILS OPEN (lists the URL) if its query returned no data.
+    if (videos && videos.length === 0) {
+      const i = entries.findIndex((e) => e.path === "/videos")
+      if (i !== -1) entries.splice(i, 1)
+    }
+
+    // Product count per category INCLUDING descendants (a root category shows
+    // its children's products — see category-detail's getDescendantCategoryIds).
+    const children = new Map<string, string[]>()
+    for (const c of categories ?? []) {
+      if (c.parent_id) children.set(c.parent_id, [...(children.get(c.parent_id) ?? []), c.id])
+    }
+    const direct = new Map<string, number>()
+    for (const p of products ?? []) if (p.category_id) direct.set(p.category_id, (direct.get(p.category_id) ?? 0) + 1)
+    const total = (id: string, seen = new Set<string>()): number => {
+      if (seen.has(id)) return 0
+      seen.add(id)
+      return (direct.get(id) ?? 0) + (children.get(id) ?? []).reduce((sum, child) => sum + total(child, seen), 0)
+    }
+
+    for (const c of categories ?? []) {
+      if (products && total(c.id) === 0) continue
+      entries.push({ path: `/categories/${c.slug}` })
+    }
     for (const p of products ?? []) {
       entries.push({ path: `/products/${p.slug}`, lastmod: p.created_at?.slice(0, 10) })
     }

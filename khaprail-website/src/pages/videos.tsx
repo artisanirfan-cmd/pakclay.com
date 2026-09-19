@@ -1,3 +1,4 @@
+import { useDocumentHead } from "@/hooks/use-document-head"
 import { Skeleton } from "@/components/ui/skeleton"
 import { VideoGrid } from "@/components/videos/video-grid"
 import { useVideos } from "@/hooks/use-videos"
@@ -10,6 +11,22 @@ import { CtaBanner } from "@/components/shared/cta-banner"
 // every other section on the site, until real video links are added.
 export function Videos() {
   const { videos, isLoading, error } = useVideos()
+  const hasVideos = !error && videos.length > 0
+
+  // No videos exist yet (real `videos` table is empty), so the page is an
+  // honest "coming soon" placeholder: indexing it would be a thin page.
+  useDocumentHead(
+    isLoading
+      ? null
+      : {
+          title: "Videos — Our Tiles Being Made & Installed",
+          description: hasVideos
+            ? "Watch videos of our workshop, our tile-making process and tile installations from our Lahore tile makers."
+            : "Videos of our workshop and tile-making process are coming soon. Meanwhile, browse our range of clay and terracotta tiles.",
+          path: "/videos",
+          noindex: !hasVideos,
+        },
+  )
 
   return (
     <main className="flex-1">

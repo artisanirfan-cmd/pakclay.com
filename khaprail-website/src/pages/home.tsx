@@ -1,3 +1,4 @@
+import { useDocumentHead } from "@/hooks/use-document-head"
 import { Hero } from "@/components/home/hero"
 import { FeaturedCategoriesRow } from "@/components/home/featured-categories-row"
 import { FeatureRow } from "@/components/home/feature-row"
@@ -41,6 +42,13 @@ import { DownloadCta } from "@/components/home/download-cta"
 // reason — a new, admin-curated section, not in the spec's confirmed
 // order, kept alongside everything else rather than replacing it.
 export function Home() {
+  useDocumentHead({
+    title: "Clay Roof & Terracotta Tiles in Lahore | PAKCLAY.COM",
+    fullTitle: true,
+    description:
+      "Khaprail Tiles has made clay roof tiles, Multani tiles and terracotta flooring in Lahore since 1982. Browse the range and request a free sample.",
+    path: "/",
+  })
   return (
     <main className="flex-1">
       <Hero />

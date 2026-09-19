@@ -1,3 +1,8 @@
+import { useDocumentHead } from "@/hooks/use-document-head"
+import { JsonLd } from "@/components/seo/json-ld"
+import { breadcrumbJsonLd } from "@/lib/seo/json-ld"
+import { shareImage } from "@/lib/seo/image"
+import { joinList, truncateAtWord } from "@/lib/seo/text"
 import { useEffect, useState } from "react"
 import { Link, useParams, useSearchParams } from "react-router-dom"
 import { ChevronRightIcon } from "lucide-react"
@@ -67,6 +72,39 @@ export function CategoryDetail() {
   const pageCount = Math.max(1, Math.ceil(products.length / PAGE_SIZE))
   const pagedProducts = products.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
 
+  // Title/description are built only from real data (the category's name and
+  // parent, its real product count and product names). A category with no
+  // products at all is a thin page: it is set noindex (and kept out of the
+  // sitemap by the server) until products are added. Active filters (the
+  // ?color=... query) vary the visible list but not the page's identity, so
+  // the canonical stays the bare path and the description omits the count.
+  const hasActiveFilters = Object.values(activeFilters).some((values) => values.length > 0)
+  const parentName = ancestors[ancestors.length - 1]?.name
+  const isEmptyCategory = !productsLoading && !hasActiveFilters && products.length === 0
+  useDocumentHead(
+    category && !productsLoading
+      ? {
+          title: /tiles?\b/i.test(category.name) ? category.name : `${category.name} Tiles`,
+          description: truncateAtWord(
+            isEmptyCategory
+              ? `Browse ${category.name} at PAKCLAY.COM. Products for this category are being added — contact us on WhatsApp for availability.`
+              : hasActiveFilters || products.length === 0
+                ? `Browse ${category.name} from PAKCLAY.COM. Filter by type, pattern, material, finish and color, then request a free sample.`
+                : products.length === 1
+                  ? `Browse ${category.name}${parentName ? ` in our ${parentName} range` : ""}: ${products[0].name}. Request a free sample from PAKCLAY.COM.`
+                  : `Browse ${products.length} products in ${category.name}${parentName ? `, part of our ${parentName} range` : ""}, including ${joinList(
+                      products.slice(0, 2).map((p) => p.name),
+                    )}. Request a free sample from PAKCLAY.COM.`,
+            155,
+          ),
+          path: `/categories/${category.slug}`,
+          image: shareImage(category.cover_image_url ?? products[0]?.cover_image_url, 630),
+          imageAlt: category.name,
+          noindex: isEmptyCategory,
+        }
+      : null,
+  )
+
   function handleToggle(filterType: string, value: string) {
     const next = toggleFilterValue(activeFilters, filterType, value)
     setSearchParams(filtersToSearchParams(next, sort), { replace: true })
@@ -107,6 +145,13 @@ export function CategoryDetail() {
 
   return (
     <main className="flex-1">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          ...ancestors.map((a) => ({ name: a.name, path: `/categories/${a.slug}` })),
+          { name: category.name, path: `/categories/${category.slug}` },
+        ])}
+      />
       <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6">
         <nav aria-label="Breadcrumb" className="mb-4 flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
           <Link to="/" className="hover:text-foreground hover:underline">
@@ -200,6 +245,7 @@ export function CategoryDetail() {
         ) : (
           <>
             <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+              <h2 className="sr-only">Tile products in this category</h2>
               {pagedProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}

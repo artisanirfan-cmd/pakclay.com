@@ -1,3 +1,4 @@
+import { useDocumentHead } from "@/hooks/use-document-head"
 import { Skeleton } from "@/components/ui/skeleton"
 import { ProductCard } from "@/components/products/product-card"
 import { useNewArrivals } from "@/hooks/use-new-arrivals"
@@ -5,6 +6,12 @@ import { useNewArrivals } from "@/hooks/use-new-arrivals"
 // /new-arrivals (01-SITE-MAP.md) — real `created_at`, newest first, same
 // honest-data source as the homepage rail (10-HOMEPAGE-SPEC.md).
 export function NewArrivals() {
+  useDocumentHead({
+    title: "New Arrivals — Latest Tiles Added",
+    description:
+      "See the newest clay, terracotta and stone tiles added to our range, listed newest first. Request a free sample of any tile.",
+    path: "/new-arrivals",
+  })
   const { products, isLoading, error } = useNewArrivals()
 
   return (
@@ -27,6 +34,7 @@ export function NewArrivals() {
           <p className="py-16 text-center text-sm text-muted-foreground">New arrivals coming soon.</p>
         ) : (
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+            <h2 className="sr-only">New arrival tiles</h2>
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

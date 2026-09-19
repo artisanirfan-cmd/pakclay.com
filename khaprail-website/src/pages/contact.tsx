@@ -1,3 +1,4 @@
+import { useDocumentHead } from "@/hooks/use-document-head"
 import { ClockIcon, MailIcon, MapPinIcon, PhoneIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { buildWhatsAppUrl } from "@/lib/whatsapp"
@@ -8,6 +9,12 @@ import { CONTACT_EMAIL, CONTACT_HOURS, CONTACT_LOCATIONS, CONTACT_PHONES } from 
 // batch 33) are now shown here too, kept in sync with the footer via one
 // shared `lib/contact-info.ts` source of truth.
 export function Contact() {
+  useDocumentHead({
+    title: "Contact & Locations — Lahore and Islamabad",
+    description:
+      "Call, email or WhatsApp us about clay and terracotta tiles. Visit our Lahore head office on Walton Road or our Islamabad location in Gulberg Greens.",
+    path: "/contact",
+  })
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col items-center gap-6 px-4 py-24 text-center sm:px-6">
       <h1 className="font-heading text-6xl font-semibold sm:text-7xl">Get in Touch</h1>

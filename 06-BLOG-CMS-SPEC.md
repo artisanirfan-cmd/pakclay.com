@@ -29,7 +29,7 @@ Mirror the exact field structure already used for the SylJo Tech blog CMS (`sylj
 
 ## Public post page
 
-- Render Article JSON-LD schema using the SEO tab fields
+- Render BlogPosting JSON-LD schema (author = the site organization when the post has no author; no invented data) using the SEO tab fields, plus BreadcrumbList
 - Render FAQPage JSON-LD schema using the FAQs tab
 - Surface the Answer Box prominently near the top of the post (both for human skimmers and AI crawlers)
 - Standard blog post layout: cover image, title, author/read-time, content, FAQ accordion at the bottom

@@ -1,3 +1,5 @@
+import { JsonLd } from "@/components/seo/json-ld"
+import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/organization"
 import { Suspense } from "react"
 import { Outlet } from "react-router-dom"
 import { SubBrandBar } from "@/components/layout/sub-brand-bar"
@@ -16,11 +18,16 @@ import { ChatPanelProvider } from "@/lib/chat-panel-context"
 // around this whole layout) means every lazy-loaded route (App.tsx, SEO/perf
 // batch A) only shows a loading state in the page-content area — the
 // header/footer/chat widget/tab bar mount immediately and never flash away.
+// Site-wide identity nodes (same on every page, built from the single-sourced
+// contact/social data). See lib/seo/organization.ts for the entity-name note.
+const SITE_JSON_LD = [organizationJsonLd(), websiteJsonLd()]
+
 export function SiteLayout() {
   return (
     <MobileDrawerProvider>
       <ChatPanelProvider>
         <div className="flex min-h-svh flex-col pb-20 lg:pb-0">
+          <JsonLd data={SITE_JSON_LD} />
           <SubBrandBar />
           <SiteHeader />
           <Suspense fallback={<RouteLoadingFallback />}>

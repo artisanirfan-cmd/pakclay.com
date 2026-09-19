@@ -8,11 +8,18 @@ import { Button } from "@/components/ui/button"
 // duplicate content — and this page adds `noindex` as a second signal.
 export function NotFound() {
   useEffect(() => {
+    const previousTitle = document.title
+    document.title = "Page not found | PAKCLAY.COM"
+    // A 404 has no canonical URL: drop any left over from the previous page.
+    document.head.querySelector('link[rel="canonical"]')?.remove()
     const meta = document.createElement("meta")
     meta.name = "robots"
     meta.content = "noindex"
     document.head.appendChild(meta)
-    return () => meta.remove()
+    return () => {
+      meta.remove()
+      document.title = previousTitle
+    }
   }, [])
 
   return (

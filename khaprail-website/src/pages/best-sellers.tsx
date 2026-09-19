@@ -1,3 +1,4 @@
+import { useDocumentHead } from "@/hooks/use-document-head"
 import { Skeleton } from "@/components/ui/skeleton"
 import { ProductCard } from "@/components/products/product-card"
 import { useBestSellers } from "@/hooks/use-best-sellers"
@@ -5,6 +6,12 @@ import { useBestSellers } from "@/hooks/use-best-sellers"
 // /best-sellers (01-SITE-MAP.md) — ranked by real `sample_inquiries` volume,
 // same honest-data source as the homepage rail (10-HOMEPAGE-SPEC.md).
 export function BestSellers() {
+  useDocumentHead({
+    title: "Best Sellers — Most Requested Tiles",
+    description:
+      "Our most-requested tiles, ranked from real customer sample requests. See which clay and terracotta tiles people ask for most, and request a sample.",
+    path: "/best-sellers",
+  })
   const { products, isLoading, error } = useBestSellers()
 
   return (
@@ -29,6 +36,7 @@ export function BestSellers() {
           </p>
         ) : (
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+            <h2 className="sr-only">Best selling tiles</h2>
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

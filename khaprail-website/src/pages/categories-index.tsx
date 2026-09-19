@@ -1,3 +1,4 @@
+import { useDocumentHead } from "@/hooks/use-document-head"
 import { Link } from "react-router-dom"
 import { Skeleton } from "@/components/ui/skeleton"
 import { CategoryTile } from "@/components/categories/category-tile"
@@ -8,6 +9,12 @@ import { getRootCategories } from "@/lib/category-tree"
 // (12-CATEGORY-TAXONOMY.md), following the same Hick's-Law grid pattern as
 // the mega-menu and homepage rows rather than a text list (02-DESIGN-SYSTEM.md).
 export function CategoriesIndex() {
+  useDocumentHead({
+    title: "Tile Categories — Roof, Floor, Wall & Outdoor",
+    description:
+      "Explore our tile categories: roof, floor, wall, outdoor, kitchen and bathroom tiles in clay, terracotta, stone and concrete, plus terracotta jali.",
+    path: "/categories",
+  })
   const { categories, isLoading, error } = useCategories()
   const roots = getRootCategories(categories)
 

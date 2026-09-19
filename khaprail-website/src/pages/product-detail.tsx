@@ -1,3 +1,10 @@
+import { useDocumentHead } from "@/hooks/use-document-head"
+import { JsonLd } from "@/components/seo/json-ld"
+import { useCategories } from "@/hooks/use-categories"
+import { getCategoryAncestors } from "@/lib/category-tree"
+import { breadcrumbJsonLd, productJsonLd } from "@/lib/seo/json-ld"
+import { shareImage } from "@/lib/seo/image"
+import { cleanText, truncateAtWord } from "@/lib/seo/text"
 import { lazy, Suspense } from "react"
 import { Link, useParams } from "react-router-dom"
 import { Button } from "@/components/ui/button"
@@ -30,6 +37,36 @@ export function ProductDetail() {
   const relatedProducts = useRelatedProducts(product?.category_id ?? null, product?.id ?? "")
   const comparableProducts = useComparableProducts(product?.category_id ?? null, product?.id ?? "")
   const exploreProducts = useExploreProducts(product?.id ?? "")
+  const { categories } = useCategories()
+
+  // Real fields only: a product whose description is still placeholder copy
+  // (cleanText() returns "") gets a description built from its real name,
+  // category and size instead — never the placeholder text.
+  useDocumentHead(
+    product
+      ? {
+          // A category can share a product's exact name (e.g. "Marble Living
+          // Room Wall Tiles"); the suffix keeps the two titles distinct.
+          title: (() => {
+            const category = product.category_name
+            if (!category) return product.name
+            const sameName = category.toLowerCase().includes(product.name.toLowerCase())
+            const candidate = sameName ? `${product.name} — Product Details` : `${product.name} — ${category}`
+            return candidate.length <= 50 ? candidate : product.name
+          })(),
+          description:
+            truncateAtWord(cleanText(product.description), 155) ||
+            `${product.name}${product.category_name ? ` — ${product.category_name}` : ""} from PAKCLAY.COM${
+              product.size ? `, size ${product.size}` : ""
+            }. See photos and request a free sample.`,
+          path: `/products/${product.slug}`,
+          image: shareImage(product.cover_image_url ?? product.product_images[0]?.image_url, 630),
+          imageAlt: product.name,
+          type: "product",
+          product: { priceAmount: product.price },
+        }
+      : null,
+  )
 
   if (isLoading) {
     return (
@@ -59,8 +96,19 @@ export function ProductDetail() {
     )
   }
 
+  const productCategory = product.category_id ? categories.find((c) => c.id === product.category_id) : undefined
+  const productCrumbs = [
+    { name: "Home", path: "/" },
+    ...(productCategory ? [...getCategoryAncestors(categories, productCategory.id), productCategory] : []).map((c) => ({
+      name: c.name,
+      path: `/categories/${c.slug}`,
+    })),
+    { name: product.name, path: `/products/${product.slug}` },
+  ]
+
   return (
     <main className="flex-1">
+      <JsonLd data={[productJsonLd(product), breadcrumbJsonLd(productCrumbs)]} />
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2">
         <Gallery
           productName={product.name}

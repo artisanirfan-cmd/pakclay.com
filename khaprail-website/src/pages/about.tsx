@@ -1,3 +1,4 @@
+import { useDocumentHead } from "@/hooks/use-document-head"
 import { Link } from "react-router-dom"
 import { CtaBanner } from "@/components/shared/cta-banner"
 
@@ -6,6 +7,12 @@ import { CtaBanner } from "@/components/shared/cta-banner"
 // invented founder story or milestones per CLAUDE.md's "never fabricate
 // data" rule. Flag to Sylvester if he wants richer company-history copy.
 export function About() {
+  useDocumentHead({
+    title: "About Us — Clay Tile Makers Since 1982",
+    description:
+      "Since 1982, our Lahore workshop has shaped clay roof tiles, Multani tiles and terracotta flooring. Learn about our craft and our tile range.",
+    path: "/about",
+  })
   return (
     <main className="flex-1">
       <section className="border-b border-border bg-muted">

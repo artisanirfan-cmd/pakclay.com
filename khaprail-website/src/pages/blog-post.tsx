@@ -5,7 +5,11 @@ import { StorageImage } from "@/components/shared/storage-image"
 import { FaqAccordion } from "@/components/blog/faq-accordion"
 import { MarkdownContent } from "@/components/blog/markdown-content"
 import { useBlogPost } from "@/hooks/use-blog-post"
-import { buildArticleJsonLd, buildFaqJsonLd } from "@/lib/seo/json-ld"
+import { JsonLd } from "@/components/seo/json-ld"
+import { useDocumentHead } from "@/hooks/use-document-head"
+import { blogPostingJsonLd, breadcrumbJsonLd, faqJsonLd } from "@/lib/seo/json-ld"
+import { shareImage } from "@/lib/seo/image"
+import { cleanText, truncateAtWord } from "@/lib/seo/text"
 import { stripMarkdown } from "@/lib/markdown"
 
 // /blog/:slug (06-BLOG-CMS-SPEC.md): cover image, title, author/read-time,
@@ -14,6 +18,24 @@ import { stripMarkdown } from "@/lib/markdown"
 export function BlogPost() {
   const { slug } = useParams<{ slug: string }>()
   const { post, isLoading, error } = useBlogPost(slug)
+
+  // Title/description come from the post's SEO tab fields (meta_title /
+  // meta_description) when the author set them, else the title / excerpt.
+  useDocumentHead(
+    post
+      ? {
+          title: cleanText(post.meta_title) || truncateAtWord(cleanText(post.title), 46),
+          description:
+            truncateAtWord(cleanText(post.meta_description) || cleanText(post.excerpt) || cleanText(post.answer_box), 155) ||
+            `Read "${post.title}" on the ${post.category ?? "tile"} blog.`,
+          path: `/blog/${post.slug}`,
+          image: shareImage(post.cover_image_url, 630),
+          imageAlt: post.title,
+          type: "article",
+          article: { publishedTime: post.published_at, modifiedTime: post.published_at, section: post.category?.trim(), tags: post.entity_tags },
+        }
+      : null,
+  )
 
   if (isLoading) {
     return (
@@ -39,20 +61,26 @@ export function BlogPost() {
     )
   }
 
-  const articleJsonLd = buildArticleJsonLd(post)
-  const faqJsonLd = buildFaqJsonLd(post)
+  const structuredData = [
+    blogPostingJsonLd(post),
+    faqJsonLd(post),
+    breadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "Blog", path: "/blog" },
+      { name: post.title, path: `/blog/${post.slug}` },
+    ]),
+  ]
 
   return (
     <main className="flex-1">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: articleJsonLd }} />
-      {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJsonLd }} />}
+      <JsonLd data={structuredData} />
 
       <div className="mx-auto w-full max-w-2xl px-4 py-16 sm:px-6">
         {post.cover_image_url && (
           <div className="mb-8 flex aspect-[16/9] w-full items-center justify-center overflow-hidden rounded-xl bg-muted">
             <StorageImage
               src={post.cover_image_url}
-              alt=""
+              alt={post.title}
               width={672}
               height={378}
               priority

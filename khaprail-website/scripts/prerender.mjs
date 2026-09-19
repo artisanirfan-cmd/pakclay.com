@@ -94,6 +94,18 @@ async function getDynamicRoutes() {
   ]
 }
 
+// Vite adds a <link rel="modulepreload"> for every lazy chunk the page pulled in
+// while it was being captured. Keep those (the route's own chunk and its data
+// hooks load sooner from the HTML), but NOT chunks that are deliberately kept
+// off the critical path — the AI chat widget (mounted on idle), and the PDF
+// download buttons (the heavy PDF engine loads on click). Preloading them would
+// fetch that code on every page view and undo the bundle-size work.
+const DEFERRED_CHUNKS = /(ai-chat|deferred-chat|react-pdf|download-catalog|download-spec|\/download-)/i
+
+function dropDeferredPreloads(html) {
+  return html.replace(/<link[^>]*rel="modulepreload"[^>]*>\s*/g, (tag) => (DEFERRED_CHUNKS.test(tag) ? "" : tag))
+}
+
 function routeToFilePath(route) {
   if (route === "/") return path.join(DIST, "index.html")
   return path.join(DIST, route.replace(/^\//, ""), "index.html")
@@ -172,7 +184,15 @@ async function main() {
         // batches right after the last fetch resolves (e.g. setLoading(false)
         // then a re-render on the next tick).
         await new Promise((resolve) => setTimeout(resolve, 300))
-        const html = injectCanonical(await page.content(), route)
+        // Vite's runtime injects <link rel="modulepreload"> tags for lazy chunks
+        // using the page's ORIGIN at capture time — the temporary preview server
+        // (http://localhost:4321). Left in, every visitor's browser tried to
+        // fetch chunks from a port that only existed on the build machine
+        // (net::ERR_CONNECTION_REFUSED console errors on every page). Make them
+        // site-relative so they become working preloads.
+        const origin = base.replace(/\/$/, "")
+        const captured = (await page.content()).split(`${origin}/`).join("/").split(origin).join("")
+        const html = injectCanonical(dropDeferredPreloads(captured), route)
         results.push({ route, html })
       } catch (err) {
         failures++

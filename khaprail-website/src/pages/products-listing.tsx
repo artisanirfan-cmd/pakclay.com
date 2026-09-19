@@ -1,3 +1,4 @@
+import { useDocumentHead } from "@/hooks/use-document-head"
 import { useEffect, useState } from "react"
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom"
 import {
@@ -36,6 +37,12 @@ const MOBILE_FILTERS_HASH = "#mobile-filters"
 // two-pane facet drill-down opened from the bottom tab bar) — both drive
 // the exact same `activeFilters` state.
 export function ProductsListing() {
+  useDocumentHead({
+    title: "Shop All Tiles — Roof, Floor & Wall Tiles",
+    description:
+      "Browse every clay roof tile, terracotta floor tile, Multani tile and stone wall tile we offer. Filter by type, pattern, material, finish and color.",
+    path: "/products",
+  })
   const [searchParams] = useSearchParams()
   const location = useLocation()
   const navigate = useNavigate()
@@ -127,6 +134,7 @@ export function ProductsListing() {
         ) : (
           <>
             <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+              <h2 className="sr-only">Tile products</h2>
               {pagedProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}

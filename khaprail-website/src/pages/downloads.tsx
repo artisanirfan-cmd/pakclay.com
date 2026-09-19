@@ -1,3 +1,4 @@
+import { useDocumentHead } from "@/hooks/use-document-head"
 import { lazy, Suspense } from "react"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -19,6 +20,12 @@ const DownloadSpecSheetButton = lazy(() =>
 // real `products`/`categories` data (@react-pdf/renderer), never a static
 // file, so there's nothing to go stale.
 export function Downloads() {
+  useDocumentHead({
+    title: "Downloads — Tile Catalog & Spec Sheets",
+    description:
+      "Download our full tile catalog or a spec sheet for any tile as a PDF, generated live from our current product range.",
+    path: "/downloads",
+  })
   const { categories, isLoading: categoriesLoading } = useCategories()
   const { products, isLoading: productsLoading } = useDownloadableProducts()
   const isLoading = categoriesLoading || productsLoading
