@@ -180,3 +180,10 @@ try {
   console.warn("[prerender] Skipping —", err instanceof Error ? err.message : err)
   console.warn("[prerender] Build continues with SPA fallback (no pre-rendered HTML).")
 }
+
+// Force a clean exit. main() already closes the browser and preview server in
+// a `finally`, but a lingering Chromium child or a keep-alive socket can keep
+// Node's event loop alive on some hosts (notably `--single-process` Chromium
+// on shared hosting). A hung prerender makes the deploy pipeline wait until it
+// times out and report "build failed" even though every route was written.
+process.exit(0)
