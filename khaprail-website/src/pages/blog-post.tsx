@@ -3,8 +3,10 @@ import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import { StorageImage } from "@/components/shared/storage-image"
 import { FaqAccordion } from "@/components/blog/faq-accordion"
+import { MarkdownContent } from "@/components/blog/markdown-content"
 import { useBlogPost } from "@/hooks/use-blog-post"
 import { buildArticleJsonLd, buildFaqJsonLd } from "@/lib/seo/json-ld"
+import { stripMarkdown } from "@/lib/markdown"
 
 // /blog/:slug (06-BLOG-CMS-SPEC.md): cover image, title, author/read-time,
 // Answer Box near the top (for human skimmers and AI crawlers), content,
@@ -37,7 +39,6 @@ export function BlogPost() {
     )
   }
 
-  const paragraphs = (post.content ?? "").split(/\n\s*\n/).filter((p) => p.trim())
   const articleJsonLd = buildArticleJsonLd(post)
   const faqJsonLd = buildFaqJsonLd(post)
 
@@ -69,15 +70,11 @@ export function BlogPost() {
 
         {post.answer_box && (
           <div className="mt-6 rounded-xl border border-primary/20 bg-primary/5 p-5">
-            <p className="text-foreground">{post.answer_box}</p>
+            <p className="text-foreground">{stripMarkdown(post.answer_box)}</p>
           </div>
         )}
 
-        <div className="mt-8 flex flex-col gap-4 text-lg leading-relaxed text-foreground">
-          {paragraphs.map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
-          ))}
-        </div>
+        <MarkdownContent className="mt-8">{post.content ?? ""}</MarkdownContent>
 
         <FaqAccordion faqs={post.blog_faqs} />
       </div>

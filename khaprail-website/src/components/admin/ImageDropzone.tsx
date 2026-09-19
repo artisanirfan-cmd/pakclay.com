@@ -10,7 +10,7 @@ import { supabase } from "@/lib/supabase"
 // signed URL (which expires). See PROGRESS.md "images disappearing" fix.
 // ---------------------------------------------------------------------------
 
-async function uploadProductImage(file: File): Promise<string> {
+export async function uploadProductImage(file: File): Promise<string> {
   if (!supabase) throw new Error("Supabase project not configured yet")
   const ext = file.name.includes(".") ? file.name.split(".").pop() : "jpg"
   const path = `${crypto.randomUUID()}.${ext}`

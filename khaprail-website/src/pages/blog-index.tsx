@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Skeleton } from "@/components/ui/skeleton"
 import { StorageImage } from "@/components/shared/storage-image"
 import { useBlogPosts } from "@/hooks/use-blog-posts"
+import { stripMarkdown } from "@/lib/markdown"
 
 // /blog — published posts only (06-BLOG-CMS-SPEC.md).
 export function BlogIndex() {
@@ -47,7 +48,7 @@ export function BlogIndex() {
                   <CardContent className="flex flex-col gap-2 py-4">
                     {post.category && <Badge variant="secondary">{post.category}</Badge>}
                     <h2 className="font-heading text-xl group-hover/link:underline">{post.title}</h2>
-                    {post.excerpt && <p className="text-base text-muted-foreground">{post.excerpt}</p>}
+                    {post.excerpt && <p className="text-base text-muted-foreground">{stripMarkdown(post.excerpt)}</p>}
                     <p className="text-xs text-muted-foreground">
                       {[post.author, post.read_time_minutes ? `${post.read_time_minutes} min read` : null]
                         .filter(Boolean)

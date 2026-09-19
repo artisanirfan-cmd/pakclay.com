@@ -7,12 +7,12 @@ Mirror the exact field structure already used for the SylJo Tech blog CMS (`sylj
 **Content Tab**
 - Title
 - Slug
-- Cover Image
+- Cover Image (drag-and-drop upload to Supabase Storage, permanent public URL)
 - Category
 - Author
 - Read Time
 - Excerpt
-- Full Content (rich text / MDX)
+- Full Content (Markdown - rendered to styled HTML on the public post; "Insert Image" uploads a file and inserts `![alt](url)` at the cursor, alt text required)
 
 **SEO Tab**
 - Focus Keyword

@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent } from "react"
+import { useEffect, useRef, useState, type FormEvent } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -12,9 +12,12 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Skeleton } from "@/components/ui/skeleton"
+import { CoverImageDropzone } from "@/components/admin/ImageDropzone"
+import { ContentImageInserter } from "@/components/admin/ContentImageInserter"
 import { useAdminBlogPost } from "@/hooks/use-admin-blog-post"
 import { saveBlogPost, faqsFromBlogFaqs, type FaqDraft } from "@/lib/blog-admin"
 import { getErrorMessage, slugify } from "@/lib/utils"
+import { insertBlockAtSelection } from "@/lib/markdown"
 import type { BlogPostFormValues } from "@/types/blog"
 
 const EMPTY_VALUES: BlogPostFormValues = {
@@ -48,6 +51,10 @@ export function AdminBlogEditor() {
   const [entityTagsInput, setEntityTagsInput] = useState("")
   const [faqs, setFaqs] = useState<FaqDraft[]>([])
   const [isSaving, setIsSaving] = useState(false)
+  // Where the cursor was in the Full Content textarea, so "Insert Image" can
+  // drop the image there even after focus has moved to the alt-text field.
+  const contentRef = useRef<HTMLTextAreaElement>(null)
+  const contentSelection = useRef<{ start: number; end: number } | null>(null)
   const [saveError, setSaveError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -76,6 +83,20 @@ export function AdminBlogEditor() {
 
   function removeFaq(index: number) {
     setFaqs((prev) => prev.filter((_, i) => i !== index))
+  }
+
+  function handleInsertImage(markdown: string) {
+    const current = values.content ?? ""
+    const selection = contentSelection.current ?? { start: current.length, end: current.length }
+    const { value, cursor } = insertBlockAtSelection(current, selection.start, selection.end, markdown)
+    updateField("content", value)
+    contentSelection.current = { start: cursor, end: cursor }
+    requestAnimationFrame(() => {
+      const el = contentRef.current
+      if (!el) return
+      el.focus()
+      el.setSelectionRange(cursor, cursor)
+    })
   }
 
   async function handleSubmit(event: FormEvent) {
@@ -141,12 +162,12 @@ export function AdminBlogEditor() {
             <Field label="Slug">
               <Input required value={values.slug} onChange={(e) => updateField("slug", e.target.value)} />
             </Field>
-            <Field label="Cover Image URL">
-              <Input
-                value={values.cover_image_url ?? ""}
-                onChange={(e) => updateField("cover_image_url", e.target.value || null)}
+            <div className="max-w-sm">
+              <CoverImageDropzone
+                value={values.cover_image_url}
+                onChange={(url) => updateField("cover_image_url", url)}
               />
-            </Field>
+            </div>
             <div className="grid grid-cols-2 gap-4">
               <Field label="Category">
                 <Input
@@ -177,10 +198,20 @@ export function AdminBlogEditor() {
             </Field>
             <Field label="Full Content">
               <Textarea
-                className="min-h-48"
+                ref={contentRef}
+                className="min-h-64 font-mono text-sm"
                 value={values.content ?? ""}
                 onChange={(e) => updateField("content", e.target.value || null)}
+                onSelect={(e) => {
+                  const { selectionStart, selectionEnd } = e.currentTarget
+                  contentSelection.current = { start: selectionStart, end: selectionEnd }
+                }}
               />
+              <p className="text-xs text-muted-foreground">
+                Written in Markdown: <code>## Heading</code>, <code>**bold**</code>, <code>[text](url)</code>,{" "}
+                <code>- list</code>, <code>1. list</code>, <code>---</code> for a divider.
+              </p>
+              <ContentImageInserter onInsert={handleInsertImage} />
             </Field>
             <Field label="Status">
               <Select value={values.status} onValueChange={(v) => v && updateField("status", v as "draft" | "published")}>
