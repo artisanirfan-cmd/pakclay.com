@@ -66,12 +66,15 @@ function OfferCardTile({ card }: { card: OfferCard }) {
       {/* Real WebP/quality/size optimization via Supabase's transform
           endpoint (SEO/perf batch A, 2026-09-10) — this exact image (one of
           this batch's live-confirmed multi-MB offenders) was previously
-          served at full source size into a ~380x250px slot. */}
+          served at full source size into a ~380x250px slot. It sits under a heavy
+          navy gradient, so it is requested at the real slot size (380x230, 2x
+          retina) and quality 60 — was 500x330 at 75 (146 KiB for one card). */}
       <StorageImage
         src={card.image_url}
         alt={card.image_alt_text}
-        width={500}
-        height={330}
+        width={380}
+        height={230}
+        quality={60}
         className="absolute inset-x-0 bottom-0 h-2/3 w-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/85 to-navy/20" />

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type FormEvent } from "react"
 import { useMatch } from "react-router-dom"
-import { useReducedMotion } from "framer-motion"
+import { useReducedMotion } from "@/hooks/use-reduced-motion"
 import { XIcon, SendIcon, SparklesIcon, SearchIcon, RotateCcwIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useProduct } from "@/hooks/use-product"

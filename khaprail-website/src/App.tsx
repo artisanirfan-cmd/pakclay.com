@@ -4,9 +4,6 @@ import { ScrollToTop } from "@/components/layout/scroll-to-top"
 import { SiteLayout } from "@/components/layout/site-layout"
 import { RouteLoadingFallback } from "@/components/shared/route-loading-fallback"
 import { Home } from "@/pages/home"
-import { AuthProvider } from "@/lib/auth-context"
-import { ProtectedRoute } from "@/components/admin/protected-route"
-import { AdminLayout } from "@/components/admin/admin-layout"
 
 // SEO/perf batch A (2026-09-10, see 00-PROGRESS.md): every route was
 // previously a static import, so a first-time visitor to the homepage
@@ -26,6 +23,12 @@ import { AdminLayout } from "@/components/admin/admin-layout"
 // the ~24KB it would have saved. Every other route keeps the real byte
 // savings from splitting with none of that downside, since they aren't the
 // default landing page.
+// Admin shell pieces are lazy too (previously static, so AdminLayout, the
+// auth-session provider and ProtectedRoute all shipped in the public entry
+// chunk and the session bootstrap ran on every storefront page view).
+const AdminAuthShell = lazy(() => import("@/components/admin/admin-auth-shell").then((m) => ({ default: m.AdminAuthShell })))
+const ProtectedRoute = lazy(() => import("@/components/admin/protected-route").then((m) => ({ default: m.ProtectedRoute })))
+const AdminLayout = lazy(() => import("@/components/admin/admin-layout").then((m) => ({ default: m.AdminLayout })))
 const CategoriesIndex = lazy(() => import("@/pages/categories-index").then((m) => ({ default: m.CategoriesIndex })))
 const CategoryDetail = lazy(() => import("@/pages/category-detail").then((m) => ({ default: m.CategoryDetail })))
 const ProductsListing = lazy(() => import("@/pages/products-listing").then((m) => ({ default: m.ProductsListing })))
@@ -83,40 +86,39 @@ const AdminTrendingTileEditor = lazy(() =>
 
 function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route element={<SiteLayout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/categories" element={<CategoriesIndex />} />
-            <Route path="/categories/:slug" element={<CategoryDetail />} />
-            <Route path="/products" element={<ProductsListing />} />
-            <Route path="/products/:slug" element={<ProductDetail />} />
-            <Route path="/search" element={<SearchResults />} />
-            <Route path="/new-arrivals" element={<NewArrivals />} />
-            <Route path="/best-sellers" element={<BestSellers />} />
-            <Route path="/videos" element={<Videos />} />
-            <Route path="/downloads" element={<Downloads />} />
-            <Route path="/blog" element={<BlogIndex />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/contact" element={<Contact />} />
-          </Route>
+    <BrowserRouter>
+      <ScrollToTop />
+      <Routes>
+        <Route element={<SiteLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/categories" element={<CategoriesIndex />} />
+          <Route path="/categories/:slug" element={<CategoryDetail />} />
+          <Route path="/products" element={<ProductsListing />} />
+          <Route path="/products/:slug" element={<ProductDetail />} />
+          <Route path="/search" element={<SearchResults />} />
+          <Route path="/new-arrivals" element={<NewArrivals />} />
+          <Route path="/best-sellers" element={<BestSellers />} />
+          <Route path="/videos" element={<Videos />} />
+          <Route path="/downloads" element={<Downloads />} />
+          <Route path="/blog" element={<BlogIndex />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/contact" element={<Contact />} />
+        </Route>
 
-          {/* Admin gets its own chrome, not the storefront's SiteLayout
-              (07-ADMIN-DASHBOARD-SPEC.md). /admin/login is the only public
-              admin route, and isn't nested in a layout with its own
-              Suspense boundary (see admin-layout.tsx), so it gets one of
-              its own; everything else requires a session. */}
-          <Route
-            path="/admin/login"
-            element={
-              <Suspense fallback={<RouteLoadingFallback />}>
-                <AdminLogin />
-              </Suspense>
-            }
-          />
+        {/* Admin gets its own chrome, not the storefront's SiteLayout
+            (07-ADMIN-DASHBOARD-SPEC.md). /admin/login is the only public
+            admin route, and isn't nested in a layout with its own
+            Suspense boundary (see admin-layout.tsx), so it gets one of
+            its own; everything else requires a session. */}
+        <Route
+          element={
+            <Suspense fallback={<RouteLoadingFallback />}>
+              <AdminAuthShell />
+            </Suspense>
+          }
+        >
+          <Route path="/admin/login" element={<AdminLogin />} />
           <Route element={<ProtectedRoute />}>
             <Route element={<AdminLayout />}>
               <Route path="/admin" element={<DashboardHome />} />
@@ -142,9 +144,9 @@ function App() {
               <Route path="/admin/trending-tiles/:id/edit" element={<AdminTrendingTileEditor />} />
             </Route>
           </Route>
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

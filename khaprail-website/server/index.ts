@@ -50,7 +50,27 @@ app.all("/sitemap.xml", sitemapHandler)
 app.all("/api/ai-chat", express.raw({ type: "*/*", limit: "2mb" }), aiChatHandler)
 app.all("/api/ai/generate-summary", express.raw({ type: "*/*", limit: "1mb" }), generateSummaryHandler)
 
-app.use(express.static(DIST_DIR))
+// Cache policy (Lighthouse "efficient cache lifetimes"): Vite emits every JS/
+// CSS/image under /assets/ with a content hash in the filename, so those are
+// immutable for a year; the self-hosted fonts and icons have fixed filenames
+// so they get 30 days; HTML (incl. the prerendered per-route pages) must
+// always revalidate so a redeploy is visible immediately (ETag -> 304).
+app.use(
+  express.static(DIST_DIR, {
+    setHeaders(res, filePath) {
+      const normalized = filePath.split(path.sep).join("/")
+      if (normalized.includes("/dist/assets/")) {
+        res.setHeader("Cache-Control", "public, max-age=31536000, immutable")
+      } else if (/\.(?:otf|ttf|woff2?|png|jpe?g|webp|avif|svg|ico)$/i.test(normalized)) {
+        res.setHeader("Cache-Control", "public, max-age=2592000")
+      } else if (/\.html$/i.test(normalized)) {
+        res.setHeader("Cache-Control", "no-cache")
+      } else if (/\.(?:txt|xml)$/i.test(normalized)) {
+        res.setHeader("Cache-Control", "public, max-age=3600")
+      }
+    },
+  }),
+)
 
 // SPA fallback: any non-API route that isn't a real static file gets
 // index.html, so React Router can handle it client-side.

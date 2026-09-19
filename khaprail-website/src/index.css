@@ -2,19 +2,20 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-/* Gilroy — self-hosted OTF (Light 300 for body, ExtraBold 800 for headings).
+/* Gilroy — self-hosted (Light 300 for body, ExtraBold 800 for headings). WOFF2
+   first (~27 KB each, half the OTF size), OTF kept as the fallback source.
    Replace with the full commercial Gilroy pack when licensed for additional
    weight coverage (Regular 400, Medium 500, Semibold 600, Bold 700). */
 @font-face {
   font-family: "Gilroy";
-  src: url("/fonts/Gilroy-Light.otf") format("opentype");
+  src: url("/fonts/Gilroy-Light.woff2") format("woff2"), url("/fonts/Gilroy-Light.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Gilroy";
-  src: url("/fonts/Gilroy-ExtraBold.otf") format("opentype");
+  src: url("/fonts/Gilroy-ExtraBold.woff2") format("woff2"), url("/fonts/Gilroy-ExtraBold.otf") format("opentype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;

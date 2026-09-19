@@ -83,7 +83,7 @@ export function CategoryDetail() {
 
   if (isLoading) {
     return (
-      <main className="flex-1">
+      <main className="min-h-svh flex-1">
         <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6">
           <Skeleton className="mx-auto h-8 w-64" />
         </div>

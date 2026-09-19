@@ -13,6 +13,15 @@ interface StorageImageProps {
   resize?: "cover" | "contain" | "fill"
   /** Above-the-fold / LCP-candidate image — loads eagerly with a high fetch priority instead of the lazy-loaded default. */
   priority?: boolean
+  /**
+   * Offer several PIXEL widths as a `srcset` (e.g. `[480, 800, 1200]`) so a phone downloads a
+   * phone-sized file instead of the desktop one. Requires `sizes`. Height of each candidate
+   * follows the `width`:`height` aspect ratio. Without this prop the single 2x-retina request
+   * (`width * 2`) is used, as before.
+   */
+  widths?: number[]
+  /** The `sizes` attribute describing the rendered slot width — required when `widths` is set. */
+  sizes?: string
 }
 
 /**
@@ -33,16 +42,34 @@ export function StorageImage({
   quality,
   resize = "cover",
   priority = false,
+  widths,
+  sizes,
 }: StorageImageProps) {
   const canTransform = isSupabaseStorageUrl(src)
+  const responsive = canTransform && widths && widths.length > 0 && sizes
+  const candidates = (format?: "webp") =>
+    (widths ?? [])
+      .map(
+        (w) =>
+          `${transformStorageImage(src, { width: w, height: Math.round((w * height) / width), quality, resize, format, exactPixels: true })} ${w}w`,
+      )
+      .join(", ")
   const webpSrc = canTransform ? transformStorageImage(src, { width, height, quality, resize, format: "webp" }) : null
   const fallbackSrc = canTransform ? transformStorageImage(src, { width, height, quality, resize }) : src
 
   return (
     <picture>
-      {webpSrc && <source srcSet={webpSrc} type="image/webp" />}
+      {webpSrc && (
+        <source
+          srcSet={responsive ? candidates("webp") : webpSrc}
+          sizes={responsive ? sizes : undefined}
+          type="image/webp"
+        />
+      )}
       <img
         src={fallbackSrc}
+        srcSet={responsive ? candidates() : undefined}
+        sizes={responsive ? sizes : undefined}
         alt={alt}
         width={width}
         height={height}

@@ -20,6 +20,8 @@ export interface ImageTransformOptions {
   /** Target display width in CSS px — pass the actual rendered slot size, not the source's. */
   width: number
   height?: number
+  /** When true, `width`/`height` are the exact PIXEL size to request (no 2x retina doubling) — used to build `srcset` candidates. */
+  exactPixels?: boolean
   /** 20-100, defaults to 75 (Supabase's own recommended default — visually lossless for photos at this size). */
   quality?: number
   /** "cover" (default) matches this site's near-universal `object-cover` usage. */
@@ -34,8 +36,9 @@ export function transformStorageImage(url: string, options: ImageTransformOption
   const params = new URLSearchParams()
   // Requests slightly above the CSS display size (2x) so the image still
   // reads sharply on high-DPI ("Retina") phone/laptop screens.
-  params.set("width", String(Math.round(options.width * 2)))
-  if (options.height) params.set("height", String(Math.round(options.height * 2)))
+  const scale = options.exactPixels ? 1 : 2
+  params.set("width", String(Math.round(options.width * scale)))
+  if (options.height) params.set("height", String(Math.round(options.height * scale)))
   params.set("quality", String(options.quality ?? 75))
   params.set("resize", options.resize ?? "cover")
   if (options.format) params.set("format", options.format)

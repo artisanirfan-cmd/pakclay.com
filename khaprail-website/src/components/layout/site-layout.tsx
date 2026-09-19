@@ -4,7 +4,7 @@ import { SubBrandBar } from "@/components/layout/sub-brand-bar"
 import { SiteHeader } from "@/components/layout/site-header"
 import { SiteFooter } from "@/components/layout/site-footer"
 import { FloatingWhatsAppButton } from "@/components/shared/floating-whatsapp-button"
-import { AiChatWidget } from "@/components/shared/ai-chat-widget"
+import { DeferredChatWidget } from "@/components/shared/deferred-chat-widget"
 import { RouteLoadingFallback } from "@/components/shared/route-loading-fallback"
 import { MobileTabBar } from "@/components/nav/mobile-tab-bar"
 import { MobileDrawerProvider } from "@/lib/mobile-drawer-context"
@@ -28,7 +28,7 @@ export function SiteLayout() {
           </Suspense>
           <SiteFooter />
           <FloatingWhatsAppButton />
-          <AiChatWidget />
+          <DeferredChatWidget />
           <MobileTabBar />
         </div>
       </ChatPanelProvider>

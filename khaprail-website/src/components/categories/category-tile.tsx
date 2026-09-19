@@ -1,5 +1,4 @@
 import { createElement } from "react"
-import { motion } from "framer-motion"
 import { getCategoryIcon } from "@/lib/category-icons"
 import { StorageImage } from "@/components/shared/storage-image"
 import { cn } from "@/lib/utils"
@@ -19,11 +18,9 @@ interface CategoryTileProps {
 export function CategoryTile({ category, compact }: CategoryTileProps) {
   return (
     <>
-      <motion.span
-        whileHover={{ scale: 1.04 }}
-        transition={{ duration: 0.2, ease: "easeOut" }}
+      <span
         className={cn(
-          "flex aspect-[16/10] w-full items-center justify-center overflow-hidden rounded-md bg-muted shadow-sm group-focus-visible/card:ring-3 group-focus-visible/card:ring-ring/50 group-hover/card:shadow-md",
+          "flex aspect-[16/10] w-full items-center justify-center overflow-hidden rounded-md bg-muted shadow-sm transition-transform duration-200 ease-out hover:scale-[1.04] group-focus-visible/card:ring-3 group-focus-visible/card:ring-ring/50 group-hover/card:shadow-md",
           compact && "aspect-square"
         )}
       >
@@ -52,7 +49,7 @@ export function CategoryTile({ category, compact }: CategoryTileProps) {
             "aria-hidden": "true",
           })
         )}
-      </motion.span>
+      </span>
       <span className={cn("font-medium text-foreground", compact ? "text-sm" : "text-base")}>
         {category.name}
       </span>

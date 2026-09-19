@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom"
-import { HERITAGE_IMAGE_JPG, HERITAGE_IMAGE_WEBP } from "@/lib/heritage-image"
+import {
+  HERITAGE_IMAGE_JPG,
+  HERITAGE_IMAGE_WEBP_SRCSET,
+  HERITAGE_IMAGE_WIDTH,
+  HERITAGE_IMAGE_HEIGHT,
+} from "@/lib/heritage-image"
 
 // Banner treatment reusing the Hero's exact visual pattern (background photo
 // + gradient color wash + light pill badge + bold heading + subtext) rather
@@ -12,11 +17,15 @@ export function Heritage() {
   return (
     <section className="relative overflow-hidden">
       <picture>
-        <source srcSet={HERITAGE_IMAGE_WEBP} type="image/webp" />
+        <source srcSet={HERITAGE_IMAGE_WEBP_SRCSET} sizes="100vw" type="image/webp" />
         <img
           src={HERITAGE_IMAGE_JPG}
           alt=""
           aria-hidden="true"
+          width={HERITAGE_IMAGE_WIDTH}
+          height={HERITAGE_IMAGE_HEIGHT}
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 -z-20 h-full w-full object-cover"
         />
       </picture>

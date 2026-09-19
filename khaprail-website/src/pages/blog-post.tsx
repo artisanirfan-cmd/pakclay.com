@@ -17,7 +17,7 @@ export function BlogPost() {
 
   if (isLoading) {
     return (
-      <main className="flex-1">
+      <main className="min-h-svh flex-1">
         <div className="mx-auto w-full max-w-2xl px-4 py-16 sm:px-6">
           <Skeleton className="aspect-[16/9] w-full rounded-xl" />
           <Skeleton className="mt-6 h-8 w-2/3" />

@@ -70,6 +70,12 @@ export function ZoomableHeroImage({ src, alt, onOpenLightbox }: ZoomableHeroImag
           alt={alt}
           width={900}
           height={900}
+          // Phones download a ~720px file instead of the previous fixed
+          // 1800px one (374 KiB); desktop keeps a 1100px candidate so the
+          // 2.5x hover-zoom stays sharp. `sizes` describes the real slot
+          // (single column on mobile, half of max-w-6xl on lg+).
+          widths={[480, 720, 1100, 1400]}
+          sizes="(min-width: 1024px) 1100px, calc(100vw - 32px)"
           priority
           className="h-full w-full object-cover"
           style={{

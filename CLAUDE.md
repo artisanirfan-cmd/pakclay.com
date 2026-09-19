@@ -24,7 +24,7 @@ It is a catalog + lead-generation site (WhatsApp sample requests, spec-sheet dow
 - shadcn/ui as the component base, Tailwind CSS
 - Lucide icons
 - @react-pdf/renderer for downloadable spec sheets
-- Framer Motion for animation
+- Motion is CSS transitions/Tailwind only (framer-motion was removed 2026-09-19 — it was ~116 KiB of the entry bundle for two trivial uses; use `hooks/use-reduced-motion.ts` for the reduced-motion check)
 - React Router
 - Anthropic API (Claude Haiku 4.5) via Express routes (`khaprail-website/server/routes/ai-chat.ts`, `.../generate-summary.ts`) for cached PDP summaries + the site-wide chat widget — see 00-PROGRESS.md's AI chatbot batch. The API key is server-only; the client never talks to Anthropic directly.
 

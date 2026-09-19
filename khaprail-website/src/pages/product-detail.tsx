@@ -33,7 +33,7 @@ export function ProductDetail() {
 
   if (isLoading) {
     return (
-      <main className="flex-1">
+      <main className="min-h-svh flex-1">
         <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2">
           <Skeleton className="aspect-square w-full rounded-xl" />
           <div className="flex flex-col gap-4">
