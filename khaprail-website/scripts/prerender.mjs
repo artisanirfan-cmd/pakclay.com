@@ -38,7 +38,7 @@ if (process.env.SKIP_PRERENDER) {
 import { preview } from "vite"
 import puppeteer from "puppeteer"
 import { createClient } from "@supabase/supabase-js"
-import { writeFile, mkdir } from "node:fs/promises"
+import { writeFile, mkdir, readFile, access } from "node:fs/promises"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
 
@@ -54,7 +54,11 @@ try {
 
 const ROOT = path.resolve(fileURLToPath(import.meta.url), "../..")
 const DIST = path.join(ROOT, "dist")
-const SITE_URL = "https://khaprail.vercel.app"
+// Public origin used for every canonical URL. Override with SITE_URL or
+// VITE_SITE_URL (the same variables the server and client read); the default
+// is the live domain. (Was hardcoded to the retired *.vercel.app host, so
+// every prerendered page declared a dead domain as its canonical.)
+const SITE_URL = (process.env.SITE_URL || process.env.VITE_SITE_URL || "https://pakclay.com").replace(/\/+$/, "")
 
 const STATIC_ROUTES = [
   "/",
@@ -96,13 +100,39 @@ function routeToFilePath(route) {
 }
 
 function injectCanonical(html, route) {
-  const canonicalUrl = `${SITE_URL}${route === "/" ? "" : route}`
+  // No trailing slash on inner pages (matches the sitemap, React Router and
+  // the server's 301 for /route/); the homepage is the bare origin + "/".
+  const canonicalUrl = `${SITE_URL}${route}`
   const tag = `<link rel="canonical" href="${canonicalUrl}" />`
   if (html.includes('rel="canonical"')) return html
   return html.replace("</head>", `    ${tag}\n  </head>`)
 }
 
+// `dist/index.html` right after `vite build` is the clean SPA shell (empty
+// #root, no canonical). The homepage snapshot later overwrites it, so save a
+// copy first: the server uses `_shell.html` as the fallback for valid
+// dynamic URLs that were not prerendered (with a per-URL canonical injected)
+// and for 404s — it must never fall back to the prerendered homepage.
+async function saveCleanShell() {
+  const indexPath = path.join(DIST, "index.html")
+  const shellPath = path.join(DIST, "_shell.html")
+  const html = await readFile(indexPath, "utf8")
+  if (/<div id="root"><\/div>/.test(html)) {
+    await writeFile(shellPath, html)
+    return
+  }
+  // Re-running prerender without a fresh build: index.html is already the
+  // prerendered homepage. Keep an existing clean shell if there is one.
+  try {
+    await access(shellPath)
+    console.warn("[prerender] dist/index.html is already prerendered — keeping the existing dist/_shell.html")
+  } catch {
+    console.warn("[prerender] No clean shell available (dist/index.html is prerendered and _shell.html is missing). Run `vite build` first.")
+  }
+}
+
 async function main() {
+  await saveCleanShell()
   const dynamicRoutes = await getDynamicRoutes()
   const routes = [...STATIC_ROUTES, ...dynamicRoutes]
   console.log(`[prerender] Prerendering ${routes.length} routes (${STATIC_ROUTES.length} static + ${dynamicRoutes.length} dynamic)...`)

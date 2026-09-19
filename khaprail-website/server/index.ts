@@ -4,13 +4,17 @@ import express from "express"
 import { aiChatHandler } from "./routes/ai-chat.js"
 import { generateSummaryHandler } from "./routes/generate-summary.js"
 import { sitemapHandler } from "./routes/sitemap.js"
+import { robotsHandler } from "./routes/robots.js"
+import { createPageHandler } from "./lib/pages.js"
 
 // Production server for khaprail-website, replacing the previous Vercel
 // deployment: serves the built Vite app (dist/) as static files, implements
 // the two AI routes as real Express endpoints (ported verbatim from the old
-// Vercel Functions — see server/routes/ai-chat.ts), and falls back to
-// index.html for any non-API route so React Router's client-side routing
-// keeps working on a full page load/refresh at any URL.
+// Vercel Functions — see server/routes/ai-chat.ts), generates /sitemap.xml and
+// /robots.txt, and serves every HTML page through server/lib/pages.ts
+// (prerendered routes, live-checked dynamic routes, canonical redirects, real
+// 404s) so React Router's client-side routing keeps working on a full page
+// load/refresh at any valid URL.
 
 try {
   process.loadEnvFile()
@@ -41,6 +45,7 @@ app.get("/health", (_req, res) => {
 })
 
 app.all("/sitemap.xml", sitemapHandler)
+app.get("/robots.txt", robotsHandler)
 
 // `express.raw()` (not `express.json()`) buffers the body without parsing
 // it — the ported handlers call `request.json()` themselves and return
@@ -55,8 +60,32 @@ app.all("/api/ai/generate-summary", express.raw({ type: "*/*", limit: "1mb" }), 
 // immutable for a year; the self-hosted fonts and icons have fixed filenames
 // so they get 30 days; HTML (incl. the prerendered per-route pages) must
 // always revalidate so a redeploy is visible immediately (ETag -> 304).
+//
+// Pages are NOT served by express.static (`index: false`, `redirect: false`):
+// its default turns /products into a 301 to /products/, which contradicted the
+// canonical URL. lib/pages.ts serves the prerendered HTML at the no-slash URL.
+app.use((req, res, next) => {
+  // The build output's own index.html / shell copies are internal files, not
+  // pages: /index.html and /x/index.html 301 to the canonical route, and the
+  // clean shell used for fallbacks is never public.
+  if (req.method === "GET" || req.method === "HEAD") {
+    if (req.path === "/_shell.html") {
+      res.status(404).type("text/plain").send("Not found")
+      return
+    }
+    if (/\/index\.html$/i.test(req.path)) {
+      const target = req.path.replace(/\/index\.html$/i, "") || "/"
+      const i = req.originalUrl.indexOf("?")
+      res.redirect(301, i === -1 ? target : target + req.originalUrl.slice(i))
+      return
+    }
+  }
+  next()
+})
 app.use(
   express.static(DIST_DIR, {
+    index: false,
+    redirect: false,
     setHeaders(res, filePath) {
       const normalized = filePath.split(path.sep).join("/")
       if (normalized.includes("/dist/assets/")) {
@@ -72,13 +101,9 @@ app.use(
   }),
 )
 
-// SPA fallback: any non-API route that isn't a real static file gets
-// index.html, so React Router can handle it client-side.
-app.use((req, res, next) => {
-  if (req.method !== "GET" && req.method !== "HEAD") return next()
-  if (req.path.startsWith("/api/")) return next()
-  res.sendFile(path.join(DIST_DIR, "index.html"))
-})
+// HTML pages: prerendered routes, live-checked dynamic routes, real 404s,
+// canonical redirects, noindex for /admin and /search — see lib/pages.ts.
+app.use(createPageHandler(DIST_DIR))
 
 app.listen(PORT, () => {
   console.log(`[server] khaprail-website listening on port ${PORT}`)

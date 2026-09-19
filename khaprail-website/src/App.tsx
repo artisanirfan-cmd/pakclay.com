@@ -29,6 +29,7 @@ import { Home } from "@/pages/home"
 const AdminAuthShell = lazy(() => import("@/components/admin/admin-auth-shell").then((m) => ({ default: m.AdminAuthShell })))
 const ProtectedRoute = lazy(() => import("@/components/admin/protected-route").then((m) => ({ default: m.ProtectedRoute })))
 const AdminLayout = lazy(() => import("@/components/admin/admin-layout").then((m) => ({ default: m.AdminLayout })))
+const NotFound = lazy(() => import("@/pages/not-found").then((m) => ({ default: m.NotFound })))
 const CategoriesIndex = lazy(() => import("@/pages/categories-index").then((m) => ({ default: m.CategoriesIndex })))
 const CategoryDetail = lazy(() => import("@/pages/category-detail").then((m) => ({ default: m.CategoryDetail })))
 const ProductsListing = lazy(() => import("@/pages/products-listing").then((m) => ({ default: m.ProductsListing })))
@@ -104,6 +105,8 @@ function App() {
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />
+          {/* Any other URL: a real "not found" page (the server also sends a genuine HTTP 404). */}
+          <Route path="*" element={<NotFound />} />
         </Route>
 
         {/* Admin gets its own chrome, not the storefront's SiteLayout
@@ -119,6 +122,7 @@ function App() {
           }
         >
           <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/*" element={<NotFound />} />
           <Route element={<ProtectedRoute />}>
             <Route element={<AdminLayout />}>
               <Route path="/admin" element={<DashboardHome />} />

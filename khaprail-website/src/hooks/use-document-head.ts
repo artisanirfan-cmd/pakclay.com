@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { HERO_IMAGE_JPG } from "@/lib/hero-image"
+import { SITE_URL, SITE_NAME } from "@/lib/site"
 
 // SEO batch C (2026-09-10, see 00-PROGRESS.md): this app had zero per-page
 // <title>/<meta description>/canonical/Open Graph/Twitter Card handling —
@@ -15,8 +16,7 @@ import { HERO_IMAGE_JPG } from "@/lib/hero-image"
 // output is captured in the real static HTML crawlers receive — this
 // isn't a client-only fix that non-JS crawlers miss.
 
-export const SITE_URL = "https://khaprail.vercel.app"
-export const SITE_NAME = "PAKCLAY.COM"
+export { SITE_URL, SITE_NAME }
 const DEFAULT_OG_IMAGE = `${SITE_URL}${HERO_IMAGE_JPG}`
 
 export interface DocumentHeadOptions {

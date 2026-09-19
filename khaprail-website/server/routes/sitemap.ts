@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js"
 import type { Request as ExpressRequest, Response as ExpressResponse } from "express"
 import { sendFetchResponse } from "../lib/fetch-adapter.js"
+import { getSiteUrl } from "../lib/site.js"
 
 // Express route handler for GET /sitemap.xml.
 //
@@ -17,8 +18,6 @@ import { sendFetchResponse } from "../lib/fetch-adapter.js"
 // git push. Uses the public anon/publishable key — every table read here
 // already has a public-read RLS policy (same data `useCategories`/
 // `useProducts`/`useBlogPosts` already expose to every visitor).
-
-const SITE_URL = "https://khaprail.vercel.app"
 
 interface SitemapEntry {
   path: string
@@ -50,7 +49,7 @@ function xmlEscape(value: string): string {
 }
 
 function urlTag({ path, lastmod }: SitemapEntry): string {
-  const loc = xmlEscape(`${SITE_URL}${path}`)
+  const loc = xmlEscape(`${getSiteUrl()}${path}`)
   const lastmodTag = lastmod ? `<lastmod>${xmlEscape(lastmod)}</lastmod>` : ""
   return `  <url><loc>${loc}</loc>${lastmodTag}</url>`
 }
