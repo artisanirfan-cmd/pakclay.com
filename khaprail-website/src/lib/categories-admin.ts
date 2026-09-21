@@ -1,4 +1,5 @@
 import { supabase } from "@/lib/supabase"
+import { invalidateCategories } from "@/hooks/use-categories"
 import { stripDuplicatedExtension } from "@/lib/utils"
 import type { Category } from "@/types/category"
 
@@ -20,6 +21,7 @@ export async function saveCategory(values: CategoryFormValues, existingId: strin
     : await supabase.from("categories").insert(sanitizedValues).select("id").single()
 
   if (error) throw error
+  invalidateCategories()
   return data.id as string
 }
 
@@ -27,4 +29,5 @@ export async function deleteCategory(id: string): Promise<void> {
   if (!supabase) throw new Error("Supabase project not configured yet")
   const { error } = await supabase.from("categories").delete().eq("id", id)
   if (error) throw error
+  invalidateCategories()
 }

@@ -1,11 +1,14 @@
 import { CategoryIconRail } from "@/components/shared/category-icon-rail"
-import { useLinkableCategories } from "@/hooks/use-linkable-categories"
+import { useCategories } from "@/hooks/use-categories"
 import { getRootCategories } from "@/lib/category-tree"
 
 // "Featured Categories" (10-HOMEPAGE-SPEC.md) — circular category-icon row,
 // immediately after the hero. Admin-orderable via `categories.sort_order`.
+// Shows every top-level category row (not filtered by `is_featured` and not
+// limited to categories that already have products), so it always matches the
+// header's Categories menu.
 export function FeaturedCategoriesRow() {
-  const { categories, isLoading, error } = useLinkableCategories()
+  const { categories, isLoading, error } = useCategories()
   const roots = getRootCategories(categories)
 
   if (error || (!isLoading && roots.length === 0)) return null

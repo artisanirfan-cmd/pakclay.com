@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { buildWhatsAppUrl } from "@/lib/whatsapp"
-import { HERO_IMAGE_JPG, HERO_IMAGE_WEBP_SRCSET, HERO_IMAGE_WIDTH, HERO_IMAGE_HEIGHT } from "@/lib/hero-image"
+import {
+  HERO_IMAGE_JPG,
+  HERO_IMAGE_WEBP_SRCSET,
+  HERO_IMAGE_SIZES,
+  HERO_IMAGE_WIDTH,
+  HERO_IMAGE_HEIGHT,
+} from "@/lib/hero-image"
 
 // Light powder-blue banner — the one section that breaks from the dark
 // storefront theme (2026-08-25 restyle), dark navy text, black pill CTA.
@@ -11,7 +17,7 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden">
       <picture>
-        <source srcSet={HERO_IMAGE_WEBP_SRCSET} sizes="100vw" type="image/webp" />
+        <source srcSet={HERO_IMAGE_WEBP_SRCSET} sizes={HERO_IMAGE_SIZES} type="image/webp" />
         {/* Confirmed via Lighthouse (SEO/perf batch A, 2026-09-10) as this
             page's LCP element — `fetchPriority="high"` tells the browser to
             prioritize this download the moment it's discovered, instead of

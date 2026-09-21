@@ -8,14 +8,14 @@
    weight coverage (Regular 400, Medium 500, Semibold 600, Bold 700). */
 @font-face {
   font-family: "Gilroy";
-  src: url("/fonts/Gilroy-Light.woff2") format("woff2"), url("/fonts/Gilroy-Light.otf") format("opentype");
+  src: url("./assets/fonts/Gilroy-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Gilroy";
-  src: url("/fonts/Gilroy-ExtraBold.woff2") format("woff2"), url("/fonts/Gilroy-ExtraBold.otf") format("opentype");
+  src: url("./assets/fonts/Gilroy-ExtraBold.woff2") format("woff2");
   font-weight: 800;
   font-style: normal;
   font-display: swap;

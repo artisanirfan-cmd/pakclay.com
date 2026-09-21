@@ -44,7 +44,11 @@ export function CategoriesMegaMenu({ categories, isLoading, error, triggerClassN
     <NavigationMenuItem>
       <NavigationMenuTrigger className={triggerClassName}>Categories</NavigationMenuTrigger>
       <NavigationMenuContent>
-        <div className="w-[min(90vw,54rem)] p-6">
+        {/* Width never exceeds the viewport minus the positioner's 16px
+            gutters; height is capped below the two-bar header (its bottom edge
+            is at ~147px incl. the 8px offset, plus the popup's own padding) so a full 15-category grid scrolls inside the panel on
+            short windows instead of running off the bottom of the screen. */}
+        <div className="max-h-[calc(100svh-11rem)] w-[min(54rem,calc(100vw-2rem))] overflow-y-auto p-6">
           {isLoading ? (
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
               {Array.from({ length: 10 }).map((_, i) => (

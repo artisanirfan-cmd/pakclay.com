@@ -12,7 +12,7 @@ import { CategoriesMegaMenu } from "@/components/nav/categories-mega-menu"
 import { MobileNav } from "@/components/nav/mobile-nav"
 import { SiteSearch } from "@/components/nav/site-search"
 import { NAV_LINKS } from "@/lib/nav-links"
-import { useLinkableCategories } from "@/hooks/use-linkable-categories"
+import { useCategories } from "@/hooks/use-categories"
 import { useChatPanel } from "@/lib/chat-panel-context"
 import { buildWhatsAppUrl, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/whatsapp"
 import { cn } from "@/lib/utils"
@@ -23,17 +23,24 @@ import { cn } from "@/lib/utils"
 // the larger text below doesn't crowd/wrap at narrower desktop widths.
 // Bumped 2026-09-10: text-base -> text-lg (a clear size step, per request)
 // and the list's gap-0.5 -> gap-3 for noticeably more breathing room
-// between items — verified at 1024px (the `lg` breakpoint floor) through
+// between items. The hover/focus + open combinations are set explicitly:
+// the shared trigger style has `data-popup-open:hover:bg-muted` (a light
+// fill), which otherwise beats the override above and leaves white text on a
+// light pill while the menu is open and hovered — verified at 1024px (the `lg` breakpoint floor) through
 // 1536px with no overflow/wrap, see 00-PROGRESS.md.
 const NAV_ITEM_CLASS =
-  "rounded-full px-2 text-lg font-medium text-navy-foreground hover:bg-navy-foreground/15 data-active:bg-navy-foreground/15 data-popup-open:bg-navy-foreground/15 data-open:bg-navy-foreground/15"
+  "rounded-full px-2 text-lg font-medium text-navy-foreground hover:bg-navy-foreground/15 data-active:bg-navy-foreground/15 data-popup-open:bg-navy-foreground/15 data-open:bg-navy-foreground/15 focus:bg-navy-foreground/15 data-popup-open:hover:bg-navy-foreground/15 data-open:hover:bg-navy-foreground/15 data-open:focus:bg-navy-foreground/15"
 
 // Two-bar header (2026-08-25 restyle): a white top bar (logo + real CTA —
 // no Login/Wishlist/Cart/search affordances were added here since this site
 // has no customer accounts, wishlist, or cart to back them, see
 // 00-PROGRESS.md) and a solid navy sub-nav strip underneath.
 export function SiteHeader() {
-  const { categories, isLoading, error } = useLinkableCategories()
+  // ALL top-level categories, not `useLinkableCategories()`: the Categories
+  // menu is the site's full-range browse entry point and must show every
+  // category row, including ones that don't have products yet (those pages
+  // show "products coming soon" and stay noindex / out of the sitemap).
+  const { categories, isLoading, error } = useCategories()
   const { open: openChatPanel } = useChatPanel()
   const [isScrolled, setIsScrolled] = useState(false)
 

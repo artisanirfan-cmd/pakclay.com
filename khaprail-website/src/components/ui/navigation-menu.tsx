@@ -92,12 +92,23 @@ function NavigationMenuContent({
   )
 }
 
+// Collision behavior is pinned rather than left at Base UI's default
+// (`align: "flip"`): when a wide panel doesn't fit to the right of its
+// trigger, "flip" re-anchors it to the trigger's RIGHT edge, which for a
+// trigger near the left of the page pushes the panel off the left edge of the
+// viewport — the "cut off on the left" bug. "shift" keeps the panel anchored
+// under the trigger's left edge and only slides it as far as needed to stay
+// inside the viewport (16px gutter); `side: "none"` keeps it below the nav bar
+// (flipping above would put it off the top of the page — tall panels scroll
+// internally instead, see CategoriesMegaMenu).
 function NavigationMenuPositioner({
   className,
   side = "bottom",
   sideOffset = 8,
   align = "start",
   alignOffset = 0,
+  collisionAvoidance = { side: "none", align: "shift", fallbackAxisSide: "none" },
+  collisionPadding = 16,
   ...props
 }: NavigationMenuPrimitive.Positioner.Props) {
   return (
@@ -107,6 +118,8 @@ function NavigationMenuPositioner({
         sideOffset={sideOffset}
         align={align}
         alignOffset={alignOffset}
+        collisionAvoidance={collisionAvoidance}
+        collisionPadding={collisionPadding}
         className={cn(
           "isolate z-50 h-(--positioner-height) w-(--positioner-width) max-w-(--available-width) transition-[top,left,right,bottom] duration-[0.35s] ease-[cubic-bezier(0.22,1,0.36,1)] data-instant:transition-none data-[side=bottom]:before:top-[-10px] data-[side=bottom]:before:right-0 data-[side=bottom]:before:left-0",
           className

@@ -15,7 +15,10 @@ export async function uploadProductImage(file: File): Promise<string> {
   const ext = file.name.includes(".") ? file.name.split(".").pop() : "jpg"
   const path = `${crypto.randomUUID()}.${ext}`
   const { error } = await supabase.storage.from("product-images").upload(path, file, {
-    cacheControl: "3600",
+    // The path is a fresh UUID and `upsert` is false, so an uploaded file's URL
+    // never changes content: cache it for a year (was 1 hour, which Lighthouse
+    // flags as "efficient cache lifetimes" on every product/blog image).
+    cacheControl: "31536000",
     upsert: false,
   })
   if (error) throw error

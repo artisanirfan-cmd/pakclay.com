@@ -13,6 +13,7 @@ import { TrendingTilesSection } from "@/components/home/trending-tiles-section"
 import { NewArrivalsSection } from "@/components/home/new-arrivals-section"
 import { VideosSection } from "@/components/home/videos-section"
 import { DownloadCta } from "@/components/home/download-cta"
+import { DeferredSection } from "@/components/shared/deferred-section"
 
 // Section order per 10-HOMEPAGE-SPEC.md: Hero -> Featured Categories ->
 // 3-image feature row -> Best Sellers -> Trending/Categories grid ->
@@ -53,18 +54,47 @@ export function Home() {
     <main className="flex-1">
       <Hero />
       <FeaturedCategoriesRow />
-      <OffersSection />
-      <FeatureRow />
-      <BestSellersSection />
-      <TrendingCategoriesGrid />
-      <CategoryShowcase />
-      <LifestyleTilesSection />
-      <ShopByCategorySection />
-      <TrendingTilesSection />
-      <NewArrivalsSection />
-      <VideosSection />
-      <DownloadCta />
-      <Heritage />
+      {/* Everything below is deferred (see DeferredSection): it mounts when it
+          nears the viewport, or one section at a time in idle time, instead of
+          all inside the first render that blocks the hero. Each is revealed
+          700px before it scrolls into view, so its (viewport-dependent) real
+          height is never seen changing. */}
+      <DeferredSection>
+        <OffersSection />
+      </DeferredSection>
+      <DeferredSection>
+        <FeatureRow />
+      </DeferredSection>
+      <DeferredSection>
+        <BestSellersSection />
+      </DeferredSection>
+      <DeferredSection>
+        <TrendingCategoriesGrid />
+      </DeferredSection>
+      <DeferredSection>
+        <CategoryShowcase />
+      </DeferredSection>
+      <DeferredSection>
+        <LifestyleTilesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <ShopByCategorySection />
+      </DeferredSection>
+      <DeferredSection>
+        <TrendingTilesSection />
+      </DeferredSection>
+      <DeferredSection>
+        <NewArrivalsSection />
+      </DeferredSection>
+      <DeferredSection>
+        <VideosSection />
+      </DeferredSection>
+      <DeferredSection>
+        <DownloadCta />
+      </DeferredSection>
+      <DeferredSection>
+        <Heritage />
+      </DeferredSection>
     </main>
   )
 }

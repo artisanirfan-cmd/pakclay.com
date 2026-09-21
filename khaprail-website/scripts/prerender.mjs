@@ -106,6 +106,32 @@ function dropDeferredPreloads(html) {
   return html.replace(/<link[^>]*rel="modulepreload"[^>]*>\s*/g, (tag) => (DEFERRED_CHUNKS.test(tag) ? "" : tag))
 }
 
+// LCP fix for the homepage (see 00-PROGRESS.md batch 50). The hero image is the
+// LCP element. The client renders with createRoot (not hydrateRoot), so React
+// replaces the prerendered <img> with an identical new one. If the ORIGINAL had
+// not painted before that swap, the re-created image became the LCP candidate,
+// so LCP = "time React finished its first render" instead of "time the hero
+// image painted". A high-priority preload gets the original on screen at the
+// first paint; because the prerendered <source> and React's use the same
+// srcset/sizes, the re-created image has the same LCP size and cannot replace
+// it. The link is copied from the captured hero markup (so the hashed URLs and
+// sizes can never drift from the real <picture>), and it must come AFTER
+// <meta name="viewport"> - before it, mobile preload scanners resolve
+// `imagesrcset` against a 980px layout viewport and fetch the 1600w file too.
+function injectHeroPreload(html, route) {
+  if (route !== "/") return html
+  const main = html.slice(html.indexOf("<main"))
+  const source = /<picture>\s*<source ([^>]*)>/.exec(main)?.[1]
+  if (!source) return html
+  const srcset = /srcset="([^"]*)"/.exec(source)?.[1]
+  const sizes = /sizes="([^"]*)"/.exec(source)?.[1]
+  const type = /type="([^"]*)"/.exec(source)?.[1]
+  if (!srcset || !sizes || !type || html.includes('rel="preload" as="image"')) return html
+  const link = `<link rel="preload" as="image" type="${type}" fetchpriority="high" imagesrcset="${srcset}" imagesizes="${sizes}">`
+  return html.replace(/(<meta name="viewport"[^>]*>)/, `$1
+    ${link}`)
+}
+
 function routeToFilePath(route) {
   if (route === "/") return path.join(DIST, "index.html")
   return path.join(DIST, route.replace(/^\//, ""), "index.html")
@@ -180,6 +206,11 @@ async function main() {
       const page = await browser.newPage()
       try {
         await page.goto(`${base}${route.replace(/^\//, "")}`, { waitUntil: "networkidle0", timeout: 30000 })
+        // Below-the-fold homepage sections mount in idle time (DeferredSection);
+        // wait until every one has rendered, then for the data fetches they
+        // start, so the snapshot is the complete page.
+        await page.waitForFunction("!window.__deferredPending", { timeout: 20000 }).catch(() => {})
+        await page.waitForNetworkIdle({ idleTime: 600, timeout: 20000 }).catch(() => {})
         // A short settle beyond network-idle for any state update React
         // batches right after the last fetch resolves (e.g. setLoading(false)
         // then a re-render on the next tick).
@@ -192,7 +223,7 @@ async function main() {
         // site-relative so they become working preloads.
         const origin = base.replace(/\/$/, "")
         const captured = (await page.content()).split(`${origin}/`).join("/").split(origin).join("")
-        const html = injectCanonical(dropDeferredPreloads(captured), route)
+        const html = injectHeroPreload(injectCanonical(dropDeferredPreloads(captured), route), route)
         results.push({ route, html })
       } catch (err) {
         failures++
