@@ -44,7 +44,7 @@ import { DeferredSection } from "@/components/shared/deferred-section"
 // order, kept alongside everything else rather than replacing it.
 export function Home() {
   useDocumentHead({
-    title: "Clay Roof & Terracotta Tiles in Lahore | PAKCLAY.COM",
+    title: "Pak Clay Industry Terracotta Khaprail Tiles Manufacturer in Pakistan",
     fullTitle: true,
     description:
       "Khaprail Tiles has made clay roof tiles, Multani tiles and terracotta flooring in Lahore since 1982. Browse the range and request a free sample.",
