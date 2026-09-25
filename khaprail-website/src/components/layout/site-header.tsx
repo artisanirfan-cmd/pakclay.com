@@ -57,8 +57,9 @@ export function SiteHeader() {
     <header className={cn("sticky top-0 z-40 transition-shadow duration-200", isScrolled && "shadow-lg")}>
       <div className="bg-white">
         <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:px-6">
-          <Link to="/" className="shrink-0 font-heading text-3xl font-bold text-primary">
-            PAKCLAY.COM
+          <Link to="/" className="shrink-0">
+            {/* Rendered from the brand's PAKTILES 4 artwork (2026-09-25). */}
+            <img src="/logo.png" alt="PAKCLAY.COM" width={1089} height={161} className="h-9 w-auto sm:h-10" />
           </Link>
           {/* Centered between the logo and "Get a Sample" — moved here from
               the navy nav strip below (2026-09-10); the search bar itself
