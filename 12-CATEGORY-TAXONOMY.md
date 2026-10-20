@@ -54,3 +54,33 @@ All 29 rows (15 main + 14 subcategory) are seeded with `cover_image_url` left `n
 ## Linking rule for empty categories (2026-09-20)
 
 A category with no products anywhere in its subtree is `noindex`, left out of the sitemap, and NOT linked from navigation, footer, homepage rails, the /categories grid or subcategory lists (`useLinkableCategories`). It stays reachable by URL and editable in the admin, and appears in every list automatically as soon as a product is added to it or to a descendant. Admin-entered tile links into an empty category fall back to /categories (`resolveCategoryLink`).
+
+## Live tree vs this doc + 2026-10-21 import (needs Sylvester's decisions)
+
+The live `categories` table has grown past the list above. **Live, before 2026-10-21:** Wall Tiles › **Living Room Wall Tiles** (Granite / Marble / Stone / Terracotta children), Wall Tiles › Kitchen Wall Tiles › Concrete / Terracotta / Ceramic, and Wall Tiles › Bathroom / Outdoor Wall Tiles each › Terracotta. There are also three admin-made children under Terracotta Tiles whose names and slugs don't match (e.g. "Terracotta Roof Tiles" = `terracotta-floor-tile`).
+
+**Added 2026-10-21** by `khaprail-website/scripts/import-pakclay-new-images.mjs` (17 rows, 74 products; see 00-PROGRESS.md batch 53):
+
+```
+Wall Tiles
+  Bathroom Wall Tiles › Mosaic Bathroom Wall Tiles            (new)
+  Outdoor Wall Tiles › Granite / Marble / Stone Outdoor Wall Tiles   (new; Granite + Marble empty, see 4)
+  Jali Wall Tiles (new) › Cement Jali (new)
+Floor Tiles
+  Bathroom Floor Tiles › Mosaic / Terracotta Bathroom Floor Tiles    (new)
+  Kitchen Floor Tiles › Terracotta Kitchen Floor Tiles               (new)
+  Living Room Floor Tiles (new) › Terracotta Living Room Floor Tiles (new)
+  Outdoor Floor Tiles › Concrete Outdoor Floor Tiles (new) › Otti Tiles / Pavers Tiles (new)
+  Outdoor Floor Tiles › Terracotta Outdoor Floor Tiles               (new)
+Pool Tiles › Swimming Pool Tiles                                     (new)
+```
+
+The source folders' extra levels were flattened. "Tuff Tiles" (above Otti/Pavers) is now a `type = tuff-tile` product attribute, and "Pool Wall and Floor Tiles" was dropped.
+
+**Open decisions:**
+1. **Living Room Floor Tiles** is not in this taxonomy. Keep it, or fold its 2 products into Terracotta Floor Tiles?
+2. **Jali:** the 17 Terracotta Jali products went into the existing top-level **Terracotta Jali** category, not a new duplicate under Jali Wall Tiles. To nest it, set its `parent_id` to `jali-wall-tiles`. It then leaves the top-level menu and Featured Categories.
+3. **Concrete Outdoor Floor Tiles** (new) vs the existing, still-empty **Floor Tiles › Concrete Floor Tiles**. Keep both, or merge?
+4. **Granite/Marble/Stone:** under Outdoor Wall Tiles (as built), under Living Room Wall Tiles (where the live granite/marble products already sit; their photos are byte-identical to the new "outdoor" folders), or under main Stone Tiles?
+
+Everything here is an ordinary row: moving a category is one `parent_id` change in `/admin/categories`, and moving a product is its category dropdown. Empty categories stay hidden (linking rule above). Once decided, fold the result into the main lists at the top of this doc.
