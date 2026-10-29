@@ -1,0 +1,25 @@
+{
+  "_comment": "Batch 54 (2026-10-30): logo/watermark + off-brand product image fixes, per Sylvester's decisions on scripts/output/logo-images-report.csv. Read by prepare-logo-crops.py and fix-logo-and-stock-images.mjs. 'box' = [left, top, right, bottom] as fractions of the EXIF-corrected source photo. Paths are under the product-images bucket.",
+  "crops": [
+    { "manifest": 124, "path": "products/terracotta-jali-tiles-012/terracotta-jali-tiles-012-1.jpg", "box": [0, 0, 1, 0.65], "removes": "mittira.net footer band + badges" },
+    { "manifest": 138, "path": "products/terracotta-jali-tiles-017/terracotta-jali-tiles-017-1.jpg", "box": [0.12, 0, 0.88, 0.93], "removes": "story caption + emoji (and the blank story side bars)" },
+    { "manifest": 146, "path": "products/terracotta-jali-tiles-017/terracotta-jali-tiles-017-9.jpg", "box": [0, 0, 1, 0.56], "removes": "MOSTRA NEXUS plinth text, nexus mark, branded tablet screens + avatar icon (keeps upper jali walls)" },
+    { "manifest": 154, "path": "products/natural-terracotta-hexagon-6x6-inch-tiles/natural-terracotta-hexagon-6x6-inch-tiles-1.jpg", "box": [0, 0, 0.87, 1], "removes": "RUSTICO watermark" },
+    { "manifest": 170, "path": "products/black-and-gold-split-natural-stone-wall-tiles/black-and-gold-split-natural-stone-wall-tiles-1.jpg", "box": [0, 0.2, 1, 1], "removes": "LIFE STONE logo" },
+    { "manifest": 171, "path": "products/black-and-gold-split-natural-stone-wall-tiles/black-and-gold-split-natural-stone-wall-tiles-2.jpg", "box": [0, 0.21, 1, 0.82], "removes": "LIFE STONE logo" },
+    { "manifest": 172, "path": "products/black-and-gold-split-natural-stone-wall-tiles/black-and-gold-split-natural-stone-wall-tiles-3.jpg", "box": [0, 0.2, 1, 0.92], "removes": "LIFE STONE logo" },
+    { "manifest": 92, "path": "products/terracotta-jali-tiles-002/terracotta-jali-tiles-002-1.jpg", "box": [0, 0, 1, 0.8], "removes": "MACERI watermark" }
+  ],
+  "hides": [
+    { "manifest": 93, "path": "products/terracotta-jali-tiles-002/terracotta-jali-tiles-002-2.jpg", "reason": "Granitos y Barros HIDALGO centre watermark" },
+    { "manifest": 168, "path": "products/swimming-pool-tiles-007/swimming-pool-tiles-007-2.jpg", "reason": "123RF stock watermark, tiled" },
+    { "manifest": 11, "path": "products/light-turquoise-penny-round-tiles/light-turquoise-penny-round-tiles-3.jpg", "reason": "scanned colour chart from another catalogue" },
+    { "manifest": 101, "path": "products/terracotta-jali-tiles-006/terracotta-jali-tiles-006-1.jpg", "reason": "Siam Classic label + spec text" },
+    { "path": "6f235f26-3770-413a-8928-8452cc01268c.png", "reason": "off-brand stock photo (US garage) on french-natural-red-khaprail-tiles" },
+    { "path": "05528a1e-102a-4f90-9c58-a7ced7752990.jfif", "reason": "off-brand stock photo (metal roof) on french-green-glazed-khaprail-tiles" }
+  ],
+  "coverFromFirstGallery": [
+    { "slug": "square-6x6-inch-tiles", "reason": "cover was the KAMSTAR photo with its watermark edited out" }
+  ],
+  "_notDone": "9x3-inch-terracotta-tiles: no gallery photo exists and its only real photo (products/9x3-inch-terracotta-tiles/best living room ...jpg) carries a KAMSTAR watermark, so the edited cover is left as is pending Sylvester."
+}

@@ -1,0 +1,238 @@
+{
+ "rows": [
+  {
+   "slot": "lifestyle-courtyard",
+   "row": {
+    "table": "lifestyle_tiles",
+    "id": "47eb60f6-cff3-4bd3-bdad-7dec4d94f0cf",
+    "column": "image_url",
+    "altColumn": "image_alt_text",
+    "alt": "Natural terracotta square tiles on a garden pathway"
+   },
+   "id": "47eb60f6-cff3-4bd3-bdad-7dec4d94f0cf",
+   "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/Lifestyle%20Tile/Courtyard%20&%20Flooring.jfif",
+   "oldAlt": "Courtyard & Flooring",
+   "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/Lifestyle%20Tile/courtyard-flooring.jpg",
+   "newAlt": "Natural terracotta square tiles on a garden pathway",
+   "at": "2026-10-29T20:54:54.882Z"
+  },
+  {
+   "slot": "lifestyle-kitchen",
+   "row": {
+    "table": "lifestyle_tiles",
+    "id": "d6b40517-87bc-4ee7-a53d-a497993095d3",
+    "column": "image_url",
+    "altColumn": "image_alt_text",
+    "alt": "Natural terracotta floor tiles in a modern kitchen"
+   },
+   "id": "d6b40517-87bc-4ee7-a53d-a497993095d3",
+   "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/Lifestyle%20Tile/Kitchen%20&%20Bathroom.jfif",
+   "oldAlt": "Kitchen & Bathroom",
+   "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/Lifestyle%20Tile/kitchen-bathroom.jpg",
+   "newAlt": "Natural terracotta floor tiles in a modern kitchen",
+   "at": "2026-10-29T20:54:55.996Z"
+  },
+  {
+   "slot": "lifestyle-rooftop",
+   "row": {
+    "table": "lifestyle_tiles",
+    "id": "56e4e5d1-65ac-4cb5-a82b-fa57cf871796",
+    "column": "image_url",
+    "altColumn": "image_alt_text",
+    "alt": "Natural terracotta tiles on an open-air terrace"
+   },
+   "id": "56e4e5d1-65ac-4cb5-a82b-fa57cf871796",
+   "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/Lifestyle%20Tile/Rooftop%20&%20Exterior.jfif",
+   "oldAlt": "Rooftop & Exterior",
+   "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/Lifestyle%20Tile/rooftop-exterior.jpg",
+   "newAlt": "Natural terracotta tiles on an open-air terrace",
+   "at": "2026-10-29T20:54:57.018Z"
+  },
+  {
+   "slot": "floor-tiles",
+   "row": {
+    "table": "categories",
+    "match": {
+     "slug": "floor-tiles"
+    },
+    "column": "cover_image_url"
+   },
+   "id": "83fa9fe0-121b-4b63-8b79-5a05e5ca1096",
+   "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/floor-tiles-showcase.jpg.jpg",
+   "oldAlt": null,
+   "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/floor-tiles-real.jpg",
+   "newAlt": null,
+   "at": "2026-10-29T20:54:58.000Z"
+  },
+  {
+   "slot": "floor-tiles",
+   "row": {
+    "table": "offer_cards",
+    "id": "4aa1cca0-6507-400e-a46a-9b12c32f2436",
+    "column": "image_url",
+    "altColumn": "image_alt_text",
+    "alt": "Natural terracotta floor tiles across a large living area"
+   },
+   "id": "4aa1cca0-6507-400e-a46a-9b12c32f2436",
+   "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/floor-tiles-showcase.jpg.jpg",
+   "oldAlt": "Terracotta floor tiles suited for large bulk orders",
+   "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/floor-tiles-real.jpg",
+   "newAlt": "Natural terracotta floor tiles across a large living area",
+   "at": "2026-10-29T20:54:58.401Z"
+  },
+  {
+   "slot": "floor-tiles",
+   "row": {
+    "table": "trending_tiles",
+    "id": "1b07aca2-1b5b-4382-ac94-8a896f83370a",
+    "column": "image_url",
+    "altColumn": "image_alt_text",
+    "alt": "Terracotta floor tiles in a living space"
+   },
+   "id": "1b07aca2-1b5b-4382-ac94-8a896f83370a",
+   "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/floor-tiles-showcase.jpg.jpg",
+   "oldAlt": "Terracotta floor tiles in a living space",
+   "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/floor-tiles-real.jpg",
+   "newAlt": "Terracotta floor tiles in a living space",
+   "at": "2026-10-29T20:54:58.801Z"
+  },
+  {
+   "slot": "free-sample",
+   "row": {
+    "table": "offer_cards",
+    "id": "9bf1439f-f8dd-4637-a57b-eb74b868d6a5",
+    "column": "image_url",
+    "altColumn": "image_alt_text",
+    "alt": "A single natural terracotta tile, available as a free sample"
+   },
+   "id": "9bf1439f-f8dd-4637-a57b-eb74b868d6a5",
+   "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/khaprail-tiles.jpg.jpg",
+   "oldAlt": "Khaprail clay roof tiles, available as a free sample",
+   "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/offer-free-sample.jpg",
+   "newAlt": "A single natural terracotta tile, available as a free sample",
+   "at": "2026-10-29T20:54:59.955Z"
+  },
+  {
+   "slot": "mosaic",
+   "row": {
+    "table": "offer_cards",
+    "id": "a0f868c0-d98d-47cc-8e0d-15cbd256a4c8",
+    "column": "image_url",
+    "altColumn": "image_alt_text",
+    "alt": "Green glazed hexagon mosaic tiles, part of the welcome offer for new customers"
+   },
+   "id": "a0f868c0-d98d-47cc-8e0d-15cbd256a4c8",
+   "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/mosaic-tiles.jpg.jpg",
+   "oldAlt": "Mosaic tiles, part of the welcome offer for new customers",
+   "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/mosaic-hexagon-real.jpg",
+   "newAlt": "Green glazed hexagon mosaic tiles, part of the welcome offer for new customers",
+   "at": "2026-10-29T20:55:00.985Z"
+  },
+  {
+   "slot": "mosaic",
+   "row": {
+    "table": "trending_tiles",
+    "id": "5accda3c-dff6-4d29-93a0-513a1bccc6bf",
+    "column": "image_url",
+    "altColumn": "image_alt_text",
+    "alt": "Green glazed hexagon mosaic tile pattern"
+   },
+   "id": "5accda3c-dff6-4d29-93a0-513a1bccc6bf",
+   "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/mosaic-tiles.jpg.jpg",
+   "oldAlt": "Decorative mosaic tile pattern",
+   "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/mosaic-hexagon-real.jpg",
+   "newAlt": "Green glazed hexagon mosaic tile pattern",
+   "at": "2026-10-29T20:55:01.351Z"
+  },
+  {
+   "slot": "fast-delivery",
+   "row": {
+    "table": "offer_cards",
+    "id": "6c7bfdde-d44a-4232-adff-cd3a8e724bb0",
+    "column": "image_url",
+    "altColumn": "image_alt_text",
+    "alt": "Natural terracotta tiles laid across a large outdoor terrace"
+   },
+   "id": "6c7bfdde-d44a-4232-adff-cd3a8e724bb0",
+   "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/roof-tiles.png.png",
+   "oldAlt": "In-stock terracotta roof tiles ready for quick delivery",
+   "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/offer-fast-delivery.jpg",
+   "newAlt": "Natural terracotta tiles laid across a large outdoor terrace",
+   "at": "2026-10-29T20:55:02.317Z"
+  },
+  {
+   "slot": "rooftop-restorations",
+   "row": {
+    "table": "trending_tiles",
+    "id": "ac629641-61bf-447d-90c8-8ab33c981646",
+    "column": "image_url",
+    "altColumn": "image_alt_text",
+    "alt": "House with a terracotta clay tile roof"
+   },
+   "id": "ac629641-61bf-447d-90c8-8ab33c981646",
+   "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/roof-tiles.png.png",
+   "oldAlt": "Terracotta roof tiles on a Lahore rooftop",
+   "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/roof-tiles.jpg",
+   "newAlt": "House with a terracotta clay tile roof",
+   "at": "2026-10-29T20:55:02.684Z"
+  },
+  {
+   "slot": "wall-tiles",
+   "row": {
+    "table": "categories",
+    "match": {
+     "slug": "wall-tiles"
+    },
+    "column": "cover_image_url"
+   },
+   "id": "52ac486e-4949-417e-98b4-1991b01269f0",
+   "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/wall-tiles.png.png",
+   "oldAlt": null,
+   "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/wall-tiles-real.jpg",
+   "newAlt": null,
+   "at": "2026-10-29T20:55:03.999Z"
+  },
+  {
+   "slot": "wall-tiles",
+   "row": {
+    "table": "trending_tiles",
+    "id": "296b145f-f79b-48f2-a9a4-aac8af45e193",
+    "column": "image_url",
+    "altColumn": "image_alt_text",
+    "alt": "Teal glazed wall tiles in a bathroom"
+   },
+   "id": "296b145f-f79b-48f2-a9a4-aac8af45e193",
+   "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/wall-tiles.png.png",
+   "oldAlt": "Wall tiles suited for bath and wet areas",
+   "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/wall-tiles-real.jpg",
+   "newAlt": "Teal glazed wall tiles in a bathroom",
+   "at": "2026-10-29T20:55:04.370Z"
+  }
+ ],
+ "assets": [
+  {
+   "slot": "hero",
+   "file": "src/assets/hero-640.webp",
+   "gitCommit": "f5f7cb81f1ac85e10d4ced28d168b84c7fe8c6d3",
+   "at": "2026-10-29T20:55:04.684Z"
+  },
+  {
+   "slot": "hero",
+   "file": "src/assets/hero-960.webp",
+   "gitCommit": "f5f7cb81f1ac85e10d4ced28d168b84c7fe8c6d3",
+   "at": "2026-10-29T20:55:04.687Z"
+  },
+  {
+   "slot": "hero",
+   "file": "src/assets/hero-1600.webp",
+   "gitCommit": "f5f7cb81f1ac85e10d4ced28d168b84c7fe8c6d3",
+   "at": "2026-10-29T20:55:04.691Z"
+  },
+  {
+   "slot": "hero",
+   "file": "src/assets/hero-1280.jpg",
+   "gitCommit": "f5f7cb81f1ac85e10d4ced28d168b84c7fe8c6d3",
+   "at": "2026-10-29T20:55:04.695Z"
+  }
+ ]
+}

@@ -1,0 +1,136 @@
+[
+ {
+  "kind": "crop",
+  "table": "products",
+  "id": "8aac223a-5100-42b0-8174-66232f2f6156",
+  "column": "cover_image_url",
+  "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/terracotta-jali-tiles-012/terracotta-jali-tiles-012-1.jpg",
+  "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/terracotta-jali-tiles-012/terracotta-jali-tiles-012-1-cropped.jpg",
+  "at": "2026-10-29T20:59:08.280Z"
+ },
+ {
+  "kind": "crop",
+  "table": "products",
+  "id": "b5b461e9-d6c7-414d-ac9e-31f2359fff97",
+  "column": "cover_image_url",
+  "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/terracotta-jali-tiles-017/terracotta-jali-tiles-017-1.jpg",
+  "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/terracotta-jali-tiles-017/terracotta-jali-tiles-017-1-cropped.jpg",
+  "at": "2026-10-29T20:59:10.199Z"
+ },
+ {
+  "kind": "crop",
+  "table": "product_images",
+  "id": "027a5001-a94f-443f-b6f8-a64a48be64ea",
+  "column": "image_url",
+  "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/terracotta-jali-tiles-017/terracotta-jali-tiles-017-9.jpg",
+  "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/terracotta-jali-tiles-017/terracotta-jali-tiles-017-9-cropped.jpg",
+  "at": "2026-10-29T20:59:11.857Z"
+ },
+ {
+  "kind": "crop",
+  "table": "products",
+  "id": "392e5e79-695c-483d-9166-8570fbceb037",
+  "column": "cover_image_url",
+  "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/natural-terracotta-hexagon-6x6-inch-tiles/natural-terracotta-hexagon-6x6-inch-tiles-1.jpg",
+  "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/natural-terracotta-hexagon-6x6-inch-tiles/natural-terracotta-hexagon-6x6-inch-tiles-1-cropped.jpg",
+  "at": "2026-10-29T20:59:13.344Z"
+ },
+ {
+  "kind": "crop",
+  "table": "products",
+  "id": "540fac98-1d5a-409b-b30a-8a813162fe27",
+  "column": "cover_image_url",
+  "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/black-and-gold-split-natural-stone-wall-tiles/black-and-gold-split-natural-stone-wall-tiles-1.jpg",
+  "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/black-and-gold-split-natural-stone-wall-tiles/black-and-gold-split-natural-stone-wall-tiles-1-cropped.jpg",
+  "at": "2026-10-29T20:59:14.959Z"
+ },
+ {
+  "kind": "crop",
+  "table": "product_images",
+  "id": "628ac26d-268f-44c0-ba31-42a48791ee0d",
+  "column": "image_url",
+  "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/black-and-gold-split-natural-stone-wall-tiles/black-and-gold-split-natural-stone-wall-tiles-2.jpg",
+  "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/black-and-gold-split-natural-stone-wall-tiles/black-and-gold-split-natural-stone-wall-tiles-2-cropped.jpg",
+  "at": "2026-10-29T20:59:16.475Z"
+ },
+ {
+  "kind": "crop",
+  "table": "product_images",
+  "id": "a7581aa9-a8d3-4765-8248-8be7829ad9ad",
+  "column": "image_url",
+  "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/black-and-gold-split-natural-stone-wall-tiles/black-and-gold-split-natural-stone-wall-tiles-3.jpg",
+  "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/black-and-gold-split-natural-stone-wall-tiles/black-and-gold-split-natural-stone-wall-tiles-3-cropped.jpg",
+  "at": "2026-10-29T20:59:18.091Z"
+ },
+ {
+  "kind": "crop",
+  "table": "products",
+  "id": "0dbecf75-6497-45a0-998d-216439730186",
+  "column": "cover_image_url",
+  "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/terracotta-jali-tiles-002/terracotta-jali-tiles-002-1.jpg",
+  "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/terracotta-jali-tiles-002/terracotta-jali-tiles-002-1-cropped.jpg",
+  "at": "2026-10-29T20:59:19.858Z"
+ },
+ {
+  "kind": "cover",
+  "table": "products",
+  "id": "5e5e182a-de9f-4e98-b15c-a1ae29d3ac70",
+  "column": "cover_image_url",
+  "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/b5f8a693-71c0-46f0-8a13-73d44c735e80.png",
+  "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/square-6x6-inch-tiles/Terracotta%20Kitchen%20Wall%20Tiles%20in%20Pakistan.jpg",
+  "at": "2026-10-29T20:59:20.574Z"
+ },
+ {
+  "kind": "hide",
+  "archivedId": "273d178d-2594-4069-850f-269307221cd5",
+  "productId": "0dbecf75-6497-45a0-998d-216439730186",
+  "originalRowId": "ebffce3a-5002-461a-aeba-cb06a0ed0c31",
+  "imageUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/terracotta-jali-tiles-002/terracotta-jali-tiles-002-2.jpg",
+  "sortOrder": 0,
+  "at": "2026-10-29T20:59:21.652Z"
+ },
+ {
+  "kind": "hide",
+  "archivedId": "ce493233-0453-4a44-af56-dc28db259a01",
+  "productId": "0267c356-956d-41ed-ab31-534ed06b939f",
+  "originalRowId": "cd22c294-7d78-4389-a84a-991f94f8de64",
+  "imageUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/swimming-pool-tiles-007/swimming-pool-tiles-007-2.jpg",
+  "sortOrder": 0,
+  "at": "2026-10-29T20:59:22.722Z"
+ },
+ {
+  "kind": "hide",
+  "archivedId": "56012449-82eb-4523-ae49-ceaa55881bf1",
+  "productId": "64ca8dbe-d07c-4045-b6cc-ca2e22b09b23",
+  "originalRowId": "c44b17db-657c-4096-9a20-dde4d2946ac1",
+  "imageUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/light-turquoise-penny-round-tiles/light-turquoise-penny-round-tiles-3.jpg",
+  "sortOrder": 1,
+  "at": "2026-10-29T20:59:23.794Z"
+ },
+ {
+  "kind": "hide-cover",
+  "archivedId": "bd5f6080-6800-4e1c-ab18-8d482b0a8b7a",
+  "productId": "d81cea03-bbb7-469b-afd8-cb02ad06fb8b",
+  "oldUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/terracotta-jali-tiles-006/terracotta-jali-tiles-006-1.jpg",
+  "newUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/terracotta-jali-tiles-006/terracotta-jali-tiles-006-2.jpg",
+  "at": "2026-10-29T20:59:24.857Z"
+ },
+ {
+  "kind": "hide",
+  "archivedId": "952c04e2-65de-4cfb-9d4b-de1cec2c2ed9",
+  "productId": "e04fc8b5-2805-4d22-aa37-f8be0c4041a5",
+  "originalRowId": "b5307164-e31e-4cef-a9c3-0964df95e79e",
+  "imageUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/6f235f26-3770-413a-8928-8452cc01268c.png",
+  "sortOrder": 1,
+  "at": "2026-10-29T20:59:25.919Z"
+ },
+ {
+  "kind": "hide",
+  "archivedId": "da99e94d-d92a-4c5f-b3e5-2e2c9ebc9f51",
+  "productId": "c97e92ec-bad3-4db7-aaed-32c0962deefe",
+  "originalRowId": "fae817e5-3ad7-430b-b0d0-242880c782dd",
+  "imageUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/05528a1e-102a-4f90-9c58-a7ced7752990.jfif",
+  "sortOrder": 1,
+  "at": "2026-10-29T20:59:26.986Z"
+ }
+]

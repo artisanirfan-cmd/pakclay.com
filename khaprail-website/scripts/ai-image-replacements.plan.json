@@ -1,0 +1,103 @@
+{
+  "_comment": "Batch 54 (2026-10-30): AI/stock placeholder -> real photo replacements. Read by prepare-ai-image-replacements.py (resize) and replace-ai-images.mjs (upload + DB update). 'manifest' = 1-based data row of PakClay New Product images/_IMAGE_MANIFEST.csv. 'aspect' = [w, h] centre crop; 'maxLong' = long-side cap (never upscaled). See scripts/output/ai-image-audit.md.",
+  "slots": [
+    {
+      "id": "lifestyle-courtyard",
+      "manifest": 73,
+      "aspect": [4, 5],
+      "maxLong": 950,
+      "bucket": "Lifestyle Tile",
+      "path": "courtyard-flooring.jpg",
+      "rows": [
+        { "table": "lifestyle_tiles", "id": "47eb60f6-cff3-4bd3-bdad-7dec4d94f0cf", "column": "image_url", "altColumn": "image_alt_text", "alt": "Natural terracotta square tiles on a garden pathway" }
+      ]
+    },
+    {
+      "id": "lifestyle-kitchen",
+      "manifest": 28,
+      "aspect": [4, 5],
+      "maxLong": 950,
+      "bucket": "Lifestyle Tile",
+      "path": "kitchen-bathroom.jpg",
+      "rows": [
+        { "table": "lifestyle_tiles", "id": "d6b40517-87bc-4ee7-a53d-a497993095d3", "column": "image_url", "altColumn": "image_alt_text", "alt": "Natural terracotta floor tiles in a modern kitchen" }
+      ]
+    },
+    {
+      "id": "lifestyle-rooftop",
+      "manifest": 83,
+      "aspect": [4, 5],
+      "maxLong": 950,
+      "bucket": "Lifestyle Tile",
+      "path": "rooftop-exterior.jpg",
+      "rows": [
+        { "table": "lifestyle_tiles", "id": "56e4e5d1-65ac-4cb5-a82b-fa57cf871796", "column": "image_url", "altColumn": "image_alt_text", "alt": "Natural terracotta tiles on an open-air terrace" }
+      ]
+    },
+    {
+      "id": "floor-tiles",
+      "manifest": 30,
+      "maxLong": 1200,
+      "bucket": "category-images",
+      "path": "floor-tiles-real.jpg",
+      "rows": [
+        { "table": "categories", "match": { "slug": "floor-tiles" }, "column": "cover_image_url" },
+        { "table": "offer_cards", "id": "4aa1cca0-6507-400e-a46a-9b12c32f2436", "column": "image_url", "altColumn": "image_alt_text", "alt": "Natural terracotta floor tiles across a large living area" },
+        { "table": "trending_tiles", "id": "1b07aca2-1b5b-4382-ac94-8a896f83370a", "column": "image_url", "altColumn": "image_alt_text", "alt": "Terracotta floor tiles in a living space" }
+      ]
+    },
+    {
+      "id": "free-sample",
+      "manifest": 85,
+      "maxLong": 1200,
+      "bucket": "category-images",
+      "path": "offer-free-sample.jpg",
+      "rows": [
+        { "table": "offer_cards", "id": "9bf1439f-f8dd-4637-a57b-eb74b868d6a5", "column": "image_url", "altColumn": "image_alt_text", "alt": "A single natural terracotta tile, available as a free sample" }
+      ]
+    },
+    {
+      "id": "mosaic",
+      "manifest": 1,
+      "maxLong": 1200,
+      "bucket": "category-images",
+      "path": "mosaic-hexagon-real.jpg",
+      "rows": [
+        { "table": "offer_cards", "id": "a0f868c0-d98d-47cc-8e0d-15cbd256a4c8", "column": "image_url", "altColumn": "image_alt_text", "alt": "Green glazed hexagon mosaic tiles, part of the welcome offer for new customers" },
+        { "table": "trending_tiles", "id": "5accda3c-dff6-4d29-93a0-513a1bccc6bf", "column": "image_url", "altColumn": "image_alt_text", "alt": "Green glazed hexagon mosaic tile pattern" }
+      ]
+    },
+    {
+      "id": "fast-delivery",
+      "manifest": 81,
+      "maxLong": 1200,
+      "bucket": "category-images",
+      "path": "offer-fast-delivery.jpg",
+      "rows": [
+        { "table": "offer_cards", "id": "6c7bfdde-d44a-4232-adff-cd3a8e724bb0", "column": "image_url", "altColumn": "image_alt_text", "alt": "Natural terracotta tiles laid across a large outdoor terrace" }
+      ]
+    },
+    {
+      "id": "rooftop-restorations",
+      "reuseUrl": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/category-images/roof-tiles.jpg",
+      "rows": [
+        { "table": "trending_tiles", "id": "ac629641-61bf-447d-90c8-8ab33c981646", "column": "image_url", "altColumn": "image_alt_text", "alt": "House with a terracotta clay tile roof" }
+      ]
+    },
+    {
+      "id": "wall-tiles",
+      "manifest": 12,
+      "maxLong": 1200,
+      "bucket": "category-images",
+      "path": "wall-tiles-real.jpg",
+      "rows": [
+        { "table": "categories", "match": { "slug": "wall-tiles" }, "column": "cover_image_url" },
+        { "table": "trending_tiles", "id": "296b145f-f79b-48f2-a9a4-aac8af45e193", "column": "image_url", "altColumn": "image_alt_text", "alt": "Teal glazed wall tiles in a bathroom" }
+      ]
+    }
+  ],
+  "assets": [
+    { "id": "hero", "manifest": 77, "aspect": [1600, 1067], "prefix": "hero", "webpQuality": 70 }
+  ],
+  "_heritage": "Heritage (#89, cement-jali yard) was proposed but declined 2026-10-30; the Pexels placeholder stays."
+}
