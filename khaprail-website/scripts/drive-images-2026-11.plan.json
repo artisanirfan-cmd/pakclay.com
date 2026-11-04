@@ -1,0 +1,46 @@
+{
+  "images": {
+    "sandstone-cladding-1": {"file": "Exterior Natural Sand Stone Wall Cladding Facade Tiles 001/Exterior Natural Sand Stone Wall Cladding Facade Tiles 001/Pak Clay Exterior Natural Sand Stone Outdoor Wall Cladding Facade Tiles Lahore Pakistan.jpg", "alt": "Pak Clay Exterior Natural Sand Stone Outdoor Wall Cladding Facade Tiles Lahore Pakistan"},
+    "sandstone-wall-1": {"file": "Exterior Natural Sand Stone Wall Tiles 001/Exterior Natural Sand Stone Wall Tiles 001/Pak Clay Industry Exterior Natural Sand Stone Wall Tile in Lahore Pakistan Images.jpg", "alt": "Pak Clay Industry Exterior Natural Sand Stone Wall Tile in Lahore Pakistan"},
+    "sandstone-wall-2": {"file": "Exterior Natural Sand Stone Wall Tiles 001/Exterior Natural Sand Stone Wall Tiles 001/Pak Clay Industry Exterior Natural Sand Stone Wall Tiles Lahore Pakistan Images.jpg", "alt": "Pak Clay Industry Exterior Natural Sand Stone Wall Tiles Lahore Pakistan", "crop_bottom_pct": 0.06},
+    "sandstone-wall-3": {"file": "Exterior Natural Sand Stone Wall Tiles 001/Exterior Natural Sand Stone Wall Tiles 001/Pak Clay Industry Exterior Natural Sand Stone Wall Tiles in Lahore Pakistan Image.jpg", "alt": "Pak Clay Industry Exterior Natural Sand Stone Wall Tiles in Lahore Pakistan", "crop_bottom_pct": 0.06},
+    "sandstone-wall-4": {"file": "Exterior Natural Sand Stone Wall Tiles 001/Exterior Natural Sand Stone Wall Tiles 001/Pak Clay Industry Exterior Natural Sand Stone Wall Tiles in Lahore Pakistan Images.jpg", "alt": "Pak Clay Industry Exterior Natural Sand Stone Wall Tiles in Lahore Pakistan", "crop_bottom_pct": 0.06},
+    "green-kite-1": {"file": "kitchen wall tiles/kitchen wall tiles/mosaic kitchen wall tiles/Light Green Glazed Kite Ceramic Mosaic Tiles 002/Pak Clay Industry Light Green Glazed Kite Ceramic Mosaic Kitchen Wall Tiles Lahore Rawalpindi.jpg", "alt": "Pak Clay Industry Light Green Glazed Kite Ceramic Mosaic Kitchen Wall Tiles Lahore Rawalpindi"},
+    "green-kite-2": {"file": "kitchen wall tiles/kitchen wall tiles/mosaic kitchen wall tiles/Light Green Glazed Kite Ceramic Mosaic Tiles 002/Pak Clay Industry Light Green Glazed Kite Ceramic Mosaic Kitchen Wall Tiles Lahore Islamabad.jpg", "alt": "Pak Clay Industry Light Green Glazed Kite Ceramic Mosaic Kitchen Wall Tiles Lahore Islamabad"},
+    "yellow-kite-1": {"file": "kitchen wall tiles/kitchen wall tiles/mosaic kitchen wall tiles/Yellow Glazed Kite Ceramic Mosaic Tiles 001/Yellow Glazed Kite Ceramic Mosaic Kitchen Wall Tiles in Lahore Islamabad Pakistan.jpg", "alt": "Yellow Glazed Kite Ceramic Mosaic Kitchen Wall Tiles in Lahore Islamabad Pakistan"},
+    "yellow-subway-1": {"file": "kitchen wall tiles/kitchen wall tiles/mosaic kitchen wall tiles/Yellow Glazed Ceramic Mosaic Subway Tiles 001/Pak Cay Industry Yellow Glazed Ceramic Mosaic Subway Kitchen Wall Tiles Design in Lahore Punjab Pakistan.jpg", "alt": "Pak Clay Industry Yellow Glazed Ceramic Mosaic Subway Kitchen Wall Tiles Design in Lahore Punjab Pakistan"},
+    "hexagon-handmade-1": {"file": "6x6 inch hexagon natural handmade terracotta tiles 001/6x6 inch hexagon natural handmade terracotta tiles 001/6x6 inch hexagon natural handmade terracotta bathroom wall tiles design in lahore.jpg", "alt": "6x6 inch hexagon natural handmade terracotta bathroom wall tiles design in Lahore"},
+    "terracotta-9x12-1": {"file": "9x12 inch Natural Terracotta Tiles 001/9x12 inch Natural Terracotta Tiles 001/Pak Clay Industry Natural Red Bricks Terracotta Outdoor Wall Tiles Design in Lahore Islamabad Pakistan Images.jpg", "alt": "Pak Clay Industry Natural Red Bricks Terracotta Outdoor Wall Tiles Design in Lahore Islamabad Pakistan"},
+    "gutka-1": {"file": "Terracotta Red Brick Gutka Tiles 001/Terracotta Red Brick Gutka Tiles 001/Pak Clay Industry Natural Terracotta Red Brick Gutka Outdoor Wall Tiles Design in Lahore Islamabad.jpg", "alt": "Pak Clay Industry Natural Terracotta Red Brick Gutka Outdoor Wall Tiles Design in Lahore Islamabad"},
+    "square-6x6-extra": {"file": "kitchen wall tiles/kitchen wall tiles/terracotta kitchen wall tiles/square 6x6 inch tiles/Terracotta Kitchen Wall Tiles in Pakistan.jpg", "alt": "Terracotta Kitchen Wall Tiles in Pakistan"},
+    "acid-proof-1": {"file": "Pak Clay Industry Industrial Acid Proof Tiles in Lahore Pakistan.jpg", "alt": "Pak Clay Industry Industrial Acid Proof Tiles in Lahore Pakistan"},
+    "clay-cover": {"file": "Pak Clay Industry Natural Tiles in Lahore Islamabad Karachi Pakistan Images.jpg", "alt": "Pak Clay Industry Natural Tiles in Lahore Islamabad Karachi Pakistan"}
+  },
+  "categories": [
+    {"slug": "mosaic-kitchen-wall-tiles", "name": "Mosaic Kitchen Wall Tiles", "parentOf": "kitchen-wall-tiles-terracotta"}
+  ],
+  "products": [
+    {"name": "Exterior Natural Sand Stone Wall Cladding Facade Tiles", "category": "outdoor-wall-tiles-stone", "size": null, "images": ["sandstone-cladding-1"]},
+    {"name": "Exterior Natural Sand Stone Wall Tiles", "category": "outdoor-wall-tiles-stone", "size": null, "images": ["sandstone-wall-1", "sandstone-wall-2", "sandstone-wall-3", "sandstone-wall-4"]},
+    {"name": "Light Green Glazed Kite Ceramic Mosaic Kitchen Wall Tiles", "category": "mosaic-kitchen-wall-tiles", "size": null, "images": ["green-kite-1", "green-kite-2"]},
+    {"name": "Yellow Glazed Kite Ceramic Mosaic Kitchen Wall Tiles", "category": "mosaic-kitchen-wall-tiles", "size": null, "images": ["yellow-kite-1"]},
+    {"name": "Yellow Glazed Ceramic Mosaic Subway Kitchen Wall Tiles", "category": "mosaic-kitchen-wall-tiles", "size": null, "images": ["yellow-subway-1"]},
+    {"name": "6x6 Inch Hexagon Natural Handmade Terracotta Bathroom Wall Tiles", "category": "bathroom-wall-tiles-terracotta", "size": "6 X 6", "images": ["hexagon-handmade-1"]},
+    {"name": "9x12 Inch Natural Terracotta Tiles", "category": "outdoor-wall-tiles-terracotta", "size": "9 X 12", "images": ["terracotta-9x12-1"]},
+    {"name": "Terracotta Red Brick Gutka Tiles", "category": "outdoor-wall-tiles-terracotta", "size": null, "images": ["gutka-1"]},
+    {"name": "Industrial Acid Proof Tiles", "category": "industrial-tiles", "size": null, "images": ["acid-proof-1"]}
+  ],
+  "extraImages": [
+    {"productSlug": "square-6x6-inch-tiles", "images": ["square-6x6-extra"]}
+  ],
+  "moves": [
+    {"productSlug": "multi-colors-granite-tiles", "toCategory": "outdoor-wall-tiles-granite"},
+    {"productSlug": "marble-living-room-wall-tiles", "toCategory": "outdoor-wall-tiles-marble"},
+    {"productSlug": "natural-terracotta-hexagon-6x6-inch-tiles", "toCategory": "kitchen-wall-tiles-terracotta"},
+    {"productSlug": "natural-terracotta-square-4x4-inch-tiles", "toCategory": "kitchen-wall-tiles-terracotta"}
+  ],
+  "categoryCovers": [
+    {"categorySlug": "clay-tiles", "image": "clay-cover"},
+    {"categorySlug": "industrial-tiles", "image": "acid-proof-1"}
+  ]
+}
