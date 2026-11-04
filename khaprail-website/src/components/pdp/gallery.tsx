@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { StorageImage } from "@/components/shared/storage-image"
+import { cn } from "@/lib/utils"
 import { ZoomableHeroImage } from "./zoomable-hero-image"
 import { ProductLightbox } from "./product-lightbox"
 
@@ -16,57 +17,58 @@ function dedupeImages(coverImageUrl: string | null, productImages: { image_url: 
   return Array.from(new Set(urls))
 }
 
-// Single main photo + one small thumbnail — that inline layout is unchanged
-// here (a prior batch-6 code comment claimed 05-PDP-SPEC.md called for "not
-// a full zoom gallery," but the actual spec (line 7) always asked for
-// "roll-over/click zoom" on the hero image; that comment misattributed the
-// batch-11 removal of the separate color-swatch/variant feature to zoom as
-// well — corrected here, see 00-PROGRESS.md). What's new: the hero photo
-// now hover-zooms on desktop and opens a full-screen lightbox
-// (`ProductLightbox`) on click/tap — the lightbox includes every real image
-// the product has (cover + all `product_images`), so a multi-photo product
-// can be swiped through there even though only one thumbnail ever shows
-// inline. The hero photo is a likely LCP element on PDPs, so it loads
-// eagerly/high-priority (`priority`) rather than the lazy default every
-// other image on the site uses (SEO/perf batch A, 2026-09-10).
+// PDP gallery (Option B redesign, 2026-11-05): one large photo with hover
+// zoom + click-to-open lightbox, and a thumbnail strip under it listing every
+// real photo the product has (previously only a single second thumbnail was
+// shown). The hero photo is a likely LCP element, so it loads eagerly
+// (`priority` inside ZoomableHeroImage). With a single photo no strip renders.
 export function Gallery({ productName, coverImageUrl, productImages }: GalleryProps) {
   const images = dedupeImages(coverImageUrl, productImages)
-  const [thumbnailSwapped, setThumbnailSwapped] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(0)
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
 
-  const heroImageUrl = (thumbnailSwapped ? images[1] : images[0]) ?? images[0] ?? null
-  const thumbnailImageUrl = images.length > 1 ? (thumbnailSwapped ? images[0] : images[1]) : null
+  const heroImageUrl = images[activeIndex] ?? images[0] ?? null
 
   function openLightbox() {
     if (images.length === 0) return
-    const startIndex = heroImageUrl ? Math.max(0, images.indexOf(heroImageUrl)) : 0
-    setLightboxIndex(startIndex)
+    setLightboxIndex(Math.max(0, activeIndex))
     setLightboxOpen(true)
   }
 
   function handleLightboxClose() {
     setLightboxOpen(false)
-    // If the visitor swiped to the "other" of the two inline slots while
-    // browsing full-screen, reflect that back into the simple hero/thumbnail
-    // toggle so the inline gallery matches what they were last looking at.
-    if (lightboxIndex === 0 || lightboxIndex === 1) {
-      setThumbnailSwapped(lightboxIndex === 1)
-    }
+    // Keep the inline photo in step with whatever the visitor last viewed full-screen.
+    if (lightboxIndex >= 0 && lightboxIndex < images.length) setActiveIndex(lightboxIndex)
   }
 
   return (
-    <div className="flex gap-3">
-      <ZoomableHeroImage src={heroImageUrl} alt={productName} onOpenLightbox={openLightbox} />
-      {thumbnailImageUrl && (
-        <button
-          type="button"
-          onClick={() => setThumbnailSwapped((prev) => !prev)}
-          aria-label={`Show the other photo of ${productName}`}
-          className="flex size-20 shrink-0 items-center justify-center self-start overflow-hidden rounded-lg bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
-        >
-          <StorageImage src={thumbnailImageUrl} alt="" width={80} height={80} className="h-full w-full object-cover" />
-        </button>
+    <div className="flex min-w-0 flex-col gap-3">
+      <ZoomableHeroImage
+        src={heroImageUrl}
+        alt={productName}
+        onOpenLightbox={openLightbox}
+        className="aspect-[4/3] lg:aspect-[5/4]"
+      />
+      {images.length > 1 && (
+        <ul className="flex gap-2 overflow-x-auto pb-1" aria-label={`Photos of ${productName}`}>
+          {images.map((url, index) => (
+            <li key={url} className="shrink-0">
+              <button
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                aria-label={`Show photo ${index + 1} of ${images.length}`}
+                aria-current={index === activeIndex}
+                className={cn(
+                  "block size-16 overflow-hidden rounded-xl bg-muted outline-none ring-2 ring-offset-2 ring-offset-background transition focus-visible:ring-ring sm:size-20",
+                  index === activeIndex ? "ring-primary" : "ring-transparent hover:ring-border",
+                )}
+              >
+                <StorageImage src={url} alt="" width={80} height={80} className="h-full w-full object-cover" />
+              </button>
+            </li>
+          ))}
+        </ul>
       )}
       <ProductLightbox
         open={lightboxOpen}

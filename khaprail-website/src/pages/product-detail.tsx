@@ -12,7 +12,7 @@ import { Link, useParams } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Gallery } from "@/components/pdp/gallery"
-import { AboutItemAccordion } from "@/components/pdp/about-item-accordion"
+import { SpecBlock } from "@/components/pdp/spec-block"
 import { AiSummaryCard } from "@/components/pdp/ai-summary-card"
 import { CompareTable } from "@/components/pdp/compare-table"
 import { SampleRequestDialog } from "@/components/pdp/sample-request-dialog"
@@ -108,27 +108,64 @@ export function ProductDetail() {
     { name: product.name, path: `/products/${product.slug}` },
   ]
 
+  const fullDescription = cleanText(product.description)
+  const shortDescription = truncateAtWord(fullDescription, 200)
+  const factChips = [product.size, product.finish, product.thickness, product.country_of_origin ? `Made in ${product.country_of_origin}` : null].filter(
+    (v): v is string => !!v,
+  )
+  const hasSpecs = [
+    product.brand, product.merchant, product.category_name, product.availability, product.sku,
+    product.manufacturer, product.size, product.thickness, product.finish, product.country_of_origin,
+  ].some(Boolean)
+
   return (
     <main className="flex-1">
       <JsonLd data={[productJsonLd(product), breadcrumbJsonLd(productCrumbs)]} />
-      <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2">
-        <Gallery
-          productName={product.name}
-          coverImageUrl={product.cover_image_url}
-          productImages={product.product_images}
-        />
+      {/* Hero: photo panel + info panel (Option B redesign, 2026-11-05). */}
+      <section className="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
+        <div className="bg-muted px-4 py-6 sm:px-8 sm:py-10 lg:px-12 lg:py-14">
+          <Gallery
+            productName={product.name}
+            coverImageUrl={product.cover_image_url}
+            productImages={product.product_images}
+          />
+        </div>
 
-        <div className="flex flex-col gap-6">
-          <div>
-            <div className="flex flex-wrap items-baseline justify-between gap-3">
-              <h1 className="font-heading text-4xl">{product.name}</h1>
-              {product.price != null && (
-                <p className="font-heading text-3xl font-semibold text-primary">
-                  PKR {product.price.toLocaleString()}
-                </p>
-              )}
-            </div>
+        <div className="flex flex-col justify-center gap-6 bg-panel-navy px-4 py-10 sm:px-10 lg:px-14 lg:py-16">
+          <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
+            <ol className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
+              {productCrumbs.slice(0, -1).map((crumb, index, all) => (
+                <li key={crumb.path} className="flex items-center gap-1.5">
+                  <Link to={crumb.path} className="hover:text-foreground hover:underline">
+                    {crumb.name}
+                  </Link>
+                  {index < all.length - 1 && <span aria-hidden="true">/</span>}
+                </li>
+              ))}
+            </ol>
+          </nav>
+
+          <div className="flex flex-col gap-3">
+            {product.category_name && (
+              <p className="text-xs font-semibold tracking-[0.15em] text-primary uppercase">{product.category_name}</p>
+            )}
+            <h1 className="font-heading text-4xl leading-[1.08] font-bold tracking-tight sm:text-5xl">{product.name}</h1>
+            {product.price != null && (
+              <p className="font-heading text-3xl font-semibold text-price">PKR {product.price.toLocaleString()}</p>
+            )}
           </div>
+
+          {shortDescription && <p className="max-w-prose text-lg leading-relaxed text-muted-foreground">{shortDescription}</p>}
+
+          {factChips.length > 0 && (
+            <ul className="flex flex-wrap gap-2">
+              {factChips.map((chip) => (
+                <li key={chip} className="rounded-full bg-background px-4 py-2 text-sm font-medium text-foreground">
+                  {chip}
+                </li>
+              ))}
+            </ul>
+          )}
 
           <div className="flex flex-col gap-3 sm:flex-row">
             <SampleRequestDialog productId={product.id} productName={product.name} />
@@ -142,12 +179,42 @@ export function ProductDetail() {
               <DownloadSpecSheetButton product={product} />
             </Suspense>
           </div>
-
-          <AboutItemAccordion product={product} />
-
-          {product.ai_summary && <AiSummaryCard summary={product.ai_summary} />}
         </div>
-      </div>
+      </section>
+
+      {/* About + specification (only the parts that have real content). */}
+      {(fullDescription || product.ai_summary || hasSpecs) && (
+        <section className="mx-auto grid w-full max-w-6xl gap-12 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:py-20">
+          {(fullDescription || product.ai_summary) && (
+            <div className="flex flex-col gap-5">
+              <h2 className="font-heading text-3xl font-semibold">About this tile</h2>
+              {fullDescription && <p className="text-lg leading-relaxed text-muted-foreground">{fullDescription}</p>}
+              {product.ai_summary && <AiSummaryCard summary={product.ai_summary} />}
+            </div>
+          )}
+          {hasSpecs && (
+            <div className="flex flex-col gap-4">
+              <h2 className="font-heading text-3xl font-semibold">Specification</h2>
+              <div className="rounded-2xl border border-border px-5 py-2 text-base">
+                <SpecBlock product={product} />
+              </div>
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* Sample CTA band */}
+      <section className="mx-auto w-full max-w-6xl px-4 pb-14 sm:px-6 lg:pb-20">
+        <div className="flex flex-col items-start justify-between gap-6 rounded-3xl border border-border p-8 sm:p-10 md:flex-row md:items-center">
+          <div className="flex max-w-xl flex-col gap-2">
+            <h2 className="font-heading text-2xl font-semibold sm:text-3xl">Want to see it in your space?</h2>
+            <p className="text-lg text-muted-foreground">
+              Tell us your city and the area to cover. We reply on WhatsApp with a free sample and a bulk quote.
+            </p>
+          </div>
+          <SampleRequestDialog productId={product.id} productName={product.name} label="Ask on WhatsApp" />
+        </div>
+      </section>
 
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-16 border-t border-border px-4 py-16 sm:px-6">
         <ProductRail

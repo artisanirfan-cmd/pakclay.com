@@ -17,10 +17,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { FilterBar } from "@/components/products/filter-bar"
+import { FilterSidebar } from "@/components/products/filter-sidebar"
 import { ProductCard } from "@/components/products/product-card"
 import { ProductRail } from "@/components/shared/product-rail"
-import { CategoryIconRail } from "@/components/shared/category-icon-rail"
 import { Pagination } from "@/components/shared/pagination"
 import { useCategory } from "@/hooks/use-category"
 import { useLinkableCategories } from "@/hooks/use-linkable-categories"
@@ -156,28 +155,123 @@ export function CategoryDetail() {
           { name: category.name, path: `/categories/${category.slug}` },
         ])}
       />
-      <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6">
-        <nav aria-label="Breadcrumb" className="mb-4 flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
-          <Link to="/" className="hover:text-foreground hover:underline">
-            Home
-          </Link>
-          {ancestors.map((ancestor) => (
-            <span key={ancestor.id} className="flex items-center gap-1">
+      {/* Header band: breadcrumb, title, sub-category chips */}
+      <section className="bg-panel-navy">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 px-4 py-10 sm:px-6 lg:py-14">
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
+            <Link to="/" className="hover:text-foreground hover:underline">
+              Home
+            </Link>
+            {ancestors.map((ancestor) => (
+              <span key={ancestor.id} className="flex items-center gap-1">
+                <ChevronRightIcon className="size-3.5" />
+                <Link to={`/categories/${ancestor.slug}`} className="hover:text-foreground hover:underline">
+                  {ancestor.name}
+                </Link>
+              </span>
+            ))}
+            <span className="flex items-center gap-1">
               <ChevronRightIcon className="size-3.5" />
-              <Link to={`/categories/${ancestor.slug}`} className="hover:text-foreground hover:underline">
-                {ancestor.name}
-              </Link>
+              <span className="text-foreground">{category.name}</span>
             </span>
-          ))}
-          <span className="flex items-center gap-1">
-            <ChevronRightIcon className="size-3.5" />
-            <span className="text-foreground">{category.name}</span>
-          </span>
-        </nav>
+          </nav>
 
-        <h1 className="mb-8 font-heading text-6xl font-semibold sm:text-7xl">{category.name}</h1>
+          <h1 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl">{category.name}</h1>
 
-        <div className="mb-12">
+          {children.length > 0 && (
+            <div className="flex flex-wrap items-center gap-2 pt-2">
+              <span className="mr-1 text-sm text-muted-foreground">Sub-categories:</span>
+              {children.map((child) => (
+                <Link
+                  key={child.id}
+                  to={`/categories/${child.slug}`}
+                  className="rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  {child.name}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:py-14">
+        <div className="grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-12">
+          <aside aria-label="Filters" className="lg:sticky lg:top-6 lg:self-start">
+            <FilterSidebar
+              filterGroups={filterGroups}
+              facetCounts={facetCounts}
+              activeFilters={activeFilters}
+              isLoading={filtersLoading}
+              onToggle={handleToggle}
+              onClearAll={handleClearAll}
+            />
+          </aside>
+
+          <div className="flex min-w-0 flex-col gap-6">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <p className="text-[15px] text-muted-foreground" aria-live="polite">
+                {productsLoading
+                  ? "Loading tiles…"
+                  : `Showing ${products.length === 0 ? 0 : (page - 1) * PAGE_SIZE + 1}–${Math.min(page * PAGE_SIZE, products.length)} of ${products.length} ${products.length === 1 ? "tile" : "tiles"}`}
+              </p>
+              <Select value={sort} onValueChange={handleSortChange}>
+                <SelectTrigger className="w-44">
+                  <SelectValue placeholder="Sort">{(value: string) => (value === "name-asc" ? "Name A–Z" : "Newest first")}</SelectValue>
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="newest">Newest first</SelectItem>
+                  <SelectItem value="name-asc">Name A–Z</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {productsLoading ? (
+              <div className="grid grid-cols-2 gap-5 md:grid-cols-3">
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <div key={i} className="flex flex-col gap-2">
+                    <Skeleton className="aspect-square w-full rounded-xl" />
+                    <Skeleton className="h-4 w-3/4" />
+                  </div>
+                ))}
+              </div>
+            ) : productsError || products.length === 0 ? (
+              <div className="rounded-2xl border border-border p-8 text-center">
+                <p className="text-muted-foreground">
+                  {Object.values(activeFilters).some((v) => v.length > 0)
+                    ? "No tiles match these filters. Try removing one."
+                    : "Products in this category are coming soon. In the meantime, get in touch and we'll walk you through what's available."}
+                </p>
+                <Button
+                  size="lg"
+                  className="mt-6 h-12 px-6 text-base"
+                  nativeButton={false}
+                  render={
+                    <a
+                      href={buildWhatsAppUrl(`Hi, I'm interested in ${category.name}. Could you share more details?`)}
+                      target="_blank"
+                      rel="noreferrer"
+                    />
+                  }
+                >
+                  Ask About {category.name} on WhatsApp
+                </Button>
+              </div>
+            ) : (
+              <>
+                <div className="grid grid-cols-2 gap-5 md:grid-cols-3">
+                  <h2 className="sr-only">Tile products in this category</h2>
+                  {pagedProducts.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
+                </div>
+                <Pagination page={page} pageCount={pageCount} onPageChange={setPage} />
+              </>
+            )}
+          </div>
+        </div>
+
+        <div className="mt-16">
           <ProductRail
             title="Top Picks Today"
             emptyCopy="We're still building our top picks for this category — check back soon."
@@ -188,75 +282,6 @@ export function CategoryDetail() {
             tone="warm"
           />
         </div>
-
-        {children.length > 0 && (
-          <div className="mb-12">
-            <h2 className="mb-4 font-heading text-3xl font-semibold">Explore {category.name}</h2>
-            <CategoryIconRail categories={children} />
-          </div>
-        )}
-
-        <div className="mb-8 flex flex-col gap-6 border-b border-border pb-8 sm:flex-row sm:items-start sm:justify-between">
-          <FilterBar
-            filterGroups={filterGroups}
-            facetCounts={facetCounts}
-            activeFilters={activeFilters}
-            isLoading={filtersLoading}
-            onToggle={handleToggle}
-            onClearAll={handleClearAll}
-          />
-          <Select value={sort} onValueChange={handleSortChange}>
-            <SelectTrigger className="w-full sm:w-44">
-              <SelectValue placeholder="Sort" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="newest">Newest</SelectItem>
-              <SelectItem value="name-asc">Name A–Z</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-
-        {productsLoading ? (
-          <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="flex flex-col gap-2">
-                <Skeleton className="aspect-square w-full rounded-xl" />
-                <Skeleton className="h-4 w-3/4" />
-              </div>
-            ))}
-          </div>
-        ) : productsError || products.length === 0 ? (
-          <div className="text-center">
-            <p className="text-muted-foreground">
-              Products in this category are coming soon. In the meantime, get in touch and we'll walk you through
-              what's available.
-            </p>
-            <Button
-              size="lg"
-              className="mt-6 h-12 px-6 text-base"
-              nativeButton={false}
-              render={
-                <a
-                  href={buildWhatsAppUrl(`Hi, I'm interested in ${category.name}. Could you share more details?`)}
-                  target="_blank"
-                  rel="noreferrer"
-                />
-              }
-            >
-              Ask About {category.name} on WhatsApp
-            </Button>
-          </div>
-        ) : (
-          <>
-            <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
-              <h2 className="sr-only">Tile products in this category</h2>
-              {pagedProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-            <Pagination page={page} pageCount={pageCount} onPageChange={setPage} />
-          </>
-        )}
       </div>
       <div className="mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6">
         <RelatedPosts keywords={keywordsOf(category.name, ...ancestors.map((a) => a.name))} />
