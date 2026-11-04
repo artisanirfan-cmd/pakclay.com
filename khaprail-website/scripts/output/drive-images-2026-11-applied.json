@@ -1,0 +1,44 @@
+{
+  "createdCategories": [
+    "ea1c1977-8e46-47d8-b0ad-81198c57c55e"
+  ],
+  "createdProducts": [
+    "f79ca748-7641-48bf-b297-46543b0ae051",
+    "f8ab87b5-2c94-45f2-bdca-a73ea2c7854c",
+    "a64635fa-5e6f-4bf2-9d66-8d56db720644",
+    "d10c41b8-f262-4385-ae46-be9af655fbee",
+    "2d42b9d7-77f9-4d2e-81cf-f57052643b52",
+    "91709780-4661-47ff-a542-ac20ee918549",
+    "3190a32a-d90e-47cb-8000-bb230573567c",
+    "b0133926-d454-42fd-b905-bed7edf52cef",
+    "0737a323-e504-4691-b3aa-2ba029b7af40"
+  ],
+  "movedProducts": [
+    {
+      "productId": "5a86af6f-3c00-4bcf-80e8-9b63f74c3595",
+      "fromCategoryId": "8637bbdf-9866-4348-a6db-bfe886f8661e"
+    },
+    {
+      "productId": "a885c7bd-81e1-43b4-97b0-3c41673365fc",
+      "fromCategoryId": "abca5de8-4f6a-4a4c-9afe-eb668bc8301a"
+    },
+    {
+      "productId": "392e5e79-695c-483d-9166-8570fbceb037",
+      "fromCategoryId": "83ddd739-32a7-48c7-9543-cf1f08176876"
+    },
+    {
+      "productId": "8de11b27-7555-4e6d-ac35-6a13d6c04673",
+      "fromCategoryId": "83ddd739-32a7-48c7-9543-cf1f08176876"
+    }
+  ],
+  "addedImages": [
+    {
+      "productId": "5e5e182a-de9f-4e98-b15c-a1ae29d3ac70",
+      "image_url": "https://rnmkbiweqjdgdmqavaso.supabase.co/storage/v1/object/public/product-images/products/square-6x6-inch-tiles/square-6x6-inch-tiles-drive-square-6x6-extra.jpg"
+    }
+  ],
+  "setCovers": [
+    "cd00dda7-3645-4b55-8f49-45c67d3bf310",
+    "c50514d2-ba94-47ba-8348-0147feaf045a"
+  ]
+}
