@@ -1,0 +1,596 @@
+[
+ {
+  "slug": "flat-half-circle-khaprail-tiles",
+  "group": "khaprail roof",
+  "day": 1,
+  "status": "queued"
+ },
+ {
+  "slug": "flat-rectangular-khaprail-tiles",
+  "group": "khaprail roof",
+  "day": 1,
+  "status": "queued"
+ },
+ {
+  "slug": "french-green-glazed-khaprail-tiles",
+  "group": "khaprail roof",
+  "day": 1,
+  "status": "queued"
+ },
+ {
+  "slug": "french-natural-red-khaprail-tiles",
+  "group": "khaprail roof",
+  "day": 1,
+  "status": "queued"
+ },
+ {
+  "slug": "spanish-natural-red-khaprail-tiles",
+  "group": "khaprail roof",
+  "day": 2,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-red-brick-gutka-tiles",
+  "group": "gutka",
+  "day": 2,
+  "status": "planned"
+ },
+ {
+  "slug": "12x12-inch-terracotta-tiles",
+  "group": "terracotta floor/wall",
+  "day": 2,
+  "status": "planned"
+ },
+ {
+  "slug": "6x6-inch-hexagon-natural-handmade-terracotta-bathroom-wall-tiles",
+  "group": "terracotta floor/wall",
+  "day": 2,
+  "status": "planned"
+ },
+ {
+  "slug": "8x8-inch-natural-terracotta-tiles",
+  "group": "terracotta floor/wall",
+  "day": 3,
+  "status": "planned"
+ },
+ {
+  "slug": "9x12-inch-natural-terracotta-tiles",
+  "group": "terracotta floor/wall",
+  "day": 3,
+  "status": "planned"
+ },
+ {
+  "slug": "9x3-inch-terracotta-tiles",
+  "group": "terracotta floor/wall",
+  "day": 3,
+  "status": "planned"
+ },
+ {
+  "slug": "living-room-natural-terracotta-square-tiles-12x12-inch-001",
+  "group": "terracotta floor/wall",
+  "day": 3,
+  "status": "planned"
+ },
+ {
+  "slug": "living-room-natural-terracotta-square-tiles-8x8-inch-001",
+  "group": "terracotta floor/wall",
+  "day": 4,
+  "status": "planned"
+ },
+ {
+  "slug": "multi-terra-tiles",
+  "group": "terracotta floor/wall",
+  "day": 4,
+  "status": "planned"
+ },
+ {
+  "slug": "natural-terracotta-hexagon-6x6-inch-tiles",
+  "group": "terracotta floor/wall",
+  "day": 4,
+  "status": "planned"
+ },
+ {
+  "slug": "natural-terracotta-octagon-tiles-10x10-inch",
+  "group": "terracotta floor/wall",
+  "day": 4,
+  "status": "planned"
+ },
+ {
+  "slug": "natural-terracotta-pathway-square-tiles-8x8-inch",
+  "group": "terracotta floor/wall",
+  "day": 5,
+  "status": "planned"
+ },
+ {
+  "slug": "natural-terracotta-picked-and-square-tiles",
+  "group": "terracotta floor/wall",
+  "day": 5,
+  "status": "planned"
+ },
+ {
+  "slug": "natural-terracotta-rectangular-tiles-6x12-inch",
+  "group": "terracotta floor/wall",
+  "day": 5,
+  "status": "planned"
+ },
+ {
+  "slug": "natural-terracotta-rectangular-tiles-8x4-inch",
+  "group": "terracotta floor/wall",
+  "day": 5,
+  "status": "planned"
+ },
+ {
+  "slug": "natural-terracotta-square-4x4-inch-tiles",
+  "group": "terracotta floor/wall",
+  "day": 6,
+  "status": "planned"
+ },
+ {
+  "slug": "natural-terracotta-square-tiles-6x6-inch-001",
+  "group": "terracotta floor/wall",
+  "day": 6,
+  "status": "planned"
+ },
+ {
+  "slug": "natural-terracotta-square-tiles-6x6-inch-002",
+  "group": "terracotta floor/wall",
+  "day": 6,
+  "status": "planned"
+ },
+ {
+  "slug": "natural-terracotta-square-tiles-6x6-inch-003",
+  "group": "terracotta floor/wall",
+  "day": 6,
+  "status": "planned"
+ },
+ {
+  "slug": "octagon-8x8-inch-natural-terracotta-floor-tiles",
+  "group": "terracotta floor/wall",
+  "day": 7,
+  "status": "planned"
+ },
+ {
+  "slug": "outdoor-natural-terracotta-square-tiles-12x12-inch-001",
+  "group": "terracotta floor/wall",
+  "day": 7,
+  "status": "planned"
+ },
+ {
+  "slug": "outdoor-natural-terracotta-square-tiles-12x12-inch-002",
+  "group": "terracotta floor/wall",
+  "day": 7,
+  "status": "planned"
+ },
+ {
+  "slug": "outdoor-natural-terracotta-square-tiles-12x12-inch-003",
+  "group": "terracotta floor/wall",
+  "day": 7,
+  "status": "planned"
+ },
+ {
+  "slug": "outdoor-natural-terracotta-square-tiles-8x8-inch-001",
+  "group": "terracotta floor/wall",
+  "day": 8,
+  "status": "planned"
+ },
+ {
+  "slug": "rectangular-8x4-inch-natural-terracotta-floor-tiles",
+  "group": "terracotta floor/wall",
+  "day": 8,
+  "status": "planned"
+ },
+ {
+  "slug": "square-12x12-inch-natural-terracotta-floor-tiles",
+  "group": "terracotta floor/wall",
+  "day": 8,
+  "status": "planned"
+ },
+ {
+  "slug": "square-6x6-inch-natural-terracotta-floor-tiles",
+  "group": "terracotta floor/wall",
+  "day": 8,
+  "status": "planned"
+ },
+ {
+  "slug": "square-6x6-inch-tiles",
+  "group": "terracotta floor/wall",
+  "day": 9,
+  "status": "planned"
+ },
+ {
+  "slug": "square-9x9-inch-natural-terracotta-floor-tiles",
+  "group": "terracotta floor/wall",
+  "day": 9,
+  "status": "planned"
+ },
+ {
+  "slug": "star-and-cross-10x5-inch-terracotta-floor-tiles",
+  "group": "terracotta floor/wall",
+  "day": 9,
+  "status": "planned"
+ },
+ {
+  "slug": "diamond-shape-multi-color-otti-tiles",
+  "group": "otti",
+  "day": 9,
+  "status": "planned"
+ },
+ {
+  "slug": "half-hexagon-mosaic-otti-tiles",
+  "group": "otti",
+  "day": 10,
+  "status": "planned"
+ },
+ {
+  "slug": "multi-colors-random-shapes-ramp-otti-tiles",
+  "group": "otti",
+  "day": 10,
+  "status": "planned"
+ },
+ {
+  "slug": "multi-colors-square-and-rectangular-otti-tiles",
+  "group": "otti",
+  "day": 10,
+  "status": "planned"
+ },
+ {
+  "slug": "random-shapes-concrete-outdoor-floor-otti-tiles",
+  "group": "otti",
+  "day": 10,
+  "status": "planned"
+ },
+ {
+  "slug": "random-shapes-otti-tiles",
+  "group": "otti",
+  "day": 11,
+  "status": "planned"
+ },
+ {
+  "slug": "random-shapes-ramp-otti-tiles",
+  "group": "otti",
+  "day": 11,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-color-octagon-otti-tile",
+  "group": "otti",
+  "day": 11,
+  "status": "planned"
+ },
+ {
+  "slug": "6x12-stone-tiles",
+  "group": "stone/granite/marble cladding",
+  "day": 11,
+  "status": "planned"
+ },
+ {
+  "slug": "black-and-gold-split-natural-stone-wall-tiles",
+  "group": "stone/granite/marble cladding",
+  "day": 12,
+  "status": "planned"
+ },
+ {
+  "slug": "exterior-natural-sand-stone-wall-cladding-facade-tiles",
+  "group": "stone/granite/marble cladding",
+  "day": 12,
+  "status": "planned"
+ },
+ {
+  "slug": "exterior-natural-sand-stone-wall-tiles",
+  "group": "stone/granite/marble cladding",
+  "day": 12,
+  "status": "planned"
+ },
+ {
+  "slug": "grey-stone-wall-tiles",
+  "group": "stone/granite/marble cladding",
+  "day": 12,
+  "status": "planned"
+ },
+ {
+  "slug": "list-tile",
+  "group": "stone/granite/marble cladding",
+  "day": 13,
+  "status": "planned"
+ },
+ {
+  "slug": "marble-living-room-wall-tiles",
+  "group": "stone/granite/marble cladding",
+  "day": 13,
+  "status": "planned"
+ },
+ {
+  "slug": "multi-colors-granite-tiles",
+  "group": "stone/granite/marble cladding",
+  "day": 13,
+  "status": "planned"
+ },
+ {
+  "slug": "outdoor-natural-sand-stone-tile",
+  "group": "stone/granite/marble cladding",
+  "day": 13,
+  "status": "planned"
+ },
+ {
+  "slug": "white-stone-wall-tiles",
+  "group": "stone/granite/marble cladding",
+  "day": 14,
+  "status": "planned"
+ },
+ {
+  "slug": "yellow-stone-wall-tiles",
+  "group": "stone/granite/marble cladding",
+  "day": 14,
+  "status": "planned"
+ },
+ {
+  "slug": "green-and-white-hexagon-ceramic-mosaic-tiles",
+  "group": "ceramic mosaic",
+  "day": 14,
+  "status": "planned"
+ },
+ {
+  "slug": "green-glazed-ceramic-mosaic-hexagon-bathroom-wall-tiles",
+  "group": "ceramic mosaic",
+  "day": 14,
+  "status": "planned"
+ },
+ {
+  "slug": "light-green-glazed-kite-ceramic-mosaic-kitchen-wall-tiles",
+  "group": "ceramic mosaic",
+  "day": 15,
+  "status": "planned"
+ },
+ {
+  "slug": "light-turquoise-penny-round-tiles",
+  "group": "ceramic mosaic",
+  "day": 15,
+  "status": "planned"
+ },
+ {
+  "slug": "sky-blue-glazed-ceramic-mosaic-star-and-cross-bathroom-wall-tiles",
+  "group": "ceramic mosaic",
+  "day": 15,
+  "status": "planned"
+ },
+ {
+  "slug": "sky-blue-square-ceramic-mosaic-tiles",
+  "group": "ceramic mosaic",
+  "day": 15,
+  "status": "planned"
+ },
+ {
+  "slug": "sky-blue-star-and-cross-ceramic-mosaic-tiles",
+  "group": "ceramic mosaic",
+  "day": 16,
+  "status": "planned"
+ },
+ {
+  "slug": "turquoise-glazed-ceramic-mosaic-rectangular-bathroom-wall-tiles",
+  "group": "ceramic mosaic",
+  "day": 16,
+  "status": "planned"
+ },
+ {
+  "slug": "yellow-glazed-ceramic-mosaic-subway-kitchen-wall-tiles",
+  "group": "ceramic mosaic",
+  "day": 16,
+  "status": "planned"
+ },
+ {
+  "slug": "yellow-glazed-kite-ceramic-mosaic-kitchen-wall-tiles",
+  "group": "ceramic mosaic",
+  "day": 16,
+  "status": "planned"
+ },
+ {
+  "slug": "swimming-pool-border-tiles",
+  "group": "swimming pool",
+  "day": 17,
+  "status": "planned"
+ },
+ {
+  "slug": "swimming-pool-tiles-001",
+  "group": "swimming pool",
+  "day": 17,
+  "status": "planned"
+ },
+ {
+  "slug": "swimming-pool-tiles-002",
+  "group": "swimming pool",
+  "day": 17,
+  "status": "planned"
+ },
+ {
+  "slug": "swimming-pool-tiles-003",
+  "group": "swimming pool",
+  "day": 17,
+  "status": "planned"
+ },
+ {
+  "slug": "swimming-pool-tiles-004",
+  "group": "swimming pool",
+  "day": 18,
+  "status": "planned"
+ },
+ {
+  "slug": "swimming-pool-tiles-005",
+  "group": "swimming pool",
+  "day": 18,
+  "status": "planned"
+ },
+ {
+  "slug": "swimming-pool-tiles-006",
+  "group": "swimming pool",
+  "day": 18,
+  "status": "planned"
+ },
+ {
+  "slug": "swimming-pool-tiles-007",
+  "group": "swimming pool",
+  "day": 18,
+  "status": "planned"
+ },
+ {
+  "slug": "swimming-pool-tiles-008",
+  "group": "swimming pool",
+  "day": 19,
+  "status": "planned"
+ },
+ {
+  "slug": "cobbler-pavers-tiles-4x4-inch",
+  "group": "pavers",
+  "day": 19,
+  "status": "planned"
+ },
+ {
+  "slug": "grass-grid-pavers-tiles",
+  "group": "pavers",
+  "day": 19,
+  "status": "planned"
+ },
+ {
+  "slug": "grey-paver-tile-8x4-inch",
+  "group": "pavers",
+  "day": 19,
+  "status": "planned"
+ },
+ {
+  "slug": "octagon-paver-tile",
+  "group": "pavers",
+  "day": 20,
+  "status": "planned"
+ },
+ {
+  "slug": "square-paver-tile-4x4-inch",
+  "group": "pavers",
+  "day": 20,
+  "status": "planned"
+ },
+ {
+  "slug": "square-paver-tile-6x6-inch",
+  "group": "pavers",
+  "day": 20,
+  "status": "planned"
+ },
+ {
+  "slug": "zig-zag-paver-tile-8x4-inch",
+  "group": "pavers",
+  "day": 20,
+  "status": "planned"
+ },
+ {
+  "slug": "industrial-acid-proof-tiles",
+  "group": "industrial acid proof",
+  "day": 21,
+  "status": "planned"
+ },
+ {
+  "slug": "cement-jali-tiles",
+  "group": "terracotta jali",
+  "day": 21,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-jali-tiles-001",
+  "group": "terracotta jali",
+  "day": 21,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-jali-tiles-002",
+  "group": "terracotta jali",
+  "day": 21,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-jali-tiles-003",
+  "group": "terracotta jali",
+  "day": 22,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-jali-tiles-004",
+  "group": "terracotta jali",
+  "day": 22,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-jali-tiles-005",
+  "group": "terracotta jali",
+  "day": 22,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-jali-tiles-006",
+  "group": "terracotta jali",
+  "day": 22,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-jali-tiles-007",
+  "group": "terracotta jali",
+  "day": 23,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-jali-tiles-008",
+  "group": "terracotta jali",
+  "day": 23,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-jali-tiles-009",
+  "group": "terracotta jali",
+  "day": 23,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-jali-tiles-010",
+  "group": "terracotta jali",
+  "day": 23,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-jali-tiles-011",
+  "group": "terracotta jali",
+  "day": 24,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-jali-tiles-012",
+  "group": "terracotta jali",
+  "day": 24,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-jali-tiles-013",
+  "group": "terracotta jali",
+  "day": 24,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-jali-tiles-014",
+  "group": "terracotta jali",
+  "day": 24,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-jali-tiles-015",
+  "group": "terracotta jali",
+  "day": 25,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-jali-tiles-016",
+  "group": "terracotta jali",
+  "day": 26,
+  "status": "planned"
+ },
+ {
+  "slug": "terracotta-jali-tiles-017",
+  "group": "terracotta jali",
+  "day": 27,
+  "status": "planned"
+ }
+]

@@ -1,0 +1,853 @@
+[
+ {
+  "day": 1,
+  "date": "2026-11-07",
+  "slot": 1,
+  "city": "Lahore",
+  "cluster": "city-product",
+  "title": "Best Khaprail Tiles in Lahore: 2026 Buyer's Guide",
+  "primary_keyword": "best khaprail tiles in lahore",
+  "secondary_keywords": [
+   "khaprail tiles lahore",
+   "khaprail tiles manufacturer lahore"
+  ],
+  "intent": "commercial",
+  "status": "queued"
+ },
+ {
+  "day": 1,
+  "date": "2026-11-07",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "price",
+  "title": "Khaprail Tiles Price in Pakistan: What Decides the Rate in 2026",
+  "primary_keyword": "khaprail tiles price in pakistan",
+  "secondary_keywords": [
+   "khaprail tile rate",
+   "khaprail price per piece"
+  ],
+  "intent": "transactional",
+  "status": "queued"
+ },
+ {
+  "day": 2,
+  "date": "2026-11-08",
+  "slot": 1,
+  "city": "Lahore",
+  "cluster": "city-product",
+  "title": "Gutka Tiles in Lahore: Sizes, Uses and How to Choose",
+  "primary_keyword": "gutka tiles in lahore",
+  "secondary_keywords": [
+   "gutka tile price",
+   "gutka tiles pakistan"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 2,
+  "date": "2026-11-08",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "product",
+  "title": "Terracotta Jali in Pakistan: Designs, Uses and Ordering Guide",
+  "primary_keyword": "terracotta jali pakistan",
+  "secondary_keywords": [
+   "jali tiles",
+   "terracotta jali design"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 3,
+  "date": "2026-11-09",
+  "slot": 1,
+  "city": "Karachi",
+  "cluster": "city-product",
+  "title": "Best Khaprail Tiles in Karachi: Humidity, Heat and What Lasts",
+  "primary_keyword": "best khaprail tiles in karachi",
+  "secondary_keywords": [
+   "khaprail tiles karachi",
+   "clay roof tiles karachi"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 3,
+  "date": "2026-11-09",
+  "slot": 2,
+  "city": "Karachi",
+  "cluster": "price",
+  "title": "Terracotta Tiles Price in Karachi: What You Pay For",
+  "primary_keyword": "terracotta tiles price in karachi",
+  "secondary_keywords": [
+   "terracotta floor tiles karachi rate"
+  ],
+  "intent": "transactional",
+  "status": "planned"
+ },
+ {
+  "day": 4,
+  "date": "2026-11-10",
+  "slot": 1,
+  "city": "Islamabad",
+  "cluster": "city-product",
+  "title": "Best Khaprail Tiles in Islamabad: A Buyer's Guide for Rain and Cold",
+  "primary_keyword": "best khaprail tiles in islamabad",
+  "secondary_keywords": [
+   "khaprail tiles islamabad",
+   "roof tiles islamabad"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 4,
+  "date": "2026-11-10",
+  "slot": 2,
+  "city": "Murree",
+  "cluster": "use-case",
+  "title": "Roof Tiles for Murree and Northern Pakistan: Rain, Frost and Snow",
+  "primary_keyword": "roof tiles for murree",
+  "secondary_keywords": [
+   "roof tiles for hill areas pakistan",
+   "khaprail murree"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 5,
+  "date": "2026-11-11",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "price",
+  "title": "Multani Tiles Price in Pakistan: Types and Rate Factors",
+  "primary_keyword": "multani tiles price in pakistan",
+  "secondary_keywords": [
+   "multani blue tiles",
+   "multani tiles"
+  ],
+  "intent": "transactional",
+  "status": "planned"
+ },
+ {
+  "day": 5,
+  "date": "2026-11-11",
+  "slot": 2,
+  "city": "Karachi",
+  "cluster": "city-product",
+  "title": "Blue Multani Tiles in Karachi: Where to Use and Where to Buy",
+  "primary_keyword": "blue multani tiles karachi",
+  "secondary_keywords": [
+   "multani tiles karachi"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 6,
+  "date": "2026-11-12",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "comparison",
+  "title": "Clay vs Concrete Roof Tiles in Pakistan: Which Is Better?",
+  "primary_keyword": "clay vs concrete roof tiles pakistan",
+  "secondary_keywords": [
+   "khaprail vs concrete tiles"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 6,
+  "date": "2026-11-12",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "use-case",
+  "title": "Best Roof Tiles for Heat in Pakistan: Keeping Homes Cooler",
+  "primary_keyword": "best roof tiles for heat in pakistan",
+  "secondary_keywords": [
+   "roof tiles heat insulation pakistan"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 7,
+  "date": "2026-11-13",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "use-case",
+  "title": "Car Porch Tiles in Pakistan: Best Options and Design Ideas",
+  "primary_keyword": "car porch tiles in pakistan",
+  "secondary_keywords": [
+   "car porch tiles design",
+   "outdoor tiles for porch"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 7,
+  "date": "2026-11-13",
+  "slot": 2,
+  "city": "Lahore",
+  "cluster": "use-case",
+  "title": "Terracotta Tiles for Terraces and Roof Floors in Lahore",
+  "primary_keyword": "terracotta tiles for terrace lahore",
+  "secondary_keywords": [
+   "roof floor tiles lahore"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 8,
+  "date": "2026-11-14",
+  "slot": 1,
+  "city": "Rawalpindi",
+  "cluster": "city-product",
+  "title": "Khaprail Tiles in Rawalpindi: Types, Sizes and Supply",
+  "primary_keyword": "khaprail tiles in rawalpindi",
+  "secondary_keywords": [
+   "roof tiles rawalpindi"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 8,
+  "date": "2026-11-14",
+  "slot": 2,
+  "city": "Faisalabad",
+  "cluster": "city-product",
+  "title": "Khaprail Tiles in Faisalabad: Choosing for Hot, Dry Summers",
+  "primary_keyword": "khaprail tiles in faisalabad",
+  "secondary_keywords": [
+   "terracotta tiles faisalabad"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 9,
+  "date": "2026-11-15",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "product",
+  "title": "Khaprail Tiles Colors: Natural Red, Glazed Green and More",
+  "primary_keyword": "khaprail tiles colors",
+  "secondary_keywords": [
+   "khaprail tile colour options"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 9,
+  "date": "2026-11-15",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "product",
+  "title": "Glazed Khaprail Tiles: French Green and When to Choose Glazed",
+  "primary_keyword": "glazed khaprail tiles",
+  "secondary_keywords": [
+   "green khaprail tiles"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 10,
+  "date": "2026-11-16",
+  "slot": 1,
+  "city": "Lahore",
+  "cluster": "city-product",
+  "title": "Best Terracotta Floor Tiles in Lahore: Sizes, Shapes, Finish",
+  "primary_keyword": "best terracotta floor tiles in lahore",
+  "secondary_keywords": [
+   "terracotta floor tiles lahore"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 10,
+  "date": "2026-11-16",
+  "slot": 2,
+  "city": "Islamabad",
+  "cluster": "city-product",
+  "title": "Terracotta Floor Tiles in Islamabad: Indoor and Outdoor Guide",
+  "primary_keyword": "terracotta floor tiles in islamabad",
+  "secondary_keywords": [
+   "terracotta tiles islamabad"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 11,
+  "date": "2026-11-17",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "product",
+  "title": "Otti Tiles in Pakistan: What They Are and Where They Work",
+  "primary_keyword": "otti tiles pakistan",
+  "secondary_keywords": [
+   "otti tiles design",
+   "otti tiles price"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 11,
+  "date": "2026-11-17",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "price",
+  "title": "Gutka Tiles Price in Pakistan: How Rates Are Set",
+  "primary_keyword": "gutka tiles price in pakistan",
+  "secondary_keywords": [
+   "gutka tile rate"
+  ],
+  "intent": "transactional",
+  "status": "planned"
+ },
+ {
+  "day": 12,
+  "date": "2026-11-18",
+  "slot": 1,
+  "city": "Multan",
+  "cluster": "city-product",
+  "title": "Khaprail Tiles in Multan: Traditional Roofing for Extreme Heat",
+  "primary_keyword": "khaprail tiles in multan",
+  "secondary_keywords": [
+   "terracotta tiles multan"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 12,
+  "date": "2026-11-18",
+  "slot": 2,
+  "city": "Gujranwala",
+  "cluster": "city-product",
+  "title": "Khaprail Tiles in Gujranwala and Sialkot: A Buyer's Guide",
+  "primary_keyword": "khaprail tiles gujranwala",
+  "secondary_keywords": [
+   "roof tiles sialkot"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 13,
+  "date": "2026-11-19",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "how-to",
+  "title": "How Khaprail Roof Tiles Are Installed: Slope, Battens and Overlap",
+  "primary_keyword": "how to install khaprail tiles",
+  "secondary_keywords": [
+   "khaprail tile installation"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 13,
+  "date": "2026-11-19",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "how-to",
+  "title": "Khaprail Tile Maintenance: Cleaning, Repairs and Moss Control",
+  "primary_keyword": "khaprail tile maintenance",
+  "secondary_keywords": [
+   "clay roof tile cleaning"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 14,
+  "date": "2026-11-20",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "how-to",
+  "title": "How to Calculate How Many Khaprail Tiles Your Roof Needs",
+  "primary_keyword": "how many khaprail tiles per square foot",
+  "secondary_keywords": [
+   "khaprail tile calculator"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 14,
+  "date": "2026-11-20",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "price",
+  "title": "Khaprail Roof Cost per Square Foot: How to Estimate Your Budget",
+  "primary_keyword": "khaprail roof cost per square foot",
+  "secondary_keywords": [
+   "roof tile cost pakistan"
+  ],
+  "intent": "transactional",
+  "status": "planned"
+ },
+ {
+  "day": 15,
+  "date": "2026-11-21",
+  "slot": 1,
+  "city": "Lahore",
+  "cluster": "use-case",
+  "title": "Terracotta Jali Tiles in Lahore for Boundary Walls and Ventilation",
+  "primary_keyword": "terracotta jali tiles lahore",
+  "secondary_keywords": [
+   "jali wall lahore"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 15,
+  "date": "2026-11-21",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "product",
+  "title": "Jali Tile Designs: Patterns for Walls, Screens and Gardens",
+  "primary_keyword": "jali tile designs",
+  "secondary_keywords": [
+   "cement jali tiles",
+   "jali screen wall"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 16,
+  "date": "2026-11-22",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "use-case",
+  "title": "Terracotta Kitchen Wall Tiles: Ideas That Handle Heat and Splashes",
+  "primary_keyword": "terracotta kitchen wall tiles",
+  "secondary_keywords": [
+   "kitchen wall tiles pakistan"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 16,
+  "date": "2026-11-22",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "use-case",
+  "title": "Terracotta Bathroom Wall Tiles: Hexagon and Mosaic Options",
+  "primary_keyword": "terracotta bathroom wall tiles",
+  "secondary_keywords": [
+   "bathroom tiles pakistan"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 17,
+  "date": "2026-11-23",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "product",
+  "title": "Swimming Pool Tiles in Pakistan: Types, Borders and Safety",
+  "primary_keyword": "swimming pool tiles pakistan",
+  "secondary_keywords": [
+   "pool tiles lahore"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 17,
+  "date": "2026-11-23",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "product",
+  "title": "Sandstone Wall Cladding in Pakistan: Exterior Facade Tiles",
+  "primary_keyword": "sandstone wall cladding pakistan",
+  "secondary_keywords": [
+   "exterior stone cladding tiles"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 18,
+  "date": "2026-11-24",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "product",
+  "title": "Industrial Acid Proof Tiles in Pakistan: Where They Are Used",
+  "primary_keyword": "acid proof tiles pakistan",
+  "secondary_keywords": [
+   "industrial acid resistant tiles"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 18,
+  "date": "2026-11-24",
+  "slot": 2,
+  "city": "Lahore",
+  "cluster": "city-product",
+  "title": "Acid Proof Tiles for Factories and Labs in Lahore",
+  "primary_keyword": "acid proof tiles lahore",
+  "secondary_keywords": [
+   "industrial flooring lahore"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 19,
+  "date": "2026-11-25",
+  "slot": 1,
+  "city": "Peshawar",
+  "cluster": "city-product",
+  "title": "Terracotta Tiles in Peshawar: Floors, Roofs and Courtyards",
+  "primary_keyword": "terracotta tiles in peshawar",
+  "secondary_keywords": [
+   "khaprail tiles peshawar"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 19,
+  "date": "2026-11-25",
+  "slot": 2,
+  "city": "Quetta",
+  "cluster": "city-product",
+  "title": "Clay Tiles in Quetta: Cold Climate Roofing and Flooring",
+  "primary_keyword": "clay tiles in quetta",
+  "secondary_keywords": [
+   "terracotta tiles quetta"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 20,
+  "date": "2026-11-26",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "b2b",
+  "title": "Buying Khaprail Tiles in Bulk: A Guide for Contractors",
+  "primary_keyword": "bulk khaprail tiles pakistan",
+  "secondary_keywords": [
+   "khaprail tiles wholesale"
+  ],
+  "intent": "transactional",
+  "status": "planned"
+ },
+ {
+  "day": 20,
+  "date": "2026-11-26",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "b2b",
+  "title": "Clay Tiles for Architects: Specifying Terracotta in Pakistani Projects",
+  "primary_keyword": "clay tiles for architects pakistan",
+  "secondary_keywords": [
+   "terracotta architecture pakistan"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 21,
+  "date": "2026-11-27",
+  "slot": 1,
+  "city": "Hyderabad",
+  "cluster": "city-product",
+  "title": "Khaprail Tiles in Hyderabad: Coastal Humidity and Roofing",
+  "primary_keyword": "khaprail tiles in hyderabad",
+  "secondary_keywords": [
+   "terracotta tiles hyderabad sindh"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 21,
+  "date": "2026-11-27",
+  "slot": 2,
+  "city": "Karachi",
+  "cluster": "use-case",
+  "title": "Terracotta Floor Tiles for Karachi Homes: Heat, Humidity, Care",
+  "primary_keyword": "terracotta floor tiles karachi",
+  "secondary_keywords": [
+   "terracotta tiles karachi"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 22,
+  "date": "2026-11-28",
+  "slot": 1,
+  "city": "Lahore",
+  "cluster": "informational",
+  "title": "Are Khaprail Tiles Waterproof? Monsoon Performance in Lahore",
+  "primary_keyword": "are khaprail tiles waterproof",
+  "secondary_keywords": [
+   "clay roof tiles monsoon"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 22,
+  "date": "2026-11-28",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "how-to",
+  "title": "Roof Leakage with Khaprail Tiles: Causes and How to Fix Them",
+  "primary_keyword": "khaprail roof leakage",
+  "secondary_keywords": [
+   "clay tile roof leak repair"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 23,
+  "date": "2026-11-29",
+  "slot": 1,
+  "city": "Lahore",
+  "cluster": "e-e-a-t",
+  "title": "Why Lahore's Old Buildings Use Clay: A Short History of Khaprail",
+  "primary_keyword": "history of khaprail tiles lahore",
+  "secondary_keywords": [
+   "traditional clay roofing lahore"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 23,
+  "date": "2026-11-29",
+  "slot": 2,
+  "city": "Lahore",
+  "cluster": "e-e-a-t",
+  "title": "Pak Clay Tiles Since 1982: How Clay Tiles Are Made in Lahore",
+  "primary_keyword": "clay tile manufacturer lahore since 1982",
+  "secondary_keywords": [
+   "how clay tiles are made"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 24,
+  "date": "2026-11-30",
+  "slot": 1,
+  "city": "Lahore",
+  "cluster": "use-case",
+  "title": "Terracotta Tiles for Restaurants and Cafes in Lahore",
+  "primary_keyword": "terracotta tiles for restaurants lahore",
+  "secondary_keywords": [
+   "cafe flooring lahore"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 24,
+  "date": "2026-11-30",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "use-case",
+  "title": "Terracotta and Stone Tiles for Hotels and Resorts in Pakistan",
+  "primary_keyword": "tiles for hotels pakistan",
+  "secondary_keywords": [
+   "resort flooring pakistan"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 25,
+  "date": "2026-12-01",
+  "slot": 1,
+  "city": "Lahore",
+  "cluster": "use-case",
+  "title": "Roof Tiles for DHA, Bahria Town and Farmhouses in Lahore",
+  "primary_keyword": "roof tiles for farmhouses lahore",
+  "secondary_keywords": [
+   "khaprail tiles dha lahore"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 25,
+  "date": "2026-12-01",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "informational",
+  "title": "Choosing Tiles for a Housing Society Home in Pakistan",
+  "primary_keyword": "tiles for house construction pakistan",
+  "secondary_keywords": [
+   "house tiles guide pakistan"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 26,
+  "date": "2026-12-02",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "informational",
+  "title": "Are Clay Tiles Eco-Friendly? Natural Materials Explained",
+  "primary_keyword": "eco friendly clay tiles",
+  "secondary_keywords": [
+   "natural terracotta tiles"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 26,
+  "date": "2026-12-02",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "comparison",
+  "title": "Natural vs Glazed Terracotta Tiles: Which Should You Choose?",
+  "primary_keyword": "natural vs glazed terracotta tiles",
+  "secondary_keywords": [
+   "glazed vs unglazed tiles"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 27,
+  "date": "2026-12-03",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "comparison",
+  "title": "Spanish, French and Flat Khaprail Tiles: Which Profile Suits Your Roof",
+  "primary_keyword": "spanish vs french khaprail tiles",
+  "secondary_keywords": [
+   "khaprail tile types"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 27,
+  "date": "2026-12-03",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "product",
+  "title": "Murlee, Disco and Barrel Khaprail Tiles Explained",
+  "primary_keyword": "khaprail tile types pakistan",
+  "secondary_keywords": [
+   "disco khaprail tiles"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 28,
+  "date": "2026-12-04",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "conversion",
+  "title": "How to Order Free Tile Samples from Pak Clay Tiles",
+  "primary_keyword": "free tile samples pakistan",
+  "secondary_keywords": [
+   "clay tile sample"
+  ],
+  "intent": "transactional",
+  "status": "planned"
+ },
+ {
+  "day": 28,
+  "date": "2026-12-04",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "conversion",
+  "title": "Clay Tile Delivery Across Pakistan: What to Expect",
+  "primary_keyword": "tile delivery pakistan",
+  "secondary_keywords": [
+   "khaprail tiles delivery"
+  ],
+  "intent": "transactional",
+  "status": "planned"
+ },
+ {
+  "day": 29,
+  "date": "2026-12-05",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "faq",
+  "title": "25 Questions About Khaprail Tiles in Pakistan, Answered",
+  "primary_keyword": "khaprail tiles faq",
+  "secondary_keywords": [
+   "khaprail tiles questions"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 29,
+  "date": "2026-12-05",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "comparison",
+  "title": "Khaprail vs Other Roofing in Pakistan: Cost, Comfort, Lifespan",
+  "primary_keyword": "khaprail vs other roofing pakistan",
+  "secondary_keywords": [
+   "roofing options pakistan"
+  ],
+  "intent": "informational",
+  "status": "planned"
+ },
+ {
+  "day": 30,
+  "date": "2026-12-06",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "pillar",
+  "title": "Best Khaprail Tile Manufacturer in Pakistan: How to Choose",
+  "primary_keyword": "best khaprail tile manufacturer in pakistan",
+  "secondary_keywords": [
+   "khaprail tiles manufacturer"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ },
+ {
+  "day": 30,
+  "date": "2026-12-06",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "pillar",
+  "title": "Best Terracotta Tiles in Pakistan: A Complete Buying Guide",
+  "primary_keyword": "best terracotta tiles in pakistan",
+  "secondary_keywords": [
+   "terracotta tiles pakistan"
+  ],
+  "intent": "commercial",
+  "status": "planned"
+ }
+]

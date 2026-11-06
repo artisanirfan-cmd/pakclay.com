@@ -7,6 +7,7 @@ import { sitemapHandler } from "./routes/sitemap.js"
 import { robotsHandler } from "./routes/robots.js"
 import { createPageHandler } from "./lib/pages.js"
 import { canonicalHostMiddleware } from "./lib/host.js"
+import { startSeoPublisher } from "./lib/blog-publisher.js"
 
 // Production server for khaprail-website, replacing the previous Vercel
 // deployment: serves the built Vite app (dist/) as static files, implements
@@ -112,4 +113,5 @@ app.use(createPageHandler(DIST_DIR))
 
 app.listen(PORT, () => {
   console.log(`[server] khaprail-website listening on port ${PORT}`)
+  startSeoPublisher()
 })

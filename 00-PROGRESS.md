@@ -795,3 +795,10 @@ Add a dated entry each session — a few lines, not a transcript.
 - Verified: `tsc -b` clean, `vite build` ok, no new oxlint warnings, rendered in headless Chromium against mocked Supabase data at 1440 and 390 widths (PDP + category, no console errors). Not verified against real data/photos; check live after deploy.
 - Correction to the live audit: "images missing alt text" counted `alt=""`, which is deliberate (decorative card images next to a text name), not a missing attribute.
 - Not done: offer cards ("Bulk Pricing -> Shop now -> /contact") are admin data, change in the admin; sticky mobile CTA bar skipped (the site already has a fixed bottom nav).
+
+## Batch 58 — SEO / AEO / GEO automation (2026-11-07)
+- `seo/STRATEGY.md` (keyword framework, competitor gaps, pricing + AEO/GEO rules), `seo/calendar.json` (60 articles, 2/day, 2026-11-07 → 12-06), `seo/products.json` (99 products, ~4/day), `seo/price-sheet.json` (EMPTY: client must fill real dated rates), `seo/RUNBOOK.md`.
+- Day-1 articles queued in `khaprail-website/content/blog/queue/` (Lahore buyer's guide, Price in Pakistan) + 4 product descriptions in `content/products/2026-11-07.json`.
+- `server/lib/blog-publisher.ts`: hourly job publishing due queue items into blog_posts/blog_faqs (idempotent by slug), applying product descriptions where still the placeholder. Env: PUBLISH_MODE=draft|published, SEO_GITHUB_REPO/TOKEN, SEO_PUBLISHER=off, SEO_NOW (test). Mock-tested only; not yet run against live Supabase.
+- Daily scheduled task writes next day's files and pushes to GitHub.
+- Open: keyword volumes not measured (no tool); client rate card; areaServed JSON-LD deferred until delivery cities are confirmed; pakclaytiles.com is the old site of the same company (avoid duplicate text).

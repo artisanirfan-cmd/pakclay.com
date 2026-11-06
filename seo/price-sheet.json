@@ -1,0 +1,16 @@
+{
+  "_note": "Fill this in with REAL current rates from Pak Clay / Khaprail. Articles quote a price only if it is filled here, with its unit and the date it was confirmed. Anything left null is written as 'ask for today's rate on WhatsApp'. Never guess a number.",
+  "confirmed_on": null,
+  "currency": "PKR",
+  "items": {
+    "khaprail_roof_tile_per_piece": null,
+    "khaprail_tiles_per_sq_ft_of_roof": null,
+    "terracotta_floor_tile_per_sq_ft": null,
+    "gutka_tile_per_piece": null,
+    "multani_tile_per_sq_ft": null,
+    "jali_tile_per_piece": null,
+    "otti_tile_per_sq_ft": null,
+    "minimum_order_for_bulk_rate": null,
+    "delivery_cities_and_charges": null
+  }
+}
