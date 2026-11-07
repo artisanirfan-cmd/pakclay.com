@@ -55,3 +55,7 @@ Each city gets at least one article (calendar). Extra locality GEO steps: add `a
 
 ## 9. Measure (from day 14)
 Google Search Console: impressions/clicks per article and per city term; indexed pages; average position for the 10 core terms. Re-order the calendar toward what is getting impressions. Count sample requests (`sample_inquiries`) per article source when attribution is added.
+
+## 10. Client keyword list (added 2026-11-07) — see `keywords.json`
+25 client keywords (outdoor/exterior/porch/driveway, travertine, gutka red/yellow, tuff, cement/concrete jali and tiles, pattern, front wall). Added 10 articles at days 3-7 (dates shifted from 2026-11-09); 10 lower-priority items were dropped to keep 60 (history, hotels, housing society, eco, delivery, architects, acid-proof Lahore, sandstone cladding, bathroom wall, khaprail vs other roofing). Products matching these keywords are pulled forward in `products.json`.
+**Catalogue gaps (honest-data rule):** travertine, yellow gutka/yellow bricks and cement/concrete floor tiles are NOT in the catalogue. Those articles stay informational and never claim stock until the client confirms. "Tough tiles" is ambiguous (likely tuff interlocking pavers).

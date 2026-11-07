@@ -39,7 +39,10 @@
   "primary_keyword": "gutka tiles in lahore",
   "secondary_keywords": [
    "gutka tile price",
-   "gutka tiles pakistan"
+   "gutka tiles",
+   "gutka tiles pakistan",
+   "red gutka bricks",
+   "red gutka tiles"
   ],
   "intent": "commercial",
   "status": "planned"
@@ -63,6 +66,183 @@
   "day": 3,
   "date": "2026-11-09",
   "slot": 1,
+  "city": "Pakistan",
+  "cluster": "use-case",
+  "title": "Outdoor Floor Tiles in Pakistan: Terracotta, Otti and Paver Options",
+  "primary_keyword": "outdoor floor tiles",
+  "secondary_keywords": [
+   "outdoor tiles pakistan",
+   "exterior floor tiles",
+   "outdoor floor tiles for patio"
+  ],
+  "intent": "commercial",
+  "status": "planned",
+  "source": "client-keyword-list-2026-11-07"
+ },
+ {
+  "day": 3,
+  "date": "2026-11-09",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "use-case",
+  "title": "Outdoor Wall Tiles and Front Wall Tiles for House Exteriors",
+  "primary_keyword": "outdoor wall tiles",
+  "secondary_keywords": [
+   "front wall tiles",
+   "exterior wall tiles pakistan",
+   "front elevation tiles",
+   "exterior tiles"
+  ],
+  "intent": "commercial",
+  "status": "planned",
+  "source": "client-keyword-list-2026-11-07"
+ },
+ {
+  "day": 4,
+  "date": "2026-11-10",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "use-case",
+  "title": "Driveway Tiles in Pakistan: Pavers, Grass Grid and Stone Options",
+  "primary_keyword": "driveway tiles",
+  "secondary_keywords": [
+   "driveway pavers pakistan",
+   "tiles for driveway",
+   "exterior tiles"
+  ],
+  "intent": "commercial",
+  "status": "planned",
+  "source": "client-keyword-list-2026-11-07"
+ },
+ {
+  "day": 4,
+  "date": "2026-11-10",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "use-case",
+  "title": "Porch Tiles in Pakistan: Designs That Handle Sun and Rain",
+  "primary_keyword": "porch tiles",
+  "secondary_keywords": [
+   "porch floor tiles",
+   "front porch tiles design",
+   "outdoor tiles"
+  ],
+  "intent": "commercial",
+  "status": "planned",
+  "source": "client-keyword-list-2026-11-07"
+ },
+ {
+  "day": 5,
+  "date": "2026-11-11",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "use-case",
+  "title": "Cement Jali and Concrete Jali: Designs, Uses and Ordering",
+  "primary_keyword": "cement jali",
+  "secondary_keywords": [
+   "concrete jali",
+   "jali blocks pakistan",
+   "cement jali tiles"
+  ],
+  "intent": "commercial",
+  "status": "planned",
+  "source": "client-keyword-list-2026-11-07"
+ },
+ {
+  "day": 5,
+  "date": "2026-11-11",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "comparison",
+  "title": "Cement Tiles vs Concrete Tiles vs Terracotta: What to Choose",
+  "primary_keyword": "cement tiles",
+  "secondary_keywords": [
+   "concrete tiles",
+   "concrete tiles pakistan",
+   "cement vs terracotta tiles"
+  ],
+  "intent": "commercial",
+  "status": "planned",
+  "source": "client-keyword-list-2026-11-07"
+ },
+ {
+  "day": 6,
+  "date": "2026-11-12",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "use-case",
+  "title": "Pattern Tiles in Pakistan: Floor and Wall Pattern Ideas",
+  "primary_keyword": "pattern tiles",
+  "secondary_keywords": [
+   "pattern tiles pakistan",
+   "patterned floor tiles",
+   "geometric tiles"
+  ],
+  "intent": "commercial",
+  "status": "planned",
+  "source": "client-keyword-list-2026-11-07"
+ },
+ {
+  "day": 6,
+  "date": "2026-11-12",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "product-guide",
+  "title": "Travertine Tiles in Pakistan: Stone, Marble Look and Alternatives",
+  "primary_keyword": "travertine tiles",
+  "secondary_keywords": [
+   "travertine marble",
+   "travertine stone",
+   "travertine stone tiles",
+   "travertine marble tiles"
+  ],
+  "intent": "informational",
+  "status": "planned",
+  "source": "client-keyword-list-2026-11-07",
+  "note": "NEEDS CLIENT CONFIRMATION: no travertine product in catalogue. Write as an informational guide with natural-stone alternatives Pak Clay does list; do NOT claim to sell travertine."
+ },
+ {
+  "day": 7,
+  "date": "2026-11-13",
+  "slot": 1,
+  "city": "Pakistan",
+  "cluster": "product-guide",
+  "title": "Tuff Tiles Explained: Interlocking Paver Tiles and Alternatives",
+  "primary_keyword": "tough tiles",
+  "secondary_keywords": [
+   "tuff tiles",
+   "tuff tiles price",
+   "interlocking paver tiles pakistan"
+  ],
+  "intent": "commercial",
+  "status": "planned",
+  "source": "client-keyword-list-2026-11-07",
+  "note": "Ambiguous keyword (tough/tuff tiles). Cover paver options Pak Clay lists; do not use any brand name as ours."
+ },
+ {
+  "day": 7,
+  "date": "2026-11-13",
+  "slot": 2,
+  "city": "Pakistan",
+  "cluster": "comparison",
+  "title": "Red Gutka Bricks vs Yellow Gutka Bricks: Which to Pick",
+  "primary_keyword": "red gutka tiles",
+  "secondary_keywords": [
+   "yellow gutka tiles",
+   "yellow gutka",
+   "red gutka bricks",
+   "yellow gutka brick",
+   "yellow bricks"
+  ],
+  "intent": "commercial",
+  "status": "planned",
+  "source": "client-keyword-list-2026-11-07",
+  "note": "NEEDS CLIENT CONFIRMATION: only red gutka (terracotta-red-brick-gutka-tiles) is in catalogue. Do not claim yellow gutka is stocked unless confirmed."
+ },
+ {
+  "day": 8,
+  "date": "2026-11-14",
+  "slot": 1,
   "city": "Karachi",
   "cluster": "city-product",
   "title": "Best Khaprail Tiles in Karachi: Humidity, Heat and What Lasts",
@@ -75,8 +255,8 @@
   "status": "planned"
  },
  {
-  "day": 3,
-  "date": "2026-11-09",
+  "day": 8,
+  "date": "2026-11-14",
   "slot": 2,
   "city": "Karachi",
   "cluster": "price",
@@ -89,8 +269,8 @@
   "status": "planned"
  },
  {
-  "day": 4,
-  "date": "2026-11-10",
+  "day": 9,
+  "date": "2026-11-15",
   "slot": 1,
   "city": "Islamabad",
   "cluster": "city-product",
@@ -104,8 +284,8 @@
   "status": "planned"
  },
  {
-  "day": 4,
-  "date": "2026-11-10",
+  "day": 9,
+  "date": "2026-11-15",
   "slot": 2,
   "city": "Murree",
   "cluster": "use-case",
@@ -119,8 +299,8 @@
   "status": "planned"
  },
  {
-  "day": 5,
-  "date": "2026-11-11",
+  "day": 10,
+  "date": "2026-11-16",
   "slot": 1,
   "city": "Pakistan",
   "cluster": "price",
@@ -134,8 +314,8 @@
   "status": "planned"
  },
  {
-  "day": 5,
-  "date": "2026-11-11",
+  "day": 10,
+  "date": "2026-11-16",
   "slot": 2,
   "city": "Karachi",
   "cluster": "city-product",
@@ -148,8 +328,8 @@
   "status": "planned"
  },
  {
-  "day": 6,
-  "date": "2026-11-12",
+  "day": 11,
+  "date": "2026-11-17",
   "slot": 1,
   "city": "Pakistan",
   "cluster": "comparison",
@@ -162,8 +342,8 @@
   "status": "planned"
  },
  {
-  "day": 6,
-  "date": "2026-11-12",
+  "day": 11,
+  "date": "2026-11-17",
   "slot": 2,
   "city": "Pakistan",
   "cluster": "use-case",
@@ -176,14 +356,15 @@
   "status": "planned"
  },
  {
-  "day": 7,
-  "date": "2026-11-13",
+  "day": 12,
+  "date": "2026-11-18",
   "slot": 1,
   "city": "Pakistan",
   "cluster": "use-case",
   "title": "Car Porch Tiles in Pakistan: Best Options and Design Ideas",
   "primary_keyword": "car porch tiles in pakistan",
   "secondary_keywords": [
+   "car porch tiles",
    "car porch tiles design",
    "outdoor tiles for porch"
   ],
@@ -191,8 +372,8 @@
   "status": "planned"
  },
  {
-  "day": 7,
-  "date": "2026-11-13",
+  "day": 12,
+  "date": "2026-11-18",
   "slot": 2,
   "city": "Lahore",
   "cluster": "use-case",
@@ -205,8 +386,8 @@
   "status": "planned"
  },
  {
-  "day": 8,
-  "date": "2026-11-14",
+  "day": 13,
+  "date": "2026-11-19",
   "slot": 1,
   "city": "Rawalpindi",
   "cluster": "city-product",
@@ -219,8 +400,8 @@
   "status": "planned"
  },
  {
-  "day": 8,
-  "date": "2026-11-14",
+  "day": 13,
+  "date": "2026-11-19",
   "slot": 2,
   "city": "Faisalabad",
   "cluster": "city-product",
@@ -233,8 +414,8 @@
   "status": "planned"
  },
  {
-  "day": 9,
-  "date": "2026-11-15",
+  "day": 14,
+  "date": "2026-11-20",
   "slot": 1,
   "city": "Pakistan",
   "cluster": "product",
@@ -247,8 +428,8 @@
   "status": "planned"
  },
  {
-  "day": 9,
-  "date": "2026-11-15",
+  "day": 14,
+  "date": "2026-11-20",
   "slot": 2,
   "city": "Pakistan",
   "cluster": "product",
@@ -261,8 +442,8 @@
   "status": "planned"
  },
  {
-  "day": 10,
-  "date": "2026-11-16",
+  "day": 15,
+  "date": "2026-11-21",
   "slot": 1,
   "city": "Lahore",
   "cluster": "city-product",
@@ -275,8 +456,8 @@
   "status": "planned"
  },
  {
-  "day": 10,
-  "date": "2026-11-16",
+  "day": 15,
+  "date": "2026-11-21",
   "slot": 2,
   "city": "Islamabad",
   "cluster": "city-product",
@@ -289,8 +470,8 @@
   "status": "planned"
  },
  {
-  "day": 11,
-  "date": "2026-11-17",
+  "day": 16,
+  "date": "2026-11-22",
   "slot": 1,
   "city": "Pakistan",
   "cluster": "product",
@@ -304,8 +485,8 @@
   "status": "planned"
  },
  {
-  "day": 11,
-  "date": "2026-11-17",
+  "day": 16,
+  "date": "2026-11-22",
   "slot": 2,
   "city": "Pakistan",
   "cluster": "price",
@@ -318,8 +499,8 @@
   "status": "planned"
  },
  {
-  "day": 12,
-  "date": "2026-11-18",
+  "day": 17,
+  "date": "2026-11-23",
   "slot": 1,
   "city": "Multan",
   "cluster": "city-product",
@@ -332,8 +513,8 @@
   "status": "planned"
  },
  {
-  "day": 12,
-  "date": "2026-11-18",
+  "day": 17,
+  "date": "2026-11-23",
   "slot": 2,
   "city": "Gujranwala",
   "cluster": "city-product",
@@ -346,8 +527,8 @@
   "status": "planned"
  },
  {
-  "day": 13,
-  "date": "2026-11-19",
+  "day": 18,
+  "date": "2026-11-24",
   "slot": 1,
   "city": "Pakistan",
   "cluster": "how-to",
@@ -360,8 +541,8 @@
   "status": "planned"
  },
  {
-  "day": 13,
-  "date": "2026-11-19",
+  "day": 18,
+  "date": "2026-11-24",
   "slot": 2,
   "city": "Pakistan",
   "cluster": "how-to",
@@ -374,8 +555,8 @@
   "status": "planned"
  },
  {
-  "day": 14,
-  "date": "2026-11-20",
+  "day": 19,
+  "date": "2026-11-25",
   "slot": 1,
   "city": "Pakistan",
   "cluster": "how-to",
@@ -388,8 +569,8 @@
   "status": "planned"
  },
  {
-  "day": 14,
-  "date": "2026-11-20",
+  "day": 19,
+  "date": "2026-11-25",
   "slot": 2,
   "city": "Pakistan",
   "cluster": "price",
@@ -402,8 +583,8 @@
   "status": "planned"
  },
  {
-  "day": 15,
-  "date": "2026-11-21",
+  "day": 20,
+  "date": "2026-11-26",
   "slot": 1,
   "city": "Lahore",
   "cluster": "use-case",
@@ -416,8 +597,8 @@
   "status": "planned"
  },
  {
-  "day": 15,
-  "date": "2026-11-21",
+  "day": 20,
+  "date": "2026-11-26",
   "slot": 2,
   "city": "Pakistan",
   "cluster": "product",
@@ -431,8 +612,8 @@
   "status": "planned"
  },
  {
-  "day": 16,
-  "date": "2026-11-22",
+  "day": 21,
+  "date": "2026-11-27",
   "slot": 1,
   "city": "Pakistan",
   "cluster": "use-case",
@@ -445,23 +626,9 @@
   "status": "planned"
  },
  {
-  "day": 16,
-  "date": "2026-11-22",
+  "day": 21,
+  "date": "2026-11-27",
   "slot": 2,
-  "city": "Pakistan",
-  "cluster": "use-case",
-  "title": "Terracotta Bathroom Wall Tiles: Hexagon and Mosaic Options",
-  "primary_keyword": "terracotta bathroom wall tiles",
-  "secondary_keywords": [
-   "bathroom tiles pakistan"
-  ],
-  "intent": "commercial",
-  "status": "planned"
- },
- {
-  "day": 17,
-  "date": "2026-11-23",
-  "slot": 1,
   "city": "Pakistan",
   "cluster": "product",
   "title": "Swimming Pool Tiles in Pakistan: Types, Borders and Safety",
@@ -473,22 +640,8 @@
   "status": "planned"
  },
  {
-  "day": 17,
-  "date": "2026-11-23",
-  "slot": 2,
-  "city": "Pakistan",
-  "cluster": "product",
-  "title": "Sandstone Wall Cladding in Pakistan: Exterior Facade Tiles",
-  "primary_keyword": "sandstone wall cladding pakistan",
-  "secondary_keywords": [
-   "exterior stone cladding tiles"
-  ],
-  "intent": "commercial",
-  "status": "planned"
- },
- {
-  "day": 18,
-  "date": "2026-11-24",
+  "day": 22,
+  "date": "2026-11-28",
   "slot": 1,
   "city": "Pakistan",
   "cluster": "product",
@@ -501,23 +654,9 @@
   "status": "planned"
  },
  {
-  "day": 18,
-  "date": "2026-11-24",
+  "day": 22,
+  "date": "2026-11-28",
   "slot": 2,
-  "city": "Lahore",
-  "cluster": "city-product",
-  "title": "Acid Proof Tiles for Factories and Labs in Lahore",
-  "primary_keyword": "acid proof tiles lahore",
-  "secondary_keywords": [
-   "industrial flooring lahore"
-  ],
-  "intent": "commercial",
-  "status": "planned"
- },
- {
-  "day": 19,
-  "date": "2026-11-25",
-  "slot": 1,
   "city": "Peshawar",
   "cluster": "city-product",
   "title": "Terracotta Tiles in Peshawar: Floors, Roofs and Courtyards",
@@ -529,9 +668,9 @@
   "status": "planned"
  },
  {
-  "day": 19,
-  "date": "2026-11-25",
-  "slot": 2,
+  "day": 23,
+  "date": "2026-11-29",
+  "slot": 1,
   "city": "Quetta",
   "cluster": "city-product",
   "title": "Clay Tiles in Quetta: Cold Climate Roofing and Flooring",
@@ -543,9 +682,9 @@
   "status": "planned"
  },
  {
-  "day": 20,
-  "date": "2026-11-26",
-  "slot": 1,
+  "day": 23,
+  "date": "2026-11-29",
+  "slot": 2,
   "city": "Pakistan",
   "cluster": "b2b",
   "title": "Buying Khaprail Tiles in Bulk: A Guide for Contractors",
@@ -557,22 +696,8 @@
   "status": "planned"
  },
  {
-  "day": 20,
-  "date": "2026-11-26",
-  "slot": 2,
-  "city": "Pakistan",
-  "cluster": "b2b",
-  "title": "Clay Tiles for Architects: Specifying Terracotta in Pakistani Projects",
-  "primary_keyword": "clay tiles for architects pakistan",
-  "secondary_keywords": [
-   "terracotta architecture pakistan"
-  ],
-  "intent": "informational",
-  "status": "planned"
- },
- {
-  "day": 21,
-  "date": "2026-11-27",
+  "day": 24,
+  "date": "2026-11-30",
   "slot": 1,
   "city": "Hyderabad",
   "cluster": "city-product",
@@ -585,8 +710,8 @@
   "status": "planned"
  },
  {
-  "day": 21,
-  "date": "2026-11-27",
+  "day": 24,
+  "date": "2026-11-30",
   "slot": 2,
   "city": "Karachi",
   "cluster": "use-case",
@@ -599,8 +724,8 @@
   "status": "planned"
  },
  {
-  "day": 22,
-  "date": "2026-11-28",
+  "day": 25,
+  "date": "2026-12-01",
   "slot": 1,
   "city": "Lahore",
   "cluster": "informational",
@@ -613,8 +738,8 @@
   "status": "planned"
  },
  {
-  "day": 22,
-  "date": "2026-11-28",
+  "day": 25,
+  "date": "2026-12-01",
   "slot": 2,
   "city": "Pakistan",
   "cluster": "how-to",
@@ -627,23 +752,9 @@
   "status": "planned"
  },
  {
-  "day": 23,
-  "date": "2026-11-29",
+  "day": 26,
+  "date": "2026-12-02",
   "slot": 1,
-  "city": "Lahore",
-  "cluster": "e-e-a-t",
-  "title": "Why Lahore's Old Buildings Use Clay: A Short History of Khaprail",
-  "primary_keyword": "history of khaprail tiles lahore",
-  "secondary_keywords": [
-   "traditional clay roofing lahore"
-  ],
-  "intent": "informational",
-  "status": "planned"
- },
- {
-  "day": 23,
-  "date": "2026-11-29",
-  "slot": 2,
   "city": "Lahore",
   "cluster": "e-e-a-t",
   "title": "Pak Clay Tiles Since 1982: How Clay Tiles Are Made in Lahore",
@@ -655,9 +766,9 @@
   "status": "planned"
  },
  {
-  "day": 24,
-  "date": "2026-11-30",
-  "slot": 1,
+  "day": 26,
+  "date": "2026-12-02",
+  "slot": 2,
   "city": "Lahore",
   "cluster": "use-case",
   "title": "Terracotta Tiles for Restaurants and Cafes in Lahore",
@@ -669,22 +780,8 @@
   "status": "planned"
  },
  {
-  "day": 24,
-  "date": "2026-11-30",
-  "slot": 2,
-  "city": "Pakistan",
-  "cluster": "use-case",
-  "title": "Terracotta and Stone Tiles for Hotels and Resorts in Pakistan",
-  "primary_keyword": "tiles for hotels pakistan",
-  "secondary_keywords": [
-   "resort flooring pakistan"
-  ],
-  "intent": "commercial",
-  "status": "planned"
- },
- {
-  "day": 25,
-  "date": "2026-12-01",
+  "day": 27,
+  "date": "2026-12-03",
   "slot": 1,
   "city": "Lahore",
   "cluster": "use-case",
@@ -697,36 +794,8 @@
   "status": "planned"
  },
  {
-  "day": 25,
-  "date": "2026-12-01",
-  "slot": 2,
-  "city": "Pakistan",
-  "cluster": "informational",
-  "title": "Choosing Tiles for a Housing Society Home in Pakistan",
-  "primary_keyword": "tiles for house construction pakistan",
-  "secondary_keywords": [
-   "house tiles guide pakistan"
-  ],
-  "intent": "informational",
-  "status": "planned"
- },
- {
-  "day": 26,
-  "date": "2026-12-02",
-  "slot": 1,
-  "city": "Pakistan",
-  "cluster": "informational",
-  "title": "Are Clay Tiles Eco-Friendly? Natural Materials Explained",
-  "primary_keyword": "eco friendly clay tiles",
-  "secondary_keywords": [
-   "natural terracotta tiles"
-  ],
-  "intent": "informational",
-  "status": "planned"
- },
- {
-  "day": 26,
-  "date": "2026-12-02",
+  "day": 27,
+  "date": "2026-12-03",
   "slot": 2,
   "city": "Pakistan",
   "cluster": "comparison",
@@ -739,8 +808,8 @@
   "status": "planned"
  },
  {
-  "day": 27,
-  "date": "2026-12-03",
+  "day": 28,
+  "date": "2026-12-04",
   "slot": 1,
   "city": "Pakistan",
   "cluster": "comparison",
@@ -753,8 +822,8 @@
   "status": "planned"
  },
  {
-  "day": 27,
-  "date": "2026-12-03",
+  "day": 28,
+  "date": "2026-12-04",
   "slot": 2,
   "city": "Pakistan",
   "cluster": "product",
@@ -767,8 +836,8 @@
   "status": "planned"
  },
  {
-  "day": 28,
-  "date": "2026-12-04",
+  "day": 29,
+  "date": "2026-12-05",
   "slot": 1,
   "city": "Pakistan",
   "cluster": "conversion",
@@ -781,43 +850,15 @@
   "status": "planned"
  },
  {
-  "day": 28,
-  "date": "2026-12-04",
-  "slot": 2,
-  "city": "Pakistan",
-  "cluster": "conversion",
-  "title": "Clay Tile Delivery Across Pakistan: What to Expect",
-  "primary_keyword": "tile delivery pakistan",
-  "secondary_keywords": [
-   "khaprail tiles delivery"
-  ],
-  "intent": "transactional",
-  "status": "planned"
- },
- {
   "day": 29,
   "date": "2026-12-05",
-  "slot": 1,
+  "slot": 2,
   "city": "Pakistan",
   "cluster": "faq",
   "title": "25 Questions About Khaprail Tiles in Pakistan, Answered",
   "primary_keyword": "khaprail tiles faq",
   "secondary_keywords": [
    "khaprail tiles questions"
-  ],
-  "intent": "informational",
-  "status": "planned"
- },
- {
-  "day": 29,
-  "date": "2026-12-05",
-  "slot": 2,
-  "city": "Pakistan",
-  "cluster": "comparison",
-  "title": "Khaprail vs Other Roofing in Pakistan: Cost, Comfort, Lifespan",
-  "primary_keyword": "khaprail vs other roofing pakistan",
-  "secondary_keywords": [
-   "roofing options pakistan"
   ],
   "intent": "informational",
   "status": "planned"
