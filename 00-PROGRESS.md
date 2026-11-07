@@ -802,3 +802,6 @@ Add a dated entry each session — a few lines, not a transcript.
 - `server/lib/blog-publisher.ts`: hourly job publishing due queue items into blog_posts/blog_faqs (idempotent by slug), applying product descriptions where still the placeholder. Env: PUBLISH_MODE=draft|published, SEO_GITHUB_REPO/TOKEN, SEO_PUBLISHER=off, SEO_NOW (test). Mock-tested only; not yet run against live Supabase.
 - Daily scheduled task writes next day's files and pushes to GitHub.
 - Open: keyword volumes not measured (no tool); client rate card; areaServed JSON-LD deferred until delivery cities are confirmed; pakclaytiles.com is the old site of the same company (avoid duplicate text).
+
+## SEO daily log
+- 2026-11-07 (run for day 2, 2026-11-08): queued "Gutka Tiles in Lahore: Sizes, Uses and How to Choose" (09:00) and "Terracotta Jali in Pakistan: Designs, Uses and Ordering Guide" (15:00); 4 product descriptions in content/products/2026-11-08.json. Price sheet still empty, so both articles explain price drivers only.

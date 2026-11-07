@@ -27,25 +27,25 @@
   "slug": "spanish-natural-red-khaprail-tiles",
   "group": "khaprail roof",
   "day": 2,
-  "status": "planned"
+  "status": "queued"
  },
  {
   "slug": "terracotta-red-brick-gutka-tiles",
   "group": "gutka",
   "day": 2,
-  "status": "planned"
+  "status": "queued"
  },
  {
   "slug": "random-shapes-concrete-outdoor-floor-otti-tiles",
   "group": "otti",
   "day": 2,
-  "status": "planned"
+  "status": "queued"
  },
  {
   "slug": "exterior-natural-sand-stone-wall-cladding-facade-tiles",
   "group": "stone/granite/marble cladding",
   "day": 2,
-  "status": "planned"
+  "status": "queued"
  },
  {
   "slug": "exterior-natural-sand-stone-wall-tiles",
