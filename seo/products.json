@@ -51,25 +51,25 @@
   "slug": "exterior-natural-sand-stone-wall-tiles",
   "group": "stone/granite/marble cladding",
   "day": 3,
-  "status": "planned"
+  "status": "queued"
  },
  {
   "slug": "outdoor-natural-sand-stone-tile",
   "group": "stone/granite/marble cladding",
   "day": 3,
-  "status": "planned"
+  "status": "queued"
  },
  {
   "slug": "cobbler-pavers-tiles-4x4-inch",
   "group": "pavers",
   "day": 3,
-  "status": "planned"
+  "status": "queued"
  },
  {
   "slug": "grass-grid-pavers-tiles",
   "group": "pavers",
   "day": 3,
-  "status": "planned"
+  "status": "queued"
  },
  {
   "slug": "grey-paver-tile-8x4-inch",

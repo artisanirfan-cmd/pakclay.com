@@ -76,7 +76,7 @@
    "outdoor floor tiles for patio"
   ],
   "intent": "commercial",
-  "status": "planned",
+  "status": "queued",
   "source": "client-keyword-list-2026-11-07"
  },
  {
@@ -94,7 +94,7 @@
    "exterior tiles"
   ],
   "intent": "commercial",
-  "status": "planned",
+  "status": "queued",
   "source": "client-keyword-list-2026-11-07"
  },
  {
