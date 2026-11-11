@@ -179,7 +179,7 @@
    "geometric tiles"
   ],
   "intent": "commercial",
-  "status": "planned",
+  "status": "queued",
   "source": "client-keyword-list-2026-11-07"
  },
  {
@@ -197,7 +197,7 @@
    "travertine marble tiles"
   ],
   "intent": "informational",
-  "status": "planned",
+  "status": "queued",
   "source": "client-keyword-list-2026-11-07",
   "note": "NEEDS CLIENT CONFIRMATION: no travertine product in catalogue. Write as an informational guide with natural-stone alternatives Pak Clay does list; do NOT claim to sell travertine."
  },
