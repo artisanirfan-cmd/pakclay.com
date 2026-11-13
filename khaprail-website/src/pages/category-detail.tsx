@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/seo/json-ld"
 import { breadcrumbJsonLd } from "@/lib/seo/json-ld"
 import { shareImage } from "@/lib/seo/image"
 import { joinList, truncateAtWord } from "@/lib/seo/text"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { Link, useParams, useSearchParams } from "react-router-dom"
 import { ChevronRightIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -27,7 +27,9 @@ import { useCategories } from "@/hooks/use-categories"
 import { useFeaturedProducts } from "@/hooks/use-featured-products"
 import { useFilterTypes } from "@/hooks/use-filter-types"
 import { useProducts } from "@/hooks/use-products"
-import { getCategoryAncestors, getCategoryChildren, getDescendantCategoryIds } from "@/lib/category-tree"
+import { getCategoryAncestors, getCategoryChildren } from "@/lib/category-tree"
+import { getMergedCategoryIds } from "@/lib/category-membership"
+import { useCategoryProductCounts } from "@/hooks/use-category-product-counts"
 import { buildWhatsAppUrl } from "@/lib/whatsapp"
 import {
   filtersToSearchParams,
@@ -51,11 +53,17 @@ export function CategoryDetail() {
   const activeFilters = parseFiltersFromSearchParams(searchParams)
   const sort = parseSortFromSearchParams(searchParams)
 
-  // Include products attached to any descendant category, not just this
-  // one directly — a root category like Floor Tiles has real products
+  // Merged membership: products attached to this category, its descendants,
+  // and every other category with the same use/material (category-membership.ts)
+  // — e.g. Terracotta Tiles shows all terracotta products. Formerly: descendants only,
+  // not just this one directly — a root category like Floor Tiles has real products
   // filed under a child (Terracotta Floor Tiles), and the page should show
   // them instead of a false "coming soon" (UX_AUDIT_REPORT.md finding 2.1).
-  const categoryIds = category ? getDescendantCategoryIds(categories, category.id) : null
+  const { counts: categoryCounts } = useCategoryProductCounts()
+  const categoryIds = useMemo(
+    () => (category ? getMergedCategoryIds(categories, category.id, categoryCounts.size > 0 ? categoryCounts : undefined) : null),
+    [category, categories, categoryCounts],
+  )
 
   const topPicks = useFeaturedProducts(8, categoryIds)
   const { filterGroups, isLoading: filtersLoading } = useFilterTypes()

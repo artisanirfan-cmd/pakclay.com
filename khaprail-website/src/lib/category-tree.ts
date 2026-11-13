@@ -1,4 +1,5 @@
 import type { Category } from "@/types/category"
+import { getPopulatedCategoryIds } from "@/lib/category-membership"
 
 /** Top-level categories, ordered for display. */
 export function getRootCategories(categories: Category[]): Category[] {
@@ -70,20 +71,10 @@ export function flattenCategoryTree(categories: Category[]): CategoryTreeRow[] {
  * child always keeps its ancestors, so the result is a valid tree.
  */
 export function filterPopulatedCategories(categories: Category[], directCounts: Map<string, number>): Category[] {
-  const childrenOf = new Map<string, string[]>()
-  for (const c of categories) {
-    if (c.parent_id) childrenOf.set(c.parent_id, [...(childrenOf.get(c.parent_id) ?? []), c.id])
-  }
-  const memo = new Map<string, number>()
-  const total = (id: string, seen: Set<string> = new Set()): number => {
-    if (memo.has(id)) return memo.get(id)!
-    if (seen.has(id)) return 0
-    seen.add(id)
-    const sum = (directCounts.get(id) ?? 0) + (childrenOf.get(id) ?? []).reduce((acc, child) => acc + total(child, seen), 0)
-    memo.set(id, sum)
-    return sum
-  }
-  return categories.filter((c) => total(c.id) > 0)
+  // Merged membership (see category-membership.ts): a category is populated
+  // if any product belongs to it by use/material, not only by its own subtree.
+  const populated = getPopulatedCategoryIds(categories, directCounts)
+  return categories.filter((c) => populated.has(c.id))
 }
 
 /**
