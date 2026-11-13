@@ -817,3 +817,8 @@ Add a dated entry each session — a few lines, not a transcript.
 - Used by `category-detail.tsx` (listing), `filterPopulatedCategories` (nav/footer/chips) and the server sitemap (`server/routes/sitemap.ts`). Product records unchanged.
 - Rules: khaprail counts as terracotta + roof; jali counts as wall; brick = terracotta; ceramic = mosaic; cement = concrete; granite/marble ⊂ stone. Brick/Clay pages therefore show terracotta products. Edit WORDS/GENERAL_OF in the module to adjust.
 - Needs redeploy. Honest-data note: pages like "Granite/Marble Living Room Wall" show the stone living-room products (no separate granite/marble living-room stock).
+
+## Batch 60 — Roof sub-categories restored (2026-11-14)
+- Client expected sub-categories under Roof Tiles (Clay / Ceramic / Brick Roof Tiles). They were never in the taxonomy or live DB (Roof Tiles had 0 children), so they could not show in category-page sub-category chips or the mobile menu.
+- `server/lib/ensure-categories.ts` seeds them idempotently at server start (service-role key; inserts only missing slugs, never edits/deletes). Same rows as `khaprail-website/scripts/sql/2026-11-14-roof-subcategories.sql` for manual run in Supabase.
+- They fill through the merged-membership rule (khaprail products); Ceramic/Brick fall back to the roof products. Needs redeploy. Open: do other roots (Outdoor, Kitchen, Bathroom, Stone...) need material sub-categories too? Add to SEED in ensure-categories.ts.
