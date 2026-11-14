@@ -264,7 +264,7 @@
    "clay roof tiles shop near me"
   ],
   "intent": "commercial",
-  "status": "planned",
+  "status": "queued",
   "source": "client-keyword-list-2026-11-11",
   "note": "Pak Clay = Lahore (Walton Road, opp. Packages Mall Gate 2) + Islamabad only. Never claim other shops."
  },
@@ -282,7 +282,7 @@
    "floor tiles shop near me"
   ],
   "intent": "commercial",
-  "status": "planned",
+  "status": "queued",
   "source": "client-keyword-list-2026-11-11"
  },
  {
