@@ -312,7 +312,7 @@
    "cost of clay tiles per square foot"
   ],
   "intent": "commercial",
-  "status": "planned",
+  "status": "queued",
   "source": "client-keyword-list-2026-11-11",
   "note": "No invented prices; use price-sheet.json only."
  },
@@ -333,7 +333,7 @@
    "cladding tiles"
   ],
   "intent": "commercial",
-  "status": "planned",
+  "status": "queued",
   "source": "client-keyword-list-2026-11-11"
  },
  {
