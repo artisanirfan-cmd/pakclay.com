@@ -417,7 +417,7 @@
    "stone tiles for walls"
   ],
   "intent": "informational",
-  "status": "planned",
+  "status": "queued",
   "source": "client-keyword-list-2026-11-11"
  },
  {
@@ -438,7 +438,7 @@
    "Bathroom backsplash tiles"
   ],
   "intent": "commercial",
-  "status": "planned",
+  "status": "queued",
   "source": "client-keyword-list-2026-11-11"
  },
  {
