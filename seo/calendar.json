@@ -466,7 +466,7 @@
    "Roofing tiles"
   ],
   "intent": "informational",
-  "status": "planned",
+  "status": "queued",
   "source": "client-keyword-list-2026-11-11",
   "note": "Pak Clay lists tiles, not bricks; cover bricks informationally."
  },
@@ -485,7 +485,7 @@
    "terrace tiles shop near me"
   ],
   "intent": "commercial",
-  "status": "planned",
+  "status": "queued",
   "source": "client-keyword-list-2026-11-11"
  },
  {

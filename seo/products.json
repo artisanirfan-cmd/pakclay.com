@@ -267,25 +267,25 @@
   "slug": "square-6x6-inch-tiles",
   "group": "terracotta floor/wall",
   "day": 12,
-  "status": "planned"
+  "status": "queued"
  },
  {
   "slug": "square-9x9-inch-natural-terracotta-floor-tiles",
   "group": "terracotta floor/wall",
   "day": 12,
-  "status": "planned"
+  "status": "queued"
  },
  {
   "slug": "star-and-cross-10x5-inch-terracotta-floor-tiles",
   "group": "terracotta floor/wall",
   "day": 12,
-  "status": "planned"
+  "status": "queued"
  },
  {
   "slug": "diamond-shape-multi-color-otti-tiles",
   "group": "otti",
   "day": 12,
-  "status": "planned"
+  "status": "queued"
  },
  {
   "slug": "half-hexagon-mosaic-otti-tiles",
