@@ -505,7 +505,7 @@
    "tayl dijain"
   ],
   "intent": "informational",
-  "status": "planned",
+  "status": "queued",
   "source": "client-keyword-list-2026-11-11",
   "note": "Write in Urdu; same format; Urdu FAQ."
  },
@@ -524,7 +524,7 @@
    "how to order tiles"
   ],
   "intent": "commercial",
-  "status": "planned",
+  "status": "queued",
   "source": "client-keyword-list-2026-11-11",
   "note": "Site is catalogue + WhatsApp, not checkout: say so honestly."
  },
