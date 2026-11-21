@@ -570,7 +570,7 @@
       "roof tiles islamabad"
     ],
     "intent": "commercial",
-    "status": "planned"
+    "status": "queued"
   },
   {
     "day": 15,
@@ -585,7 +585,7 @@
       "multani tiles"
     ],
     "intent": "transactional",
-    "status": "planned"
+    "status": "queued"
   },
   {
     "day": 16,
