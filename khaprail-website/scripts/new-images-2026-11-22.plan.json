@@ -1,0 +1,174 @@
+{
+ "note": "2026-11-22 batch from 'Pakclay New Products images 11222026'. Photos checked by eye: no logos/watermarks found, so no crops. Files 18 and 25 are byte-identical duplicates of 17 and 24 and are skipped. File numbers = _map.txt order.",
+ "files": {
+  "01": "01.jpg",
+  "02": "02.jpg",
+  "03": "03.jpg",
+  "04": "04.jpg",
+  "05": "05.jpg",
+  "06": "06.jpg",
+  "07": "07.jpg",
+  "08": "08.jpg",
+  "09": "09.jpg",
+  "10": "10.jpg",
+  "11": "11.png",
+  "12": "12.jpg",
+  "13": "13.jpg",
+  "14": "14.jpg",
+  "15": "15.jpg",
+  "16": "16.jpeg",
+  "17": "17.jpg",
+  "19": "19.jpg",
+  "20": "20.jpg",
+  "21": "21.jpg",
+  "22": "22.jpg",
+  "23": "23.jpg",
+  "24": "24.jpg",
+  "26": "26.jpg"
+ },
+ "products": [
+  {
+   "name": "3x3 Inch Bubble Disk Blend Ceramic Mosaic Bathroom Wall Tiles",
+   "category": "bathroom-wall-tiles-mosaic",
+   "size": "3 X 3",
+   "images": [
+    "01"
+   ]
+  },
+  {
+   "name": "4x4 Inch Square Natural Handmade Terracotta Bathroom Tiles",
+   "category": "bathroom-wall-tiles-terracotta",
+   "size": "4 X 4",
+   "images": [
+    "02"
+   ]
+  },
+  {
+   "name": "6x6 Inch Square Natural Handmade Terracotta Bathroom Wall Tiles",
+   "category": "bathroom-wall-tiles-terracotta",
+   "size": "6 X 6",
+   "images": [
+    "03"
+   ]
+  },
+  {
+   "name": "8x8 Inch Square Natural Handmade Terracotta Bathroom Wall Tiles",
+   "category": "bathroom-wall-tiles-terracotta",
+   "size": "8 X 8",
+   "images": [
+    "04",
+    "05",
+    "06",
+    "07"
+   ]
+  },
+  {
+   "name": "Glazed Ceramic Mosaic Small Arabesque Bathroom Wall Tiles",
+   "category": "bathroom-wall-tiles-mosaic",
+   "size": null,
+   "images": [
+    "08",
+    "09",
+    "10"
+   ]
+  },
+  {
+   "name": "Glazed Color Cerulean Blue Beveled Square Ceramic Mosaic Bathroom Wall Tiles",
+   "category": "bathroom-wall-tiles-mosaic",
+   "size": null,
+   "images": [
+    "11"
+   ]
+  },
+  {
+   "name": "Glazed Color Peacock Teal Paseo Shape Ceramic Mosaic Bathroom Wall Tiles",
+   "category": "bathroom-wall-tiles-mosaic",
+   "size": null,
+   "images": [
+    "12"
+   ]
+  },
+  {
+   "name": "Glazed Color Teal Blue Fish Scale Ceramic Mosaic Bathroom Wall Tiles",
+   "category": "bathroom-wall-tiles-mosaic",
+   "size": null,
+   "images": [
+    "13",
+    "14"
+   ]
+  },
+  {
+   "name": "Glazed Color Turquoise Green Glossy Wave Shape Ceramic Mosaic Tiles",
+   "category": "bathroom-wall-tiles-mosaic",
+   "size": null,
+   "images": [
+    "15",
+    "16"
+   ]
+  },
+  {
+   "name": "Glazed Multi Colors Lantern Shape Ceramic Mosaic Bathroom Wall Tiles",
+   "category": "bathroom-wall-tiles-mosaic",
+   "size": null,
+   "images": [
+    "17"
+   ]
+  },
+  {
+   "name": "Handmade Natural Yellow Gutka Brick Kitchen Wall Tiles",
+   "category": "kitchen-wall-tiles-terracotta",
+   "size": null,
+   "images": [
+    "19"
+   ]
+  },
+  {
+   "name": "Glazed Multi Colours Moroccan Mosaic Kitchen Wall Tiles 001",
+   "category": "mosaic-kitchen-wall-tiles",
+   "size": null,
+   "images": [
+    "20"
+   ]
+  },
+  {
+   "name": "Glazed Multi Colours Moroccan Mosaic Kitchen Wall Tiles 002",
+   "category": "mosaic-kitchen-wall-tiles",
+   "size": null,
+   "images": [
+    "21"
+   ]
+  },
+  {
+   "name": "Natural Clay Bricks Kitchen Wall Tiles",
+   "category": "kitchen-wall-tiles-terracotta",
+   "size": null,
+   "images": [
+    "22"
+   ]
+  },
+  {
+   "name": "Natural Terracotta Multi List Kitchen Wall Tiles",
+   "category": "kitchen-wall-tiles-terracotta",
+   "size": null,
+   "images": [
+    "23"
+   ]
+  },
+  {
+   "name": "Natural Terracotta Octagon 6x6 Inch Kitchen Wall Tiles",
+   "category": "kitchen-wall-tiles-terracotta",
+   "size": "6 X 6",
+   "images": [
+    "24"
+   ]
+  },
+  {
+   "name": "Red Gutka Bricks Living Room Wall Tiles",
+   "category": "living-room-wall-tiles-terracotta",
+   "size": null,
+   "images": [
+    "26"
+   ]
+  }
+ ]
+}
