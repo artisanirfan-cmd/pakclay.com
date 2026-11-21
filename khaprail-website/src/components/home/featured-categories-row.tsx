@@ -20,7 +20,7 @@ export function FeaturedCategoriesRow() {
           skipping both for screen-reader users navigating by heading — same
           visible treatment as every other homepage section now
           (UX_AUDIT_REPORT.md finding 13 / 1.7). */}
-      <h2 className="mb-6 text-center font-heading text-4xl font-semibold text-foreground sm:text-5xl">
+      <h2 className="mb-8 text-center font-heading text-4xl font-semibold text-foreground sm:text-5xl">
         Featured Categories
       </h2>
       <CategoryIconRail categories={roots} isLoading={isLoading} />

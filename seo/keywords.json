@@ -1,0 +1,59 @@
+{
+ "received": "2026-11-07",
+ "keywords": [
+  "Outdoor floor tiles",
+  "Outdoor wall tiles",
+  "Exterior tiles",
+  "Porch tiles",
+  "Car porch tiles",
+  "Driveway tiles",
+  "Travertine",
+  "Travertine marble",
+  "Travertine stone",
+  "Travertine marble tiles",
+  "Travertine stone tiles",
+  "Gutka Tiles",
+  "Red gutka tiles",
+  "Yellow Gutka Tiles",
+  "Yellow Gutka",
+  "Red gutka bricks",
+  "Yellow Gutka brick",
+  "Yellow bricks",
+  "Tough Tiles",
+  "Cement Jali",
+  "Concrete Jali",
+  "Cement tiles",
+  "Concrete tiles",
+  "Pattern Tiles",
+  "Front wall tiles"
+ ],
+ "mapped_to": {
+  "outdoor floor tiles": "day3.1",
+  "outdoor wall tiles": "day3.2",
+  "exterior tiles": "day3.2 + day4.1",
+  "porch tiles": "day4.2",
+  "car porch tiles": "existing car-porch article (secondary added)",
+  "driveway tiles": "day4.1",
+  "travertine / travertine marble / stone / marble tiles / stone tiles": "travertine article (needs client confirmation)",
+  "gutka tiles / red gutka tiles / red gutka bricks": "day 2 Gutka in Lahore (secondary added) + red-vs-yellow article",
+  "yellow gutka tiles / yellow gutka / yellow gutka brick / yellow bricks": "red-vs-yellow article (needs client confirmation: not in catalogue)",
+  "tough tiles": "tuff tiles article (ambiguous keyword)",
+  "cement jali / concrete jali": "cement jali article",
+  "cement tiles / concrete tiles": "cement vs concrete vs terracotta article",
+  "pattern tiles": "pattern tiles article",
+  "front wall tiles": "day3.2"
+ },
+ "catalogue_check": {
+  "in_catalogue": [
+   "gutka (red only)",
+   "cement-jali-tiles",
+   "pavers (7)",
+   "outdoor stone/otti"
+  ],
+  "not_in_catalogue": [
+   "travertine",
+   "yellow gutka / yellow bricks",
+   "cement/concrete floor tiles"
+  ]
+ }
+}

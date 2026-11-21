@@ -17,12 +17,14 @@ import { buildSampleRequestMessage, buildWhatsAppUrl } from "@/lib/whatsapp"
 interface SampleRequestDialogProps {
   productId: string
   productName: string
+  /** Trigger button text (default "Get a Sample"). */
+  label?: string
 }
 
 // "Get a Sample" (05-PDP-SPEC.md): captures name/phone/message, logs to the
 // `sample_inquiries` table, then opens the same WhatsApp deep-link pattern
 // used elsewhere on the site (src/lib/whatsapp.ts).
-export function SampleRequestDialog({ productId, productName }: SampleRequestDialogProps) {
+export function SampleRequestDialog({ productId, productName, label = "Get a Sample" }: SampleRequestDialogProps) {
   const [open, setOpen] = useState(false)
   const [name, setName] = useState("")
   const [phone, setPhone] = useState("")
@@ -50,7 +52,7 @@ export function SampleRequestDialog({ productId, productName }: SampleRequestDia
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger render={<Button size="lg" className="h-14 px-7 text-lg" />}>
-        Get a Sample
+        {label}
       </DialogTrigger>
       <DialogContent>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">

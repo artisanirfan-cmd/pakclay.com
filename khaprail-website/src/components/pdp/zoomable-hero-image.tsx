@@ -1,6 +1,7 @@
 import { useCallback, useRef, useState, type PointerEvent } from "react"
 import { ZoomInIcon } from "lucide-react"
 import { StorageImage } from "@/components/shared/storage-image"
+import { cn } from "@/lib/utils"
 import { prefetchProductLightbox } from "./product-lightbox"
 
 // Enough to clearly show tile texture/grain without being disorienting.
@@ -10,6 +11,8 @@ interface ZoomableHeroImageProps {
   src: string | null
   alt: string
   onOpenLightbox: () => void
+  /** Overrides the default square frame (e.g. a wider aspect on the PDP hero). */
+  className?: string
 }
 
 /**
@@ -21,7 +24,7 @@ interface ZoomableHeroImageProps {
  * swipe-between-images. Scoped to the PDP hero only, per the task —
  * thumbnails elsewhere on the site are untouched.
  */
-export function ZoomableHeroImage({ src, alt, onOpenLightbox }: ZoomableHeroImageProps) {
+export function ZoomableHeroImage({ src, alt, onOpenLightbox, className }: ZoomableHeroImageProps) {
   const frameRef = useRef<number | null>(null)
   const [isZooming, setIsZooming] = useState(false)
   const [origin, setOrigin] = useState({ x: 50, y: 50 })
@@ -62,7 +65,10 @@ export function ZoomableHeroImage({ src, alt, onOpenLightbox }: ZoomableHeroImag
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
       aria-label={src ? `View ${alt} full screen` : "Product photo"}
-      className="group relative flex aspect-square w-full cursor-zoom-in items-center justify-center overflow-hidden rounded-xl bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+      className={cn(
+        "group relative flex aspect-square w-full cursor-zoom-in items-center justify-center overflow-hidden rounded-2xl bg-muted outline-none focus-visible:ring-3 focus-visible:ring-ring/50",
+        className,
+      )}
     >
       {src && (
         <StorageImage
@@ -75,7 +81,7 @@ export function ZoomableHeroImage({ src, alt, onOpenLightbox }: ZoomableHeroImag
           // 2.5x hover-zoom stays sharp. `sizes` describes the real slot
           // (single column on mobile, half of max-w-6xl on lg+).
           widths={[480, 720, 1100, 1400]}
-          sizes="(min-width: 1024px) 1100px, calc(100vw - 32px)"
+          sizes="(min-width: 1024px) 60vw, calc(100vw - 32px)"
           priority
           className="h-full w-full object-cover"
           style={{

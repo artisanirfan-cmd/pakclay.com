@@ -31,7 +31,7 @@ export function Heritage() {
       </picture>
       <div className="absolute inset-0 -z-10 bg-hero/90" />
 
-      <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-4 px-4 py-20 text-center sm:px-6">
+      <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-4 px-4 py-16 text-center sm:px-6">
         <span className="rounded-full bg-hero-foreground/90 px-4 py-1 text-sm font-medium text-hero">
           Our Heritage · Est. 1982
         </span>

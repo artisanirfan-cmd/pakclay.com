@@ -9,8 +9,8 @@ export function VideosSection() {
   const { videos, isLoading, error } = useVideos(HOMEPAGE_VIDEO_LIMIT)
 
   return (
-    <section className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6">
-      <div className="mb-10 text-center">
+    <section className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6">
+      <div className="mb-8 text-center">
         <h2 className="font-heading text-4xl font-semibold sm:text-5xl">From the Workshop</h2>
         <p className="mt-2 text-muted-foreground">See our tiles being made and installed.</p>
       </div>
