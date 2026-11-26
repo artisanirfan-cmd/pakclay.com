@@ -363,25 +363,25 @@
     "slug": "white-stone-wall-tiles",
     "group": "stone/granite/marble cladding",
     "day": 16,
-    "status": "planned"
+    "status": "queued"
   },
   {
     "slug": "yellow-stone-wall-tiles",
     "group": "stone/granite/marble cladding",
     "day": 16,
-    "status": "planned"
+    "status": "queued"
   },
   {
     "slug": "green-and-white-hexagon-ceramic-mosaic-tiles",
     "group": "ceramic mosaic",
     "day": 16,
-    "status": "planned"
+    "status": "queued"
   },
   {
     "slug": "green-glazed-ceramic-mosaic-hexagon-bathroom-wall-tiles",
     "group": "ceramic mosaic",
     "day": 16,
-    "status": "planned"
+    "status": "queued"
   },
   {
     "slug": "light-green-glazed-kite-ceramic-mosaic-kitchen-wall-tiles",
