@@ -685,7 +685,7 @@
       "terracotta floor tiles lahore"
     ],
     "intent": "commercial",
-    "status": "planned"
+    "status": "queued"
   },
   {
     "day": 19,
@@ -699,7 +699,7 @@
       "terracotta tiles islamabad"
     ],
     "intent": "commercial",
-    "status": "planned"
+    "status": "queued"
   },
   {
     "day": 20,

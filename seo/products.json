@@ -435,25 +435,25 @@
     "slug": "swimming-pool-border-tiles",
     "group": "swimming pool",
     "day": 19,
-    "status": "planned"
+    "status": "queued"
   },
   {
     "slug": "swimming-pool-tiles-001",
     "group": "swimming pool",
     "day": 19,
-    "status": "planned"
+    "status": "queued"
   },
   {
     "slug": "swimming-pool-tiles-002",
     "group": "swimming pool",
     "day": 19,
-    "status": "planned"
+    "status": "queued"
   },
   {
     "slug": "swimming-pool-tiles-003",
     "group": "swimming pool",
     "day": 19,
-    "status": "planned"
+    "status": "queued"
   },
   {
     "slug": "swimming-pool-tiles-004",
