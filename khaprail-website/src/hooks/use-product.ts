@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { supabase } from "@/lib/supabase"
-import type { ProductDetail } from "@/types/product"
+import type { ProductDetail, ProductSeo } from "@/types/product"
 
 interface UseProductResult {
   product: ProductDetail | null
@@ -43,7 +43,7 @@ export function useProduct(slug: string | undefined): UseProductResult {
       .eq("slug", slug)
       .order("sort_order", { referencedTable: "product_images", ascending: true })
       .maybeSingle()
-      .then(({ data, error: queryError }) => {
+      .then(async ({ data, error: queryError }) => {
         if (cancelled) return
         if (queryError) {
           setError(queryError.message)
@@ -51,7 +51,19 @@ export function useProduct(slug: string | undefined): UseProductResult {
           setError("Product not found")
         } else {
           const { categories, ...rest } = data as unknown as ProductDetail & { categories: { name: string } | null }
-          setProduct({ ...rest, category_name: categories?.name ?? null })
+          // SEO columns are read separately so the page still works before
+          // scripts/sql/2026-11-27-product-seo.sql has run (the query just errors).
+          let seo: ProductSeo | null = null
+          if (supabase) {
+            const seoRes = await supabase
+              .from("products")
+              .select("seo_title, meta_description, faqs, image_alt")
+              .eq("id", rest.id)
+              .maybeSingle()
+            if (!seoRes.error && seoRes.data) seo = seoRes.data as unknown as ProductSeo
+          }
+          if (cancelled) return
+          setProduct({ ...rest, category_name: categories?.name ?? null, seo })
         }
         setIsLoading(false)
       })

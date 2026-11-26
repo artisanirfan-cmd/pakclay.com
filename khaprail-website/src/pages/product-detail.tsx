@@ -4,7 +4,9 @@ import { useDocumentHead } from "@/hooks/use-document-head"
 import { JsonLd } from "@/components/seo/json-ld"
 import { useCategories } from "@/hooks/use-categories"
 import { getCategoryAncestors } from "@/lib/category-tree"
-import { breadcrumbJsonLd, productJsonLd } from "@/lib/seo/json-ld"
+import { breadcrumbJsonLd, productFaqJsonLd, productJsonLd } from "@/lib/seo/json-ld"
+import { MarkdownContent } from "@/components/blog/markdown-content"
+import { FaqAccordion } from "@/components/blog/faq-accordion"
 import { shareImage } from "@/lib/seo/image"
 import { cleanText, truncateAtWord } from "@/lib/seo/text"
 import { lazy, Suspense } from "react"
@@ -49,7 +51,7 @@ export function ProductDetail() {
       ? {
           // A category can share a product's exact name (e.g. "Marble Living
           // Room Wall Tiles"); the suffix keeps the two titles distinct.
-          title: (() => {
+          title: product.seo?.seo_title || (() => {
             const category = product.category_name
             if (!category) return product.name
             const sameName = category.toLowerCase().includes(product.name.toLowerCase())
@@ -57,13 +59,14 @@ export function ProductDetail() {
             return candidate.length <= 50 ? candidate : product.name
           })(),
           description:
+            product.seo?.meta_description ||
             truncateAtWord(cleanText(product.description), 155) ||
             `${product.name}${product.category_name ? ` — ${product.category_name}` : ""} from PAKCLAY.COM${
               product.size ? `, size ${product.size}` : ""
             }. See photos and request a free sample.`,
           path: `/products/${product.slug}`,
           image: shareImage(product.cover_image_url ?? product.product_images[0]?.image_url, 630),
-          imageAlt: product.name,
+          imageAlt: product.seo?.image_alt || product.name,
           type: "product",
           product: { priceAmount: product.price },
         }
@@ -109,6 +112,9 @@ export function ProductDetail() {
   ]
 
   const fullDescription = cleanText(product.description)
+  const productFaqs = (product.seo?.faqs ?? [])
+    .filter((f) => f && f.q && f.a)
+    .map((f, i) => ({ id: `faq-${i}`, question: f.q, answer: f.a, sort_order: i + 1 }))
   const shortDescription = truncateAtWord(fullDescription, 200)
   const factChips = [product.size, product.finish, product.thickness, product.country_of_origin ? `Made in ${product.country_of_origin}` : null].filter(
     (v): v is string => !!v,
@@ -120,7 +126,7 @@ export function ProductDetail() {
 
   return (
     <main className="flex-1">
-      <JsonLd data={[productJsonLd(product), breadcrumbJsonLd(productCrumbs)]} />
+      <JsonLd data={[productJsonLd(product), breadcrumbJsonLd(productCrumbs), productFaqJsonLd(productFaqs)]} />
       {/* Hero: photo panel + info panel (Option B redesign, 2026-11-05). */}
       <section className="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
         <div className="bg-muted px-4 py-6 sm:px-8 sm:py-10 lg:px-12 lg:py-14">
@@ -188,7 +194,7 @@ export function ProductDetail() {
           {(fullDescription || product.ai_summary) && (
             <div className="flex flex-col gap-5">
               <h2 className="font-heading text-3xl font-semibold">About this tile</h2>
-              {fullDescription && <p className="text-lg leading-relaxed text-muted-foreground">{fullDescription}</p>}
+              {fullDescription && <MarkdownContent className="text-muted-foreground">{product.description ?? ""}</MarkdownContent>}
               {product.ai_summary && <AiSummaryCard summary={product.ai_summary} />}
             </div>
           )}
@@ -200,6 +206,12 @@ export function ProductDetail() {
               </div>
             </div>
           )}
+        </section>
+      )}
+
+      {productFaqs.length > 0 && (
+        <section className="mx-auto w-full max-w-6xl px-4 pb-14 sm:px-6 lg:pb-20">
+          <FaqAccordion faqs={productFaqs} />
         </section>
       )}
 

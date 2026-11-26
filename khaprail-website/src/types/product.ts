@@ -65,4 +65,13 @@ export interface ProductDetail {
   ai_summary_generated_at: string | null
   product_images: ProductImage[]
   product_attributes: ProductAttributeRow[]
+  /** SEO fields (scripts/sql/2026-11-27-product-seo.sql). Absent until the migration runs. */
+  seo?: ProductSeo | null
+}
+
+export interface ProductSeo {
+  seo_title: string | null
+  meta_description: string | null
+  faqs: { q: string; a: string }[] | null
+  image_alt: string | null
 }

@@ -8,6 +8,8 @@ import { createClient, type SupabaseClient } from "@supabase/supabase-js"
 // patches to content/products/<date>.json. This job turns them into rows:
 //   - blog_posts + blog_faqs, idempotent by slug, only once `publish_at` is due
 //   - products.description, only where it is still the import placeholder
+//   - product SEO packs (content/products/seo/<slug>.json): description,
+//     ai_summary and the SEO columns from scripts/sql/2026-11-27-product-seo.sql
 // Source is the deployed repo files, or (when SEO_GITHUB_REPO is set) the
 // GitHub repo itself, so content goes live without redeploying.
 // PUBLISH_MODE=draft saves articles as drafts for review; default is published.
@@ -34,6 +36,19 @@ interface QueueItem {
   entity_tags?: string[]
   content_file: string
   faqs?: { question: string; answer: string; sort_order?: number }[]
+}
+
+interface ProductSeoPack {
+  slug: string
+  version: string
+  focus_keyword?: string
+  secondary_keywords?: string[]
+  seo_title?: string
+  meta_description?: string
+  description?: string
+  ai_summary?: string
+  faqs?: { q: string; a: string }[]
+  image_alt?: string
 }
 
 interface ProductPatch {
@@ -163,11 +178,81 @@ async function applyProductPatches(db: SupabaseClient, now: Date) {
   return updated
 }
 
+// Short descriptions written by the older daily patches (content/products/<date>.json).
+// A product whose description still equals one of these was set by automation,
+// not by an admin, so an SEO pack may replace it.
+async function automatedDescriptions(): Promise<Map<string, string>> {
+  const map = new Map<string, string>()
+  const names = (await listFiles("products")).filter((n) => /^\d{4}-\d{2}-\d{2}\.json$/.test(n))
+  for (const name of names) {
+    const raw = await readFile("products", name)
+    if (!raw) continue
+    try {
+      for (const p of JSON.parse(raw) as ProductPatch[]) map.set(p.slug, p.description.trim())
+    } catch { /* skip bad file */ }
+  }
+  return map
+}
+
+let seoColumnsMissingLogged = false
+
+async function applyProductSeoPacks(db: SupabaseClient) {
+  const names = (await listFiles("products/seo")).filter((n) => n.endsWith(".json"))
+  if (names.length === 0) return 0
+  const automated = await automatedDescriptions()
+  let updated = 0
+  for (const name of names) {
+    const raw = await readFile("products/seo", name)
+    if (!raw) continue
+    let pack: ProductSeoPack
+    try { pack = JSON.parse(raw) } catch { continue }
+    if (!pack.slug || !pack.version) continue
+    const { data } = await db.from("products").select("id, description, ai_summary").eq("slug", pack.slug).maybeSingle()
+    if (!data) continue
+
+    // SEO columns exist only after the 2026-11-27 migration; until then this read fails and we skip them.
+    const seoRead = await db.from("products").select("seo_updated_at").eq("id", data.id).maybeSingle()
+    const seoReady = !seoRead.error
+    const appliedAt = seoReady ? (seoRead.data?.seo_updated_at as string | null) : null
+    const packIsNewer = !appliedAt || new Date(pack.version + "T00:00:00+05:00") > new Date(appliedAt)
+
+    const patch: Record<string, unknown> = {}
+    const current = (data.description ?? "").trim()
+    const descriptionIsAutomated =
+      !current || current.toLowerCase().includes(PLACEHOLDER) || automated.get(pack.slug) === current || (!!appliedAt && packIsNewer)
+    if (pack.description && descriptionIsAutomated && current !== pack.description.trim()) patch.description = pack.description
+    if (pack.ai_summary && !data.ai_summary) patch.ai_summary = pack.ai_summary
+
+    if (seoReady && packIsNewer) {
+      Object.assign(patch, {
+        seo_title: pack.seo_title ?? null,
+        meta_description: pack.meta_description ?? null,
+        focus_keyword: pack.focus_keyword ?? null,
+        secondary_keywords: pack.secondary_keywords ?? [],
+        faqs: (pack.faqs ?? []).filter((f) => f.q && f.a),
+        image_alt: pack.image_alt ?? null,
+        seo_updated_at: new Date().toISOString(),
+      })
+    } else if (!seoReady && !seoColumnsMissingLogged) {
+      seoColumnsMissingLogged = true
+      console.log("[blog-publisher] product SEO columns missing: run scripts/sql/2026-11-27-product-seo.sql")
+    }
+    if (Object.keys(patch).length === 0) continue
+    const { error } = await db.from("products").update(patch).eq("id", data.id)
+    if (error) console.error("[blog-publisher] product SEO pack failed", pack.slug, error.message)
+    else { updated++; console.log(`[blog-publisher] product SEO pack: ${pack.slug} (${Object.keys(patch).join(", ")})`) }
+  }
+  return updated
+}
+
 export async function runSeoPublisher(): Promise<{ articles: number; products: number }> {
   const db = adminClient()
   if (!db) return { articles: 0, products: 0 }
   const now = process.env.SEO_NOW ? new Date(process.env.SEO_NOW) : new Date()
-  return { articles: await publishArticles(db, now), products: await applyProductPatches(db, now) }
+  const articles = await publishArticles(db, now)
+  const patched = await applyProductPatches(db, now)
+  const packs = await applyProductSeoPacks(db)
+  return { articles, products: patched + packs }
 }
 
 export function startSeoPublisher() {

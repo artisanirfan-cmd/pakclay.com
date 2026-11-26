@@ -154,3 +154,14 @@ export function faqJsonLd(post: BlogPostWithFaqs) {
     })),
   }
 }
+
+/** FAQPage for a product page's SEO FAQs; null when there are none. */
+export function productFaqJsonLd(faqs: { question: string; answer: string }[]) {
+  const items = faqs.map((f) => ({ q: cleanText(f.question), a: cleanText(f.answer) })).filter((f) => f.q && f.a)
+  if (items.length === 0) return null
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  }
+}

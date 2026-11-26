@@ -175,6 +175,32 @@ async function slugLookup(kind: Kind, slug: string): Promise<{ exists: boolean |
   }
 }
 
+// Product SEO fields (scripts/sql/2026-11-27-product-seo.sql), fetched apart from
+// slugLookup so a missing column (before the migration) never breaks the lookup.
+const seoCache = new Map<string, { row: Row | null; expires: number }>()
+async function productSeoLookup(slug: string): Promise<Row | null> {
+  const hit = seoCache.get(slug)
+  if (hit && hit.expires > Date.now()) return hit.row
+  const base = process.env.VITE_SUPABASE_URL
+  const anonKey = process.env.VITE_SUPABASE_PUBLISHABLE_KEY
+  if (!base || !anonKey) return null
+  let row: Row | null = null
+  try {
+    const res = await fetch(`${base}/rest/v1/products?select=seo_title,meta_description,image_alt&slug=eq.${encodeURIComponent(slug)}&limit=1`, {
+      headers: { apikey: anonKey, Authorization: `Bearer ${anonKey}` },
+      signal: AbortSignal.timeout(3000),
+    })
+    if (res.ok) {
+      const rows = (await res.json()) as Row[]
+      row = Array.isArray(rows) && rows.length > 0 ? rows[0] : null
+    }
+  } catch {
+    row = null
+  }
+  seoCache.set(slug, { row, expires: Date.now() + POSITIVE_TTL_MS })
+  return row
+}
+
 function withQuery(pathname: string, req: Request): string {
   const i = req.originalUrl.indexOf("?")
   return i === -1 ? pathname : pathname + req.originalUrl.slice(i)
@@ -184,8 +210,8 @@ function headForRow(kind: Kind, pathname: string, row: Row): HeadMeta | null {
   const image = row.cover_image_url || null
   if (kind === "products" && row.name) {
     return {
-      title: row.name,
-      description: truncate(
+      title: row.seo_title || row.name,
+      description: row.meta_description || truncate(
         `${row.name} from ${SITE_NAME}${row.size ? `, size ${row.size}` : ""}. See photos and request a free sample.`,
         155,
       ),
@@ -319,7 +345,8 @@ export function createPageHandler(distDir: string) {
         sendShell(res, 404, { robots: "noindex" })
         return
       }
-      const head = row ? headForRow(kind, pathname, row) : null
+      const seo = row && kind === "products" ? await productSeoLookup(match[2]) : null
+      const head = row ? headForRow(kind, pathname, seo ? { ...row, ...seo } : row) : null
       sendShell(res, 200, head ? { head } : { canonicalPath: pathname })
       return
     }
