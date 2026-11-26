@@ -411,25 +411,25 @@
     "slug": "sky-blue-star-and-cross-ceramic-mosaic-tiles",
     "group": "ceramic mosaic",
     "day": 18,
-    "status": "planned"
+    "status": "seo-pack"
   },
   {
     "slug": "turquoise-glazed-ceramic-mosaic-rectangular-bathroom-wall-tiles",
     "group": "ceramic mosaic",
     "day": 18,
-    "status": "planned"
+    "status": "seo-pack"
   },
   {
     "slug": "yellow-glazed-ceramic-mosaic-subway-kitchen-wall-tiles",
     "group": "ceramic mosaic",
     "day": 18,
-    "status": "planned"
+    "status": "seo-pack"
   },
   {
     "slug": "yellow-glazed-kite-ceramic-mosaic-kitchen-wall-tiles",
     "group": "ceramic mosaic",
     "day": 18,
-    "status": "planned"
+    "status": "seo-pack"
   },
   {
     "slug": "swimming-pool-border-tiles",
@@ -489,7 +489,7 @@
     "slug": "industrial-acid-proof-tiles",
     "group": "industrial acid proof",
     "day": 21,
-    "status": "planned"
+    "status": "seo-pack"
   },
   {
     "slug": "terracotta-jali-tiles-001",
@@ -639,7 +639,7 @@
     "slug": "glazed-color-teal-blue-fish-scale-ceramic-mosaic-bathroom-wall-tiles",
     "group": "ceramic mosaic",
     "day": null,
-    "status": "planned"
+    "status": "seo-pack"
   },
   {
     "slug": "glazed-color-turquoise-green-glossy-wave-shape-ceramic-mosaic-tiles",
@@ -657,13 +657,13 @@
     "slug": "handmade-natural-yellow-gutka-brick-kitchen-wall-tiles",
     "group": "gutka",
     "day": null,
-    "status": "planned"
+    "status": "seo-pack"
   },
   {
     "slug": "glazed-multi-colours-moroccan-mosaic-kitchen-wall-tiles-001",
     "group": "ceramic mosaic",
     "day": null,
-    "status": "planned"
+    "status": "seo-pack"
   },
   {
     "slug": "glazed-multi-colours-moroccan-mosaic-kitchen-wall-tiles-002",
@@ -675,7 +675,7 @@
     "slug": "natural-clay-bricks-kitchen-wall-tiles",
     "group": "gutka",
     "day": null,
-    "status": "planned"
+    "status": "seo-pack"
   },
   {
     "slug": "natural-terracotta-multi-list-kitchen-wall-tiles",
@@ -693,6 +693,6 @@
     "slug": "red-gutka-bricks-living-room-wall-tiles",
     "group": "gutka",
     "day": null,
-    "status": "planned"
+    "status": "seo-pack"
   }
 ]

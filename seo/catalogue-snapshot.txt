@@ -1,0 +1,117 @@
+# slug|name_if_different|size|thickness|finish|category_slug|attributes|description_words_or_PH|has_ai_summary|price  (snapshot of live products 2026-11-27)
+multi-colors-granite-tiles|||||outdoor-wall-tiles-granite||90|0|
+marble-living-room-wall-tiles|||||outdoor-wall-tiles-marble||90|0|
+6x12-stone-tiles||6 X 12|||living-room-wall-tiles-stone||87|0|
+grey-stone-wall-tiles|||||living-room-wall-tiles-stone||92|0|
+white-stone-wall-tiles|||||living-room-wall-tiles-stone||91|0|
+yellow-stone-wall-tiles|||||living-room-wall-tiles-stone||87|0|
+9x3-inch-terracotta-tiles||9 X 3|||living-room-wall-tiles-terracotta||89|0|
+12x12-inch-terracotta-tiles||12 X 12|||bathroom-wall-tiles-terracotta||88|0|
+square-6x6-inch-tiles||6 X 6|||kitchen-wall-tiles-terracotta||95|0|
+multi-terra-tiles|||||outdoor-wall-tiles-terracotta||104|0|
+flat-half-circle-khaprail-tiles|||||khaprail-tiles||80|0|
+flat-rectangular-khaprail-tiles|||||khaprail-tiles||61|0|
+french-green-glazed-khaprail-tiles|||||khaprail-tiles||72|0|
+french-natural-red-khaprail-tiles|||||khaprail-tiles||63|0|
+spanish-natural-red-khaprail-tiles|||||khaprail-tiles||81|0|
+list-tile|||||outdoor-wall-tiles-terracotta||87|0|
+green-glazed-ceramic-mosaic-hexagon-bathroom-wall-tiles|||||bathroom-wall-tiles-mosaic||88|0|
+sky-blue-glazed-ceramic-mosaic-star-and-cross-bathroom-wall-tiles|||||bathroom-wall-tiles-mosaic||91|0|
+turquoise-glazed-ceramic-mosaic-rectangular-bathroom-wall-tiles|||||bathroom-wall-tiles-mosaic||PH|0|
+green-and-white-hexagon-ceramic-mosaic-tiles|||||bathroom-floor-tiles-mosaic||85|0|
+light-turquoise-penny-round-tiles|||||bathroom-floor-tiles-mosaic||88|0|
+sky-blue-square-ceramic-mosaic-tiles|||||bathroom-floor-tiles-mosaic||88|0|
+sky-blue-star-and-cross-ceramic-mosaic-tiles|||||bathroom-floor-tiles-mosaic||PH|0|
+8x8-inch-natural-terracotta-tiles||8 X 8|||bathroom-floor-tiles-terracotta||99|0|
+octagon-8x8-inch-natural-terracotta-floor-tiles||8 X 8|||bathroom-floor-tiles-terracotta||95|0|
+rectangular-8x4-inch-natural-terracotta-floor-tiles||8 X 4|||bathroom-floor-tiles-terracotta||86|0|
+square-12x12-inch-natural-terracotta-floor-tiles||12 X 12|||bathroom-floor-tiles-terracotta||86|0|
+square-6x6-inch-natural-terracotta-floor-tiles||6 X 6|||bathroom-floor-tiles-terracotta||91|0|
+square-9x9-inch-natural-terracotta-floor-tiles||9 X 9|||bathroom-floor-tiles-terracotta||87|0|
+star-and-cross-10x5-inch-terracotta-floor-tiles||10 X 5|||bathroom-floor-tiles-terracotta||85|0|
+natural-terracotta-picked-and-square-tiles|||||kitchen-floor-tiles-terracotta||81|0|
+living-room-natural-terracotta-square-tiles-12x12-inch-001||12 X 12|||living-room-floor-tiles-terracotta||93|0|
+living-room-natural-terracotta-square-tiles-8x8-inch-001||8 X 8|||living-room-floor-tiles-terracotta||104|0|
+diamond-shape-multi-color-otti-tiles|||||otti-tiles|typ:tuff-tile|88|0|
+half-hexagon-mosaic-otti-tiles|||||otti-tiles|typ:tuff-tile|89|0|
+multi-colors-random-shapes-ramp-otti-tiles|||||otti-tiles|typ:tuff-tile|102|0|
+multi-colors-square-and-rectangular-otti-tiles|||||otti-tiles|typ:tuff-tile|85|0|
+random-shapes-concrete-outdoor-floor-otti-tiles|||||otti-tiles|typ:tuff-tile|74|0|
+random-shapes-otti-tiles|||||otti-tiles|typ:tuff-tile|81|0|
+random-shapes-ramp-otti-tiles|||||otti-tiles|typ:tuff-tile|89|0|
+terracotta-color-octagon-otti-tile|||||otti-tiles|typ:tuff-tile|83|0|
+cobbler-pavers-tiles-4x4-inch||4 X 4|||pavers-tiles|typ:tuff-tile|85|0|
+grass-grid-pavers-tiles|||||pavers-tiles|typ:tuff-tile|87|0|
+grey-paver-tile-8x4-inch||8 X 4|||pavers-tiles|typ:tuff-tile|82|0|
+octagon-paver-tile|||||pavers-tiles|typ:tuff-tile|84|0|
+square-paver-tile-4x4-inch||4 X 4|||pavers-tiles|typ:tuff-tile|80|0|
+square-paver-tile-6x6-inch||6 X 6|||pavers-tiles|typ:tuff-tile|83|0|
+zig-zag-paver-tile-8x4-inch||8 X 4|||pavers-tiles|typ:tuff-tile|80|0|
+natural-terracotta-octagon-tiles-10x10-inch||10 X 10|||outdoor-floor-tiles-terracotta||96|0|
+natural-terracotta-pathway-square-tiles-8x8-inch||8 X 8|||outdoor-floor-tiles-terracotta||87|0|
+natural-terracotta-rectangular-tiles-6x12-inch||6 X 12|||outdoor-floor-tiles-terracotta||87|0|
+natural-terracotta-rectangular-tiles-8x4-inch||8 X 4|||outdoor-floor-tiles-terracotta||89|0|
+outdoor-natural-terracotta-square-tiles-12x12-inch-001||12 X 12|||outdoor-floor-tiles-terracotta||90|0|
+outdoor-natural-terracotta-square-tiles-12x12-inch-002||12 X 12|||outdoor-floor-tiles-terracotta||94|0|
+outdoor-natural-terracotta-square-tiles-12x12-inch-003||12 X 12|||outdoor-floor-tiles-terracotta||92|0|
+natural-terracotta-square-tiles-6x6-inch-001||6 X 6|||outdoor-floor-tiles-terracotta||91|0|
+natural-terracotta-square-tiles-6x6-inch-002||6 X 6|||outdoor-floor-tiles-terracotta||93|0|
+natural-terracotta-square-tiles-6x6-inch-003||6 X 6|||outdoor-floor-tiles-terracotta||93|0|
+outdoor-natural-terracotta-square-tiles-8x8-inch-001||8 X 8|||outdoor-floor-tiles-terracotta||96|0|
+cement-jali-tiles|||||jali-wall-tiles-cement||85|0|
+terracotta-jali-tiles-001|||||terracotta-jali||PH|0|
+terracotta-jali-tiles-002|||||terracotta-jali||PH|0|
+terracotta-jali-tiles-003|||||terracotta-jali||PH|0|
+terracotta-jali-tiles-004|||||terracotta-jali||PH|0|
+terracotta-jali-tiles-005|||||terracotta-jali||PH|0|
+terracotta-jali-tiles-006|||||terracotta-jali||PH|0|
+terracotta-jali-tiles-007|||||terracotta-jali||PH|0|
+terracotta-jali-tiles-008|||||terracotta-jali||PH|0|
+terracotta-jali-tiles-009|||||terracotta-jali||PH|0|
+terracotta-jali-tiles-010|||||terracotta-jali||PH|0|
+terracotta-jali-tiles-011|||||terracotta-jali||PH|0|
+terracotta-jali-tiles-012|||||terracotta-jali||PH|0|
+terracotta-jali-tiles-013|||||terracotta-jali||PH|0|
+terracotta-jali-tiles-014|||||terracotta-jali||PH|0|
+terracotta-jali-tiles-015|||||terracotta-jali||PH|0|
+terracotta-jali-tiles-016|||||terracotta-jali||PH|0|
+terracotta-jali-tiles-017|||||terracotta-jali||PH|0|
+natural-terracotta-hexagon-6x6-inch-tiles||6 X 6|||kitchen-wall-tiles-terracotta||89|0|
+natural-terracotta-square-4x4-inch-tiles||4 X 4|||kitchen-wall-tiles-terracotta||91|0|
+swimming-pool-border-tiles|||||swimming-pool-tiles||PH|0|
+swimming-pool-tiles-001|||||swimming-pool-tiles||PH|0|
+swimming-pool-tiles-002|||||swimming-pool-tiles||PH|0|
+swimming-pool-tiles-003|||||swimming-pool-tiles||PH|0|
+swimming-pool-tiles-004|||||swimming-pool-tiles||PH|0|
+swimming-pool-tiles-005|||||swimming-pool-tiles||PH|0|
+swimming-pool-tiles-006|||||swimming-pool-tiles||PH|0|
+swimming-pool-tiles-007|||||swimming-pool-tiles||PH|0|
+swimming-pool-tiles-008|||||swimming-pool-tiles||PH|0|
+black-and-gold-split-natural-stone-wall-tiles|||||outdoor-wall-tiles-stone||90|0|
+outdoor-natural-sand-stone-tile|||||outdoor-wall-tiles-stone||85|0|
+exterior-natural-sand-stone-wall-cladding-facade-tiles|||||outdoor-wall-tiles-stone||81|0|
+exterior-natural-sand-stone-wall-tiles|||||outdoor-wall-tiles-stone||89|0|
+light-green-glazed-kite-ceramic-mosaic-kitchen-wall-tiles|||||mosaic-kitchen-wall-tiles||86|0|
+yellow-glazed-kite-ceramic-mosaic-kitchen-wall-tiles|||||mosaic-kitchen-wall-tiles||PH|0|
+yellow-glazed-ceramic-mosaic-subway-kitchen-wall-tiles|||||mosaic-kitchen-wall-tiles||PH|0|
+6x6-inch-hexagon-natural-handmade-terracotta-bathroom-wall-tiles||6 X 6|||bathroom-wall-tiles-terracotta||82|0|
+9x12-inch-natural-terracotta-tiles||9 X 12|||outdoor-wall-tiles-terracotta||93|0|
+terracotta-red-brick-gutka-tiles|||||outdoor-wall-tiles-terracotta||80|0|
+industrial-acid-proof-tiles|||||industrial-tiles||PH|0|
+3x3-inch-bubble-disk-blend-ceramic-mosaic-bathroom-wall-tiles||3 X 3|||bathroom-wall-tiles-mosaic||PH|0|
+4x4-inch-square-natural-handmade-terracotta-bathroom-tiles||4 X 4|||bathroom-wall-tiles-terracotta||PH|0|
+6x6-inch-square-natural-handmade-terracotta-bathroom-wall-tiles||6 X 6|||bathroom-wall-tiles-terracotta||PH|0|
+8x8-inch-square-natural-handmade-terracotta-bathroom-wall-tiles||8 X 8|||bathroom-wall-tiles-terracotta||PH|0|
+glazed-ceramic-mosaic-small-arabesque-bathroom-wall-tiles|||||bathroom-wall-tiles-mosaic||PH|0|
+glazed-color-cerulean-blue-beveled-square-ceramic-mosaic-bathroom-wall-tiles|||||bathroom-wall-tiles-mosaic||PH|0|
+glazed-color-peacock-teal-paseo-shape-ceramic-mosaic-bathroom-wall-tiles|||||bathroom-wall-tiles-mosaic||PH|0|
+glazed-color-teal-blue-fish-scale-ceramic-mosaic-bathroom-wall-tiles|||||bathroom-wall-tiles-mosaic||PH|0|
+glazed-color-turquoise-green-glossy-wave-shape-ceramic-mosaic-tiles|||||bathroom-wall-tiles-mosaic||PH|0|
+glazed-multi-colors-lantern-shape-ceramic-mosaic-bathroom-wall-tiles|||||bathroom-wall-tiles-mosaic||PH|0|
+handmade-natural-yellow-gutka-brick-kitchen-wall-tiles|||||kitchen-wall-tiles-terracotta||PH|0|
+glazed-multi-colours-moroccan-mosaic-kitchen-wall-tiles-001|||||mosaic-kitchen-wall-tiles||PH|0|
+glazed-multi-colours-moroccan-mosaic-kitchen-wall-tiles-002|||||mosaic-kitchen-wall-tiles||PH|0|
+natural-clay-bricks-kitchen-wall-tiles|||||kitchen-wall-tiles-terracotta||PH|0|
+natural-terracotta-multi-list-kitchen-wall-tiles|||||kitchen-wall-tiles-terracotta||PH|0|
+natural-terracotta-octagon-6x6-inch-kitchen-wall-tiles||6 X 6|||kitchen-wall-tiles-terracotta||PH|0|
+red-gutka-bricks-living-room-wall-tiles|||||living-room-wall-tiles-terracotta||PH|0|
