@@ -63,6 +63,18 @@ Put them side by side and check:
 
 A very low rate that leaves out half of these items may end up costing more than a higher quote that includes them. Our [price guide](/blog/khaprail-tiles-price-in-pakistan-what-decides-the-rate) goes deeper on the rate factors, and our [clay vs concrete roof tile comparison](/blog/clay-vs-concrete-roof-tiles-in-pakistan-which-is-better) may help if you are weighing materials.
 
+## What hidden costs should you plan for?
+
+Some costs only appear once work begins, so it helps to ask about them early:
+
+- **Extra tiles for breakage.** Clay is heavy and can chip in transport or handling, so ask who bears the loss and what the allowance is.
+- **Scaffolding or safe access**, which some contractors price separately.
+- **Repairs to the structure.** If old timber or a damaged slab is found under the old roof, fixing it comes before tiling.
+- **Removal of the old roof covering**, and where the waste goes.
+- **Later top-ups.** If you run short, a second order may differ slightly in colour, and it may be quoted at a different rate.
+
+A contingency of your own, held back from the main budget, makes these surprises easier to absorb. How large it should be is a judgement for you and your contractor, since it depends on the age and condition of the house.
+
 ## Is a khaprail roof worth the cost?
 
 That depends on what you value. Clay is a durable, traditional material, and many people choose it for its look and the way it ages. Lifespan, comfort and savings depend on your roof build, your climate and your care, and we do not promise a figure for any of them. Think in terms of the whole life of the roof: purchase, installation, upkeep and repair. Our [maintenance guide](/blog/khaprail-tile-maintenance-cleaning-repairs-and-moss-control) covers the upkeep side.
