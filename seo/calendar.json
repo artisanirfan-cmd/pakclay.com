@@ -742,7 +742,7 @@
       "terracotta tiles multan"
     ],
     "intent": "commercial",
-    "status": "planned"
+    "status": "queued"
   },
   {
     "day": 21,
@@ -756,7 +756,7 @@
       "roof tiles sialkot"
     ],
     "intent": "commercial",
-    "status": "planned"
+    "status": "queued"
   },
   {
     "day": 22,
