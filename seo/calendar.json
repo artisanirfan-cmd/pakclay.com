@@ -714,7 +714,7 @@
       "otti tiles price"
     ],
     "intent": "informational",
-    "status": "planned"
+    "status": "queued"
   },
   {
     "day": 20,
@@ -728,7 +728,7 @@
       "gutka tile rate"
     ],
     "intent": "transactional",
-    "status": "planned"
+    "status": "queued"
   },
   {
     "day": 21,
