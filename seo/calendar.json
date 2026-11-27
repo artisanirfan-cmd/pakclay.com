@@ -910,7 +910,7 @@
       "clay roof tiles monsoon"
     ],
     "intent": "informational",
-    "status": "planned"
+    "status": "queued"
   },
   {
     "day": 27,
@@ -924,7 +924,7 @@
       "clay tile roof leak repair"
     ],
     "intent": "informational",
-    "status": "planned"
+    "status": "queued"
   },
   {
     "day": 28,

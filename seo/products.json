@@ -650,8 +650,8 @@
   {
     "slug": "glazed-multi-colors-lantern-shape-ceramic-mosaic-bathroom-wall-tiles",
     "group": "ceramic mosaic",
-    "day": null,
-    "status": "planned"
+    "day": 27,
+    "status": "queued"
   },
   {
     "slug": "handmade-natural-yellow-gutka-brick-kitchen-wall-tiles",
@@ -668,8 +668,8 @@
   {
     "slug": "glazed-multi-colours-moroccan-mosaic-kitchen-wall-tiles-002",
     "group": "ceramic mosaic",
-    "day": null,
-    "status": "planned"
+    "day": 27,
+    "status": "queued"
   },
   {
     "slug": "natural-clay-bricks-kitchen-wall-tiles",
@@ -680,14 +680,14 @@
   {
     "slug": "natural-terracotta-multi-list-kitchen-wall-tiles",
     "group": "terracotta floor/wall",
-    "day": null,
-    "status": "planned"
+    "day": 27,
+    "status": "queued"
   },
   {
     "slug": "natural-terracotta-octagon-6x6-inch-kitchen-wall-tiles",
     "group": "terracotta floor/wall",
-    "day": null,
-    "status": "planned"
+    "day": 27,
+    "status": "queued"
   },
   {
     "slug": "red-gutka-bricks-living-room-wall-tiles",
