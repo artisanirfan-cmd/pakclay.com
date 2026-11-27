@@ -882,7 +882,7 @@
       "khaprail tiles peshawar"
     ],
     "intent": "commercial",
-    "status": "planned"
+    "status": "queued"
   },
   {
     "day": 26,
@@ -896,7 +896,7 @@
       "khaprail tiles wholesale"
     ],
     "intent": "transactional",
-    "status": "planned"
+    "status": "queued"
   },
   {
     "day": 27,
