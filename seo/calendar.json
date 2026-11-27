@@ -770,7 +770,7 @@
       "khaprail tile installation"
     ],
     "intent": "informational",
-    "status": "planned"
+    "status": "queued"
   },
   {
     "day": 22,
@@ -784,7 +784,7 @@
       "clay roof tile cleaning"
     ],
     "intent": "informational",
-    "status": "planned"
+    "status": "queued"
   },
   {
     "day": 23,
