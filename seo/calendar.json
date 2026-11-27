@@ -854,7 +854,7 @@
       "pool tiles lahore"
     ],
     "intent": "commercial",
-    "status": "planned"
+    "status": "queued"
   },
   {
     "day": 25,
@@ -868,7 +868,7 @@
       "industrial acid resistant tiles"
     ],
     "intent": "commercial",
-    "status": "planned"
+    "status": "queued"
   },
   {
     "day": 26,
